@@ -31,9 +31,14 @@ Things you may want to cover:
 |email|string|null: false, unique: true|
 |password|string|nill: false|
 ### Association
+- has_many :items, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_one :profile, dependent: :destroy
+- has_many :address, dependent: :destroy
+- has_one :credit_card, dependent: :destroy
 
-
-## profileテーブル
+## profilesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |firstname|string|null:false|
@@ -47,7 +52,7 @@ Things you may want to cover:
 |icon_image|text||
 |user|references|null: false, foreign_key: true|
 ### Association
-
+- belongs_to :user
 
 ## credit_cardsテーブル
 |Column|Type|Options|
@@ -55,9 +60,9 @@ Things you may want to cover:
 |card_number|integer|null: false, unique: true|
 |effectivedate_yaer|integer|null: false|
 |effectivedate_month|integer|null: false|
-|security_code|integer|null: false|
 |user|references|null: false, foreign_key: true|
 ### Association
+- belongs_to :user
 
 
 ## addressesテーブル
@@ -75,49 +80,80 @@ Things you may want to cover:
 |telephone_number|inreger||
 |user|references|null: false, foreign_key: true|
 ### Association
+- belongs_to :user
 
-
-## sns_authenticationテーブル（SNS認証）
+## sns_credentialsテーブル（SNS認証）
 |Column|Type|Options|
 |------|----|-------|
-|provider|string|null: false|)) 
-|sns_user_id|integer|null:false|
-|login_token|integer|null: false|
+|provider|string|null: false| 
+|uid|integer|null:false, unique: true|
+|token|text||
 |user|references|null: false, foreign_key: true|
 ### Association
-
+- belongs_to :user
 
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |explanation|text|null: false|
-|image|text|null: false|
+|image|string|null: false|
 |price|integer|null: false|
 |category|references|null: false, foreign_key: true|
 |brand|references|foreign_key: true|
-|condition|references|null: false, foreign_key: true|
-|postage_type|||
-|delivery_fee_burden|references|null: false, foreign_key: true||
-|shipping_area|references|null: false, foreign_key: true|
-|shipping_date|references|null: false, foreign_key: true|
-|transaction_status|references|null: false, foreign_key: true|
-|seller|references||
-|buyer|references||
-|transcation_complete_date|||
+|item_status|string|null: false|
+|postage_type|string|null: false|
+|postage_burden|string|null: false|
+|shipping_area|string|null: false|
+|shipping_date|string|null: false|
+|transaction_status|string|null: false|
 |user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-
+- has_many :comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :image, dependent: :destroy
+- belongs_to :category
+- belongs_to :brand
 
 ## categoriesテーブル
-
-
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string|null: false|
+### Association
+- has_many: items
 
 ## brandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string||
+### Association
+- has_many: :items
 
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false|
+|item|references|null: false, foreign_key: true|
+### Association
+- belongs_to :item
 
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :item
 
-
-
-
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
+|comment|text|null: false|
+### Association
+- belongs_to :user
+- belongs_to :item
