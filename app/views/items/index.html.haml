@@ -2,13 +2,36 @@
   = render "headder" 
   .content
     .content__intro
-       人生を変えるフリマアプリ
-      %ul FURIMAはだれでもかんたんに出品・購入できる
-      %ul フリマアプリです
+      %h 人生を変えるフリマアプリ
+      %p FURIMAはだれでもかんたんに出品・購入できる
+      %p フリマアプリです
+      -# アプリストアのリンクアイコン表示
     .content__reason
-
-
+      .content__reason__headder
+        FURIMAが選ばれる3つの理由
+      .content__reason__body
+        .content__reason__body__speedy
+          3分 ですぐに出品 スマホで入力するだけで簡単に出品できる！
+        .content__reason__body__simple
+          シンプル で使いやすい めんどくさい入力は必要なく、検索も購入もスムーズ！
+        .content__reason__body__cheap
+          手数料 業界最安 最大3%でお得に出品&購入！
     .content__popular
+      %h 会員数日本一位
+      %p FURIMAは、フリマアプリで最も人気。
+      %p 出品・購入回数も業界最多です！
+      %p ほしかったあの商品に出会えるかもしれません。
+      -# アプリストアのリンクアイコン表示
+    .content__feature
+      .content__feature__headder
+        FURIMAの特徴
+      .content__feature__body
+      .content__feature__body__easy
+        簡単に売り買いできるスマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      .content__feature__body__money
+        売上金は即日振込みに対応午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      .content__feature__body__method
+        様々な支払いに対応お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
   = render "items_view"
   = render "footer"
 
