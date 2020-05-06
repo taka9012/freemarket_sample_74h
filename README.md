@@ -97,7 +97,6 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |explanation|text|null: false|
-|image|string|null: false|
 |price|integer|null: false|
 |category|references|null: false, foreign_key: true|
 |brand|references|foreign_key: true|
@@ -109,10 +108,10 @@ Things you may want to cover:
 |transaction_status|string|null: false|
 |user|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
+- belongs_to :user  
 - has_many :comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
-- has_many :image, dependent: :destroy
+- has_many :images, dependent: :destroy
 - belongs_to :category
 - belongs_to :brand
 
@@ -127,7 +126,7 @@ Things you may want to cover:
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string||
+|name|string|null: false|
 ### Association
 - has_many :items
 
