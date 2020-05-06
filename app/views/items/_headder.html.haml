@@ -1,13 +1,19 @@
-.app-headder-box
-  .app-headder-box__upper
-    .app-headder-box__upper--logo
-      = icon('fas','fa-box-full')
-      
-    .app-headder-box__upper--search
-  .app-headder-box__btm
-    .app-headder-box__btm--categories
-      .category
-      .brand
-    .app-headder-box__btm--user-session
-      .user-login
-      .user-signup
+.headder-box
+  .headder-box__upper
+    = link_to "#", class: "logo-link" do 
+      .headder-box__upper--logo
+        -# アイコン表示　見本のように画像をsrcで入れるのもあり
+        FURIMA
+    .headder-box__upper--search
+      -# 検索フォーム
+  .headder-box__btm
+    %ul.headder-box__btm--categories
+      = link_to "#", class: "category-link" do 
+        %li.category カテゴリー
+      = link_to "#", class: "brand-link" do 
+        %li.brand ブランド
+    %ul.headder-box__btm--user-session
+      = link_to "#", class: "login-link" do 
+        %li.user-login ログイン
+      = link_to "#", class: "signup-link" do 
+        %li.user-signup 新規登録
