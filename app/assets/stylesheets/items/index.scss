@@ -1,9 +1,10 @@
 .top-view{
   height: 100%;
-  width: 100vh;
+  width: 100vw;
   .content{
     &__intro{
       // 背景挿入
+      background-color: greenyellow;
       h{
         font-size: 60px;
       }
@@ -12,8 +13,51 @@
       }
     }
     &__reason{
+      background-color: hotpink;
       &__headder{
         font-size: 26px;
+        font-weight: bold;
+      }
+      &__body{
+        display: flex;
+        h{
+          font-size: 24px;
+          font-weight: bold;
+        }
+        p{
+          font-size: 18px;
+        }
+        span{
+          color: cyan;
+        }
+        }
+    }
+    
+    &__rankone{
+      background-color: indianred;
+      h{
+        font-size: 27px;
+        font-weight: bold;
+      }
+      p{
+        font-size: 18px;
+      }
+    }
+    &__feature{
+      background-color: khaki;
+      &__headder{
+        font-size: 27px;
+        font-weight: bold;
+      }
+      &__body{
+        display: flex;
+        h{
+          font-size: 19px;
+          font-weight: bold;
+        }
+        p{
+          font-size: 17px;
+        }
       }
     }
   }
