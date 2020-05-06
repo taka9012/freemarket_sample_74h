@@ -1,3 +1,30 @@
-// .app-headder-box{
-//   // width: ;
-// }
+.headder-box{
+  height: 100px;
+  &__upper{
+    display: flex;
+    &--logo{
+      color: red;
+    }
+  }
+  &__btm{
+    display: flex;
+    .category{
+      color: green;
+    }
+    .brand{
+      color: blue;
+    }
+    .user-login{
+      color: powderblue;
+    }
+    .user-signup{
+      color: orange;
+    }
+    ul{
+      display: flex;
+    }
+  }
+  .link{
+    text-decoration: none;
+  }
+}

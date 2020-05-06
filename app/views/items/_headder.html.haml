@@ -1,19 +1,20 @@
 .headder-box
   .headder-box__upper
-    = link_to "#", class: "logo-link" do 
+    = link_to "#", class: "link logo" do 
       .headder-box__upper--logo
         -# アイコン表示　見本のように画像をsrcで入れるのもあり
         FURIMA
     .headder-box__upper--search
       -# 検索フォーム
+      検索
   .headder-box__btm
     %ul.headder-box__btm--categories
-      = link_to "#", class: "category-link" do 
+      = link_to "#", class: " link category" do 
         %li.category カテゴリー
-      = link_to "#", class: "brand-link" do 
+      = link_to "#", class: "link brand" do 
         %li.brand ブランド
     %ul.headder-box__btm--user-session
-      = link_to "#", class: "login-link" do 
+      = link_to "#", class: "link login" do 
         %li.user-login ログイン
-      = link_to "#", class: "signup-link" do 
+      = link_to "#", class: "link signup" do 
         %li.user-signup 新規登録
