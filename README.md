@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-## usersテーブル
+<!-- ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -32,4 +32,4 @@ Things you may want to cover:
 ### Association
 - has_many :groups, through: :favorites
   has_many :favorites
-- has_many :messages
+- has_many :messages -->
