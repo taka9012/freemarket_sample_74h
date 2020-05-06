@@ -32,7 +32,10 @@ Things you may want to cover:
 |password|string|nill: false|
 ### Association
 
-## profile
+
+## profileテーブル
+|Column|Type|Options|
+|------|----|-------|
 |firstname|string|null:false|
 |lastname|string|null: false|
 |firstname_kana|string|null: false|
@@ -46,46 +49,66 @@ Things you may want to cover:
 ### Association
 
 
-## credit_cards
+## credit_cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
 |card_number|integer|null: false, unique: true|
 |effectivedate_yaer|integer|null: false|
-|effectivedate_month|integer||
+|effectivedate_month|integer|null: false|
+|security_code|integer|null: false|
+|user|references|null: false, foreign_key: true|
+### Association
 
 
-
-|adress_firstname|string|null: false|
-|adress_lastname|string|null: false|
-|adress_firstname_kana|string|null: false|
-|adress_lastname_kana|string|null: false|
-|postalcode|integer|null: false|
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|firstname|string|null: false|
+|lastname|string|null: false|
+|firstname_kana|string|null: false|
+|lastname_kana|string|null: false|
+|postal_code|integer|null: false|
 |prefectures|string|null: false|
 |city|string|null: false|
-|buildingname-roomnumber|string||
+|house_number|string|null: false|
+|building_name|string||
 |telephone_number|inreger||
-
+|user|references|null: false, foreign_key: true|
 ### Association
-- has_many :items
-- has_many :buys
+
+
+## sns_authenticationテーブル（SNS認証）
+|Column|Type|Options|
+|------|----|-------|
+|provider|string|null: false|)) 
+|sns_user_id|integer|null:false|
+|login_token|integer|null: false|
+|user|references|null: false, foreign_key: true|
+### Association
+
 
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|name|string|null: false|
+|explanation|text|null: false|
 |image|text|null: false|
-|item_name|string|null: false|
-|item_explanation|text|null: false|
-|category|string|null: false|
-|brand|string||
-|item_status|string|null: false|
-|delivery_fee_burden|string|null: false|
-|shipping_area|string|null: false|
-|shipping_date|integer|null: false|
 |price|integer|null: false|
-|user_id|integer|null: false, foreign_key: true
+|category|references|null: false, foreign_key: true|
+|brand|references|foreign_key: true|
+|condition|references|null: false, foreign_key: true|
+|postage_type|||
+|delivery_fee_burden|references|null: false, foreign_key: true||
+|shipping_area|references|null: false, foreign_key: true|
+|shipping_date|references|null: false, foreign_key: true|
+|transaction_status|references|null: false, foreign_key: true|
+|seller|references||
+|buyer|references||
+|transcation_complete_date|||
+|user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :buy
-- belongs_to :brand
-- has_many :categories
+
 
 ## categoriesテーブル
 
@@ -94,7 +117,6 @@ Things you may want to cover:
 ## brandsテーブル
 
 
-## buysテーブル
 
 
 
