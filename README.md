@@ -35,7 +35,7 @@ Things you may want to cover:
 - has_many :comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_one :profile, dependent: :destroy
-- has_many :address, dependent: :destroy
+- has_many :addresses, dependent: :destroy
 - has_one :credit_card, dependent: :destroy
 
 ## profilesテーブル
@@ -58,7 +58,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |card_number|integer|null: false, unique: true|
-|effectivedate_yaer|integer|null: false|
+|effectivedate_year|integer|null: false|
 |effectivedate_month|integer|null: false|
 |user|references|null: false, foreign_key: true|
 ### Association
@@ -77,7 +77,7 @@ Things you may want to cover:
 |city|string|null: false|
 |house_number|string|null: false|
 |building_name|string||
-|telephone_number|inreger||
+|telephone_number|integer||
 |user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -129,7 +129,7 @@ Things you may want to cover:
 |------|----|-------|
 |name|string||
 ### Association
-- has_many: :items
+- has_many :items
 
 ## imagesテーブル
 |Column|Type|Options|
