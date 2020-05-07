@@ -13,22 +13,22 @@
       %ul.content__reason__lists
         %li.content__reason__lists__list
           .content__reason__lists__list__pict
-            = image_tag('speedy.jpeg')
-          %h.list-text
+            = image_tag('speedy.jpg')
+          %h.reason-text
             %span 3分
             ですぐに出品
           %p スマホで入力するだけで簡単に出品できる！
         %li.content__reason__lists__list
           .content__reason__lists__list__pict
-            = image_tag('simple.jpeg')
-          %h.list-text
+            = image_tag('simple.jpg')
+          %h.reason-text
             %span シンプル
             で使いやすい
           %p めんどくさい入力は必要なく、検索も購入もスムーズ！
         %li.content__reason__lists__list.last
           .content__reason__lists__list__pict
-            = image_tag('cheap.jpeg')
-          %h.list-text
+            = image_tag('cheap.jpg')
+          %h.reason-text
             %span 手数料 
             業界最安
           %p 最大3%でお得に出品&購入！
@@ -42,15 +42,21 @@
     .content__feature
       .content__feature__headder
         FURIMAの特徴
-      %ul.content__feature__body
-        %li.content__feature__body__easy
-          %h 簡単に売り買いできる
+      %ul.content__feature__lists
+        %li.content__feature__lists__list
+          .content__feature__lists__list__pict
+            = image_tag('easy.jpg')
+          %h2.feature_text 簡単に売り買いできる
           %p スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
-        %li.content__feature__body__money
-          %h 売上金は即日振込みに対応
+        %li.content__feature__lists__list
+          .content__feature__lists__list__pict
+            = image_tag('atm.jpeg')
+          %h2.feature_text 売上金は即日振込みに対応
           %p 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
-        %li.content__feature__body__method
-          %h 様々な支払いに対応
+        %li.content__feature__lists__list
+          .content__feature__lists__list__pict
+            = image_tag('pay.jpg')
+          %h2.feature_text 様々な支払いに対応
           %p お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
   = render "items_view"
   = render "footer"
