@@ -1,0 +1,40 @@
+.main
+  .__showMain
+    .__topContent
+      .__itemBox
+        .__name
+          %h2 テスト！
+        .__body
+          %ul
+            %li
+              %img{ src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}
+              %ul 
+                %li
+                  %img{ src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/8/a002.png"}
+                %li
+                  %img{ src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/9/a003.png"}
+        .__price
+          %span
+            ￥10000
+          .__priceDetail
+            %span
+              （税込）
+            %span
+              送料込み
+        .__itemDetail
+          先ほど少し触れましたが、BEMではページを構成する要素をBlock、Element、Modifierの3つに分類し、組み合わせることでクラスを命名します。Block、Element、Modifierの3つを使用して命名することで、クラス名だけでHTML要素の意味を伝えられます。各要素の意味を見ていきましょう。
+        .__table
+          %table
+            %tbody
+              %tr
+                %th
+                  出品者
+                %td 
+                  fumiya 
+              %tr 
+                %th
+                  カテゴリー
+                %td
+                  = link_to "#" do
+                    = "レディース"
+
