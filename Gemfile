@@ -72,6 +72,7 @@ group :production do
   gem 'unicorn'
 end
 
+gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'devise'
 gem 'devise-i18n'
