@@ -30,6 +30,13 @@ Things you may want to cover:
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|nill: false|
+|firstname|string|null:false|
+|lastname|string|null: false|
+|firstname_kana|string|null: false|
+|lastname_kana|string|null: false|
+|birth_year|integer|null: false|
+|birth_month|integer|null: false|
+|birth_day|integer|null: false|
 ### Association
 - has_many :items, dependent: :destroy
 - has_many :comments, dependent: :destroy
@@ -41,13 +48,6 @@ Things you may want to cover:
 ## profilesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|firstname|string|null:false|
-|lastname|string|null: false|
-|firstname_kana|string|null: false|
-|lastname_kana|string|null: false|
-|birth_year|integer|null: false|
-|birth_month|integer|null: false|
-|birth_day|integer|null: false|
 |profile_sentence|text||
 |icon_image|text||
 |user|references|null: false, foreign_key: true|
