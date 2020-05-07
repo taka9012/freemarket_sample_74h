@@ -2,28 +2,33 @@
   = render "headder" 
   .content
     .content__intro
-      %h 人生を変えるフリマアプリ
-      %p FURIMAはだれでもかんたんに出品・購入できる
-      %p フリマアプリです
+      .content__intro__text
+        %h 人生を変えるフリマアプリ
+        %p FURIMAはだれでもかんたんに出品・購入できる
+        %p フリマアプリです
       -# アプリストアのリンクアイコン表示
     .content__reason
       .content__reason__headder
         FURIMAが選ばれる3つの理由
-      %ul.content__reason__body
-        .content__reason__body__picture
-          %img(src = "/assets/images/neko1.jpeg")
-        %li.content__reason__body__speedy
-          %h 
+      %ul.content__reason__lists
+        %li.content__reason__lists__list
+          .content__reason__lists__list__pict
+            = image_tag('speedy.jpeg')
+          %h.list-text
             %span 3分
             ですぐに出品
           %p スマホで入力するだけで簡単に出品できる！
-        %li.content__reason__body__simple
-          %h 
+        %li.content__reason__lists__list
+          .content__reason__lists__list__pict
+            = image_tag('simple.jpeg')
+          %h.list-text
             %span シンプル
             で使いやすい
           %p めんどくさい入力は必要なく、検索も購入もスムーズ！
-        %li.content__reason__body__cheap
-          %h
+        %li.content__reason__lists__list.last
+          .content__reason__lists__list__pict
+            = image_tag('cheap.jpeg')
+          %h.list-text
             %span 手数料 
             業界最安
           %p 最大3%でお得に出品&購入！

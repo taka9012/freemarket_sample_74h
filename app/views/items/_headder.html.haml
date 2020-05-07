@@ -1,20 +1,21 @@
 .headder-box
   .headder-box__upper
     = link_to "#", class: "link logo" do 
-      .headder-box__upper--logo
-        -# アイコン表示　見本のように画像をsrcで入れるのもあり
+      .headder-box__upper__logo
+        %i{class: "fas fa-box-open"}
         FURIMA
-    .headder-box__upper--search
-      -# 検索フォーム
+    .headder-box__upper__search
+      -# 検索フォーム未実装
       検索
+      %i{class: "fas fa-search"}
   .headder-box__btm
-    %ul.headder-box__btm--categories
+    %ul.headder-box__btm__categories
       = link_to "#", class: " link category" do 
-        %li.category カテゴリー
+        %li.headder-box__btm__categories__category カテゴリー
       = link_to "#", class: "link brand" do 
-        %li.brand ブランド
-    %ul.headder-box__btm--user-session
+        %li.headder-box__btm__categories__brand ブランド
+    %ul.headder-box__btm__user-session
       = link_to "#", class: "link login" do 
-        %li.user-login ログイン
+        %li.headder-box__btm__user-session__user-login ログイン
       = link_to "#", class: "link signup" do 
-        %li.user-signup 新規登録
+        %li.headder-box__btm__user-session__user-signup 新規会員登録

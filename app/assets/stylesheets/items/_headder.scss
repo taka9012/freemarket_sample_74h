@@ -1,28 +1,38 @@
 .headder-box{
-  height: 100px;
+  padding: 15px 60px ;
   &__upper{
     display: flex;
-    &--logo{
+    &__logo{
+      margin-right: 30px;
       font-size: 25px;
-      color: red;
+      color: #48dad8;
     }
+    
   }
   &__btm{
     display: flex;
-    .category{
-      color: green;
+    justify-content: space-between;
+    padding-top: 10px;
+    &__categories{
+      &__category{
+        margin-right: 30px;
+      }
+      &__brand{
+      }
     }
-    .brand{
-      color: blue;
-    }
-    .user-login{
-      color: powderblue;
-    }
-    .user-signup{
-      color: orange;
+    &__user-session{
+      &__user-login{
+        margin-right: 30px;
+      }
+      &__user-signup{
+      }
     }
     ul{
       display: flex;
+      font-size: 13px;
+    }
+    li{
+      color: #333;
     }
   }
   .link{
