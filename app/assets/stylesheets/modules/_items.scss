@@ -2,3 +2,14 @@
   box-sizing: border-box;
 }
 
+.main {
+  background-color: #f8f8f8;
+  &__showMain {
+    padding: 40px;
+    margin: 0 auto;
+    &__topContent {
+      width: 700px;
+      margin: 0 auto;
+    }
+  }
+}
