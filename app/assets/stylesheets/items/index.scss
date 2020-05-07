@@ -71,14 +71,20 @@
     }
     
     &__rankone{
-      background-color: indianred;
-      h{
-        font-size: 27px;
-        font-weight: bold;
-      }
-      p{
-        font-size: 18px;
-      }
+      background-image: image-url('rankone.jpg');
+      background-position: bottom right;
+      height: 400px;
+      background-size: cover;
+      align-items: center;
+      // &__text{
+      //   h{
+      //     font-size: 27px;
+      //     font-weight: bold;
+      //   }
+      //   p{
+      //     font-size: 18px;
+      //   }
+      // }
     }
     &__feature{
       background-color: khaki;
