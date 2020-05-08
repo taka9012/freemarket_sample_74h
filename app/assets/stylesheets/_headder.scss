@@ -1,0 +1,65 @@
+.headder-box{
+  padding: 15px 60px;
+    &__upper{
+
+      position: relative;
+      align-items: center;
+      display: flex;
+      &__logo{
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px;
+        img{
+          width: 140px;
+        }
+      }
+      &__search{
+        form{
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+          .search-form{
+            width: calc(100% - 26px);
+            height: 36px;
+            padding: 0 0 0 5px;
+          }
+          button{
+            width: 36px;
+            border: 0;
+            cursor: pointer;
+            background-color: #3CCACE;
+            padding: 8px;
+          }
+        }
+      }
+    }
+  &__btm{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    &__categories{
+      &__category{
+        margin-right: 30px;
+      }
+      // &__brand{
+      // }
+    }
+    &__user-session{
+      &__user-login{
+        margin-right: 30px;
+      }
+      // &__user-signup{
+      // }
+    }
+    ul{
+      display: flex;
+      font-size: 13px;
+    }
+    li{
+      color: #333;
+    }
+  }
+  .link{
+    text-decoration: none;
+  }
+}

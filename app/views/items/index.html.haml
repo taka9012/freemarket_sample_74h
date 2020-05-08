@@ -1,12 +1,12 @@
 .top-view
-  = render "headder" 
+  = render "layouts/headder" 
   .content
     .content__intro
       .content__intro__text
         %h1 人生を変えるフリマアプリ
         %p FURIMAはだれでもかんたんに出品・購入できる
         %p フリマアプリです
-      -# アプリストアのリンクアイコン表示
+        = render 'layouts/app-store-btn'
     .content__reason
       .content__reason__headder
         FURIMAが選ばれる3つの理由
@@ -38,7 +38,8 @@
         %p FURIMAは、フリマアプリで最も人気。
         %p 出品・購入回数も業界最多です！
         %p ほしかったあの商品に出会えるかもしれません。
-      -# アプリストアのリンクアイコン表示
+      
+        = render 'layouts/app-store-btn'
     .content__feature
       .content__feature__headder
         FURIMAの特徴
@@ -64,7 +65,9 @@
       %h1 だれでもかんたん、人生を変えるフリマアプリ
       %p 今すぐ無料ダウンロード！
       -# App store 表示
-  = render "footer"
+      .appBtn-center
+        = render 'layouts/app-store-btn'
+  = render "layouts/footer"
   = link_to "#", class: "link-sell" do
     .sell-btn
       %span 出品する

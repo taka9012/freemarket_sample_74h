@@ -1,6 +1,5 @@
 .top-view{
   height: 100%;
-  width: 100vw;
   .content{
     &__intro{
       height: 560px;
@@ -137,6 +136,7 @@
     &__text{
       color: #fff;
       text-align: center;
+      margin: 0 auto;
       h1{
         font-size: 24px;
         font-weight: bold;
@@ -146,6 +146,9 @@
       }
       h1,p{
         text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      }
+      .appBtn-center{
+       padding-left: 25%;
       }
     }
   }
