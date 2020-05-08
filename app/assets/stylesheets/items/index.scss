@@ -8,7 +8,7 @@
       background-image: image-url('intro.jpg');
       background-size: cover;
       background-repeat: no-repeat;
-      background-position: top center;
+      background-position: center;
       &__text{
         text-shadow: 0 5px 5px rgba(0,0,0,0.4);
         color: #fff;
@@ -128,5 +128,25 @@
       }
     }
   
+  }
+  .cm{
+    padding: 100px 40px;
+    background-image: image-url("cm.jpg");
+    background-size: cover;
+    background-position: center;
+    &__text{
+      color: #fff;
+      text-align: center;
+      h1{
+        font-size: 24px;
+        font-weight: bold;
+      }
+      p{
+        font-size: 35px;
+      }
+      h1,p{
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      }
+    }
   }
 }
