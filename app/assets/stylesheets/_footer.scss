@@ -6,7 +6,6 @@
   &__nav{
     margin: 0 auto;
     display: flex;
-    // justify-content: space-around;
     &__lists{
       width: calc(1 / 3 * 100%);
       margin: 0 2% 0 0;
@@ -19,6 +18,13 @@
         font-size: 12px;
         line-height: 32px;
       }
+      .link{
+        color: #fff;
+        text-decoration: none;
+      }
+      .link:hover{
+        text-decoration: underline;
+      }
     }
     
   }
@@ -30,14 +36,5 @@
       width: 160px;
     }
   }
-  .link{
-    color: #fff;
-    text-decoration: none;
-  }
-  .link :hover{
-    text-decoration: underline;
-  }
-  li{
-    list-style: none;
-  }
+  
 }
