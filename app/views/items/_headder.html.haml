@@ -2,12 +2,15 @@
   .headder-box__upper
     = link_to "#", class: "link logo" do 
       .headder-box__upper__logo
-        %i{class: "fas fa-box-open"}
-        FURIMA
+        = image_tag("logo.png")
     .headder-box__upper__search
       -# 検索フォーム未実装
-      検索
-      %i{class: "fas fa-search"}
+      = form_tag( "#", method: "get" ) do
+        = text_field_tag :name 
+        = submit_tag "検索"
+        
+      -# 検索
+      -# %i{class: "fas fa-search"}
   .headder-box__btm
     %ul.headder-box__btm__categories
       = link_to "#", class: " link category" do 

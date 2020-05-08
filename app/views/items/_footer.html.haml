@@ -1,1 +1,34 @@
-フッターだよ
+.footer 
+  %ul.footer__nav
+    %li.footer__nav__lists
+      %h1 FURIMAについて
+      %ul
+        = link_to "#", class: "link" do 
+          %li 会社概要（運営会社）
+        = link_to "#", class: "link" do 
+          %li プライバシーポリシー
+        = link_to "#", class: "link" do 
+          %li FURIMA利用規約
+        = link_to "#", class: "link" do 
+          %li ポイントに関する特約
+    %li.footer__nav__lists
+      %h1 FURIMAを見る
+      %ul
+        = link_to "#", class: "link" do 
+          %li カテゴリー一覧
+        = link_to "#", class: "link" do 
+          %li ブランド一覧
+    %li.footer__nav__lists
+      %h1 ヘルプ＆ガイド
+      %ul
+        = link_to "#", class: "link" do 
+          %li FURIMAガイド
+        = link_to "#", class: "link" do 
+          %li FURIMAロゴ利用ガイドライン
+        = link_to "#", class: "link" do 
+          %li お知らせ
+  .footer__logo
+    = link_to "#", class: "link-logo" do 
+      = image_tag("logo-white.png")
+    %p © FURIMA
+  
