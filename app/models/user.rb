@@ -3,6 +3,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :addresses, dependent: :destroy
+
   validates :firstname, :lastname, :firstname_kana, :lastname_kana, :nickname, :birth_year, :birth_month, :birth_day, presence: true
 
   validates :firstname         , format: {with: /\A[ぁ-んァ-ン一-龥]/} # 全角漢字、ふりがな、カナ指定

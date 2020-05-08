@@ -72,5 +72,28 @@ ja:
       models:
         user:
           attributes:
+            nickname:
+              blank: "が空になっています"
             email:
               blank: "が空になっています"
+            password:
+              blank: "が空になっています"
+            firstname:
+              blank: "が空になっています"
+              invalid: "が正しくありません"
+            lastname:
+              blank: "が空になっています"
+              invalid: "が正しくありません"
+            firstname_kana:
+              blank: "が空になっています"
+              invalid: "が正しくありません"
+            lastname_kana:
+              blank: "が空になっています"
+              invalid: "が正しくありません"
+            birth_year:
+              invalid: "が正しくありません"
+            birth_month:
+              not_a_number: "数字を選択してください"
+            birth_day:
+              not_a_number: "数字を選択してください"
+
