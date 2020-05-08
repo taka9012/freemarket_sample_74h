@@ -1,22 +1,27 @@
-.headder-box
-  .headder-box__upper
-    = link_to "#", class: "link logo" do 
-      .headder-box__upper__logo
-        = image_tag("logo.png")
-    .headder-box__upper__search
-      = form_tag( "#", method: "get" ) do
-        = text_field_tag(:name, '', class: 'search-form', placeholder: 'キーワードから探す')
-        %button(type = "submit")
-          .search-btn__icon
-            = image_tag('icon-search 1.png', size: '20x20')
-  .headder-box__btm
-    %ul.headder-box__btm__categories
-      = link_to "#", class: " link category" do 
-        %li.headder-box__btm__categories__category カテゴリー
-      = link_to "#", class: "link brand" do 
-        %li.headder-box__btm__categories__brand ブランド
-    %ul.headder-box__btm__user-session
-      = link_to "#", class: "link login" do 
-        %li.headder-box__btm__user-session__user-login ログイン
-      = link_to "#", class: "link signup" do 
-        %li.headder-box__btm__user-session__user-signup 新規会員登録
+.headder
+  .headder__box
+    .headder__box__upper
+      .headder__box__upper__logo
+        = link_to "#", class: "link logo" do
+          = image_tag("logo.png")
+      .headder__box__upper__search
+        = form_tag( "#", method: "get" ) do
+          = text_field_tag(:name, '', class: 'search-form', placeholder: 'キーワードから探す')
+          %button(type = "submit")
+            .search-btn__icon
+              = image_tag('icon-search 1.png', size: '20x20')
+    .headder__box__btm
+      %ul.headder__box__btm__left
+        %li.headder__box__btm__left__category
+          = link_to "#", class: " link category" do
+            カテゴリー
+        %li.headder__box__btm__left__brand
+          = link_to "#", class: "link brand" do
+            ブランド
+      %ul.headder__box__btm__right        
+        %li.headder__box__btm__right__login
+          = link_to "#", class: "link login" do
+            ログイン
+        %li.headder__box__btm__right__signup
+          = link_to "#", class: "link signup" do
+            新規会員登録

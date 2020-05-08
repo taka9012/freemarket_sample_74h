@@ -8,11 +8,12 @@
         %p フリマアプリです
         = render 'layouts/app-store-btn'
     .content__reason
-      .content__reason__headder
+      %h1.content__reason__headder
         FURIMAが選ばれる3つの理由
       %ul.content__reason__lists
         %li.content__reason__lists__list
           .content__reason__lists__list__pict
+            %span.number 1
             = image_tag('speedy.jpg')
           %h1.reason-text
             %span 3分
@@ -20,6 +21,7 @@
           %p スマホで入力するだけで簡単に出品できる！
         %li.content__reason__lists__list
           .content__reason__lists__list__pict
+            %span.number 2
             = image_tag('simple.jpg')
           %h1.reason-text
             %span シンプル
@@ -27,6 +29,7 @@
           %p めんどくさい入力は必要なく、検索も購入もスムーズ！
         %li.content__reason__lists__list.last
           .content__reason__lists__list__pict
+            %span.number 3
             = image_tag('cheap.jpg')
           %h1.reason-text
             %span 手数料 
@@ -35,13 +38,13 @@
     .content__rankone
       .content__rankone__text
         %h1 会員数日本一位
-        %p FURIMAは、フリマアプリで最も人気。
-        %p 出品・購入回数も業界最多です！
-        %p ほしかったあの商品に出会えるかもしれません。
-      
+        .p-space
+          %p FURIMAは、フリマアプリで最も人気。
+          %p 出品・購入回数も業界最多です！
+          %p ほしかったあの商品に出会えるかもしれません。
         = render 'layouts/app-store-btn'
     .content__feature
-      .content__feature__headder
+      %h1.content__feature__headder
         FURIMAの特徴
       %ul.content__feature__lists
         %li.content__feature__lists__list
@@ -64,9 +67,7 @@
     .cm__text
       %h1 だれでもかんたん、人生を変えるフリマアプリ
       %p 今すぐ無料ダウンロード！
-      -# App store 表示
-      .appBtn-center
-        = render 'layouts/app-store-btn'
+      = render 'layouts/app-store-btn'
   = render "layouts/footer"
   = link_to "#", class: "link-sell" do
     .sell-btn

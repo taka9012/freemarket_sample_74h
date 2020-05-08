@@ -28,6 +28,17 @@
         text-align: center;
         margin-bottom: 25px;
         padding-bottom: 15px;
+        position: relative;
+      }
+      &__headder::after{
+        content: "";
+        width: 70px;
+        height: 4px;
+        background-color: #3CCACE;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
       }
       &__lists{
         display: flex;
@@ -44,7 +55,21 @@
             height: auto;
           }
           &__pict{
+            position: relative;
             margin-bottom: 20px;
+            .number{
+              display: inline-block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              border-radius: 4%;
+              font-size: 30px;
+              text-align: center;
+              margin: 0 5px 0 0;
+              padding: 10px 20px;
+              background-color: #3CCACE;
+              color: #fff;
+            }
           }
           .reason-text{
             font-size: 24px;
@@ -57,7 +82,7 @@
             text-align: left;
           }
           span{
-            color: cyan;
+            color: #3CCACE;
           }
         }
         .last{
@@ -74,16 +99,17 @@
       align-items: center;
       display: flex;
       &__text{
+        max-width: 1040px;
         color: #fff;
         text-shadow: 0 0 5px rgba(0,0,0,0.4);
-        text-align: left;
         width: 100%;
         margin: 0 auto;
-        h{
+        h1{
           font-size: 27px;
           font-weight: bold;
         }
-        p{
+        .p-space{
+          margin: 20px 0 30px;
           font-size: 18px;
         }
       }
@@ -94,7 +120,19 @@
         font-size: 27px;
         font-weight: bold;
         text-align: center;
-        margin: 0 0 40px;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        position: relative;
+      }
+      &__headder::after{
+        content: "";
+        width: 70px;
+        height: 4px;
+        background-color: #3CCACE;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+    transform: translateX(-50%);
       }
       &__lists{
         width: 100%;
@@ -146,9 +184,6 @@
       }
       h1,p{
         text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      }
-      .appBtn-center{
-       padding-left: 25%;
       }
     }
   }
