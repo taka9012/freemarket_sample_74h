@@ -74,5 +74,9 @@ group :production do
   gem 'unicorn'
 end
 
-gem 'haml-rails'
 gem 'font-awesome-sass'
+gem 'haml-rails'
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'jp_prefecture'

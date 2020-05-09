@@ -18,10 +18,15 @@
         %li.headder__box__btm__left__brand
           = link_to "#", class: "link brand" do
             ブランド
-      %ul.headder__box__btm__right        
-        %li.headder__box__btm__right__login
-          = link_to "#", class: "link login" do
-            ログイン
-        %li.headder__box__btm__right__signup
-          = link_to "#", class: "link signup" do
-            新規会員登録
+      %ul.headder__box__btm__right
+        - if user_signed_in?
+          %li.headder__box__btm__right__login
+            = link_to destroy_user_session_path, method: :delete, class: "link login" do
+              ログアウト（仮）
+        - else
+          %li.headder__box__btm__right__login
+            = link_to new_user_session_path, class: "link login" do
+              ログイン
+          %li.headder__box__btm__right__signup
+            = link_to new_user_registration_path, class: "link signup" do
+              新規会員登録
