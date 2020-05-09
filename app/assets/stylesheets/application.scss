@@ -10,17 +10,17 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
  */
- @import "reset";
- @import "font-awesome-sprockets";
- @import "font-awesome";
- @import "config/colors";
- @import "mixin/style";
- @import "modules/app-store-btn";
- @import "headder";
- @import "items/index";
- @import "items/items_view";
- @import "footer"; 
- @import "modules/items";
+@import "reset";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "config/colors";
+@import "mixin/style";
+@import "modules/app-store-btn";
+@import "headder";
+@import "items/index";
+@import "items/items_view";
+@import "footer"; 
+@import "modules/items";
+@import "sign_in";
