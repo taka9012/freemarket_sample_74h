@@ -14,7 +14,7 @@
         %li.content__reason__lists__list
           .content__reason__lists__list__pict
             %span.number 1
-            = image_tag('speedy.jpg')
+            = image_tag('/assets/speedy.jpg')
           %h1.reason-text
             %span 3分
             ですぐに出品
@@ -22,7 +22,7 @@
         %li.content__reason__lists__list
           .content__reason__lists__list__pict
             %span.number 2
-            = image_tag('simple.jpg')
+            = image_tag('/assets/simple.jpg')
           %h1.reason-text
             %span シンプル
             で使いやすい
@@ -30,7 +30,7 @@
         %li.content__reason__lists__list.last
           .content__reason__lists__list__pict
             %span.number 3
-            = image_tag('cheap.jpg')
+            = image_tag('/assets/cheap.jpg')
           %h1.reason-text
             %span 手数料 
             業界最安
@@ -49,17 +49,17 @@
       %ul.content__feature__lists
         %li.content__feature__lists__list
           .content__feature__lists__list__pict
-            = image_tag('easy.jpg')
+            = image_tag('/assets/easy.jpg')
           %h1.feature_text 簡単に売り買いできる
           %p スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
         %li.content__feature__lists__list
           .content__feature__lists__list__pict
-            = image_tag('atm.jpeg')
+            = image_tag('/assets/atm.jpeg')
           %h1.feature_text 売上金は即日振込みに対応
           %p 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
         %li.content__feature__lists__list
           .content__feature__lists__list__pict
-            = image_tag('pay.jpg')
+            = image_tag('/assets/pay.jpg')
           %h1.feature_text 様々な支払いに対応
           %p お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
   = render "items_view"
@@ -72,6 +72,6 @@
   = link_to "#", class: "link-sell" do
     .sell-btn
       %span 出品する
-      = image_tag("icon_camera.png")
+      = image_tag("/assets/icon_camera.png")
 
 
