@@ -23,7 +23,7 @@
     &__reason{
       padding: 60px 20px;
       &__headder{
-        font-size: 26px;
+        font-size: 27px;
         font-weight: bold;
         text-align: center;
         margin-bottom: 25px;
@@ -132,7 +132,7 @@
         position: absolute;
         bottom: 0;
         left: 50%;
-    transform: translateX(-50%);
+        transform: translateX(-50%);
       }
       &__lists{
         width: 100%;
