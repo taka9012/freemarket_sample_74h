@@ -8,9 +8,9 @@ class CreateAddresses < ActiveRecord::Migration[5.2]
       t.integer    :postal_code           , null: false, limit: 8
       t.string     :prefectures           , null: false
       t.string     :city                  , null: false
-      t.string     :house_number          , null: false, default: false
+      t.string     :house_number          , null: false
       t.string     :building_name
-      t.integer    :telephone_number      , null: false, limit: 8
+      t.string     :telephone_number      , null: false
       t.references :user                  , null: false, foreign_key: true
       t.timestamps
     end

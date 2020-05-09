@@ -56,7 +56,7 @@
                 - day << num
               = f.select :birth_day, day, {}, class: "new_signup-container__main__box-three"
               日
-            %p 本人情報は正しく入力してください。会員登録後、お時間をいただく場合があります。 
+            %p.new_session-wrapper__main__caution 本人情報は正しく入力してください。会員登録後、お時間をいただく場合があります。 
           .actions
             = f.submit "次へ進む", class: "new_signup-container__main__submit"
   .new_signup-footer
