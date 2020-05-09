@@ -13,15 +13,14 @@
  *= require_tree .
  *= require_self
  */
-
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "./config/colors";
+@import "config/colors";
 @import "mixin/style";
 @import "modules/app-store-btn";
 @import "headder";
 @import "items/index";
 @import "items/items_view";
 @import "footer"; 
-@import "./sign_in";
+@import "modules/items";
