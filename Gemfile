@@ -73,3 +73,6 @@ gem 'font-awesome-sass'
 group :production do
   gem 'unicorn'
 end
+
+gem 'haml-rails'
+gem 'font-awesome-sass'
