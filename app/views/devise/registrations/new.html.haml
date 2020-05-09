@@ -4,7 +4,7 @@
       = image_tag asset_path("logo.png"), class: "new_session-wrapper__logo__image"
 
   .new_signup-container
-    %h2.new_signup-container__head 会員情報入力
+    .new_signup-container__head 会員情報入力
     .new_signup-container__main
       .new_signup-container__main__box
         = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
@@ -60,3 +60,4 @@
           .actions
             = f.submit "次へ進む", class: "new_signup-container__main__submit"
   .new_signup-footer
+  = render "layouts/footer"

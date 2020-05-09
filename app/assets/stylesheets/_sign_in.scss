@@ -219,6 +219,7 @@ body {
     padding: 32px;
     text-align: center;
     border-bottom: 1px solid #eee;
+    font-size: 20px;
   }
 
   &__main{
@@ -240,12 +241,14 @@ body {
 
     &__box-upper{
       margin-top: 8px;
+      font-weight: normal;
       @include input-area();
     }
 
     &__box-harf{
       @include input-area($width: calc(50% - 6px));
       margin-top: 8px;
+      font-weight: normal;
     }
 
     &__box-three{
@@ -256,6 +259,7 @@ body {
       font-size: 14px;
       width: 76px;
       margin-top: 8px;
+      font-weight: normal;
     }
 
     #address_prefectures{
