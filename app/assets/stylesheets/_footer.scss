@@ -1,6 +1,6 @@
 .footer{
   padding: 60px 0;
-  color: #fff;
+  color: $white;
   background-color: #272727;
   text-align: center;
   &__nav{
@@ -20,7 +20,7 @@
         line-height: 32px;
       }
       .link{
-        color: #fff;
+        color: $white;
         text-decoration: none;
       }
       .link:hover{

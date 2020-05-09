@@ -1,16 +1,9 @@
-@mixin bg($position: center) {
-  background-size: cover;
-  background-repeat: no-repeat;
+@mixin bgcover($position: center) {
   background-position: $position;
+  background-size: cover;
 }
-@mixin shadow {
-  text-shadow:  0 0 5px rgba(0,0,0,0.4);
-}
-@mixin w100 {
-  width: 100%;
-}
-@mixin head {
-  font-size: 27px;
+@mixin head($fsize: 27px) {
+  font-size: $fsize;
   font-weight: bold;
   text-align: center;
   margin-bottom: 25px;
@@ -27,5 +20,12 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+  }
+}
+@mixin imgrespon {
+  img{
+    width:100%;
+    max-width: 100%;
+    height: auto;
   }
 }

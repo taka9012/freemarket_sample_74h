@@ -5,12 +5,11 @@
       height: 560px;
       padding: 0 60px;
       background-image: image-url('intro.jpg');
-      background-size: cover;
       background-repeat: no-repeat;
-      background-position: center;
+      @include bgcover;
       &__text{
-        text-shadow: 0 5px 5px rgba(0,0,0,0.4);
-        color: #fff;
+        text-shadow: 0 5px 5px $shadowb;
+        color: $white;
         padding-top: 240px;
         h1{
           font-size: 60px;
@@ -23,22 +22,8 @@
     &__reason{
       padding: 60px 20px;
       &__headder{
-        font-size: 27px;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 25px;
-        padding-bottom: 15px;
-        position: relative;
-      }
-      &__headder::after{
-        content: "";
-        width: 70px;
-        height: 4px;
-        background-color: #3CCACE;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        @include head(26px);
+        @include headafter;
       }
       &__lists{
         display: flex;
@@ -49,11 +34,7 @@
           width: 30%;
           text-align: center;
           margin: 16px 5% 0 0;
-          img{
-            width:100%;
-            max-width: 100%;
-            height: auto;
-          }
+          @include imgrespon;
           &__pict{
             position: relative;
             margin-bottom: 20px;
@@ -67,8 +48,8 @@
               text-align: center;
               margin: 0 5px 0 0;
               padding: 10px 20px;
-              background-color: #3CCACE;
-              color: #fff;
+              background-color: $cyan;
+              color: $white;
             }
           }
           .reason-text{
@@ -82,7 +63,7 @@
             text-align: left;
           }
           span{
-            color: #3CCACE;
+            color: $cyan;
           }
         }
         .last{
@@ -92,16 +73,15 @@
     }
     
     &__rankone{
-      background-image: image-url('rankone.jpg');
-      background-position: bottom right;
+      background-image: image-url('bg-topMiddleDl-pict.jpg');
+      @include bgcover(bottom);
       height: 400px;
-      background-size: cover;
       align-items: center;
       display: flex;
       &__text{
         max-width: 1040px;
-        color: #fff;
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        color: $white;
+        text-shadow: 0 0 5px $shadowb;
         width: 100%;
         margin: 0 auto;
         h1{
@@ -117,39 +97,21 @@
     &__feature{
       padding: 60px 100px;
       &__headder{
-        font-size: 27px;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 25px;
-        padding-bottom: 15px;
-        position: relative;
-      }
-      &__headder::after{
-        content: "";
-        width: 70px;
-        height: 4px;
-        background-color: #3CCACE;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        @include head;
+        @include headafter
       }
       &__lists{
-        width: 100%;
         display: flex;
+        width: 100%;
         margin: 0 auto;
         &__list{
           width: calc(1 / 3 * 100%);
           padding: 0 20px;
           text-align: center;
           &__pict{
-            width: 70%;
+            width: 100%;
             margin: 0 auto;
-            img{
-              width:100%;
-              max-width: 100%;
-              height: auto;
-            }
+            @include imgrespon;
           }
           .feature_text{
             margin: 38px 0 10px;
@@ -169,12 +131,12 @@
   .cm{
     padding: 100px 40px;
     background-image: image-url("cm.jpg");
-    background-size: cover;
-    background-position: center;
+    @include bgcover;
     &__text{
-      color: #fff;
+      color: $white;
       text-align: center;
       margin: 0 auto;
+      text-shadow: 0 0 5px $shadowb;
       h1{
         font-size: 24px;
         font-weight: bold;
@@ -182,15 +144,12 @@
       p{
         font-size: 35px;
       }
-      h1,p{
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      }
     }
   }
   .link-sell{
     .sell-btn{
       width: 95px;
-      background: #3CCACE;
+      background: $cyan;
       text-align: center;
       border-radius: 4%;
       bottom: 32px;
@@ -198,7 +157,7 @@
       position: fixed;
       padding: 15px;
       span{
-        color: #fff;
+        color: $white;
         display: block;
         font-size: 18px;
         text-decoration: none;
