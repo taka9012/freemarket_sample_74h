@@ -1,0 +1,17 @@
+.new_session-wrapper
+  .new_session-wrapper__logo
+    = link_to root_path do
+      = image_tag asset_path("logo.png"), class: "new_session-wrapper__logo__image"
+  .new_password-wrapper
+    .new_password-wrapper__title
+      %h2= t('.forgot_your_password')
+    .new_password-wrapper__main
+      .new_password-wrapper__main__content
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          = f.label :email
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "ご登録されたメールアドレス", class: "new_password-wrapper__main__content--email"
+          %p ご登録されたメールアドレスにパスワード再設定のご案内が送信されます。
+          .actions
+            = f.submit t('.send_me_reset_password_instructions'), class: "new_password-wrapper__main__content--submit"
