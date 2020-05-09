@@ -1,0 +1,35 @@
+.middle_space
+  .middle_space__info
+    .middle_space__info__info-head
+      %h2 購入内容の確認
+    .middle_space__info__item-info
+      .middle_space__info__item-info__img
+        %h2
+        = image_tag "sampleKyoko", size: "80x80", alt: "商品写真", class: "goods-img"
+      .middle_space__info__item-info__content
+        .middle_space__info__item-info__content__name
+          芳根京子が着てた服
+        .middle_space__info__item-info__content__price
+          %p
+            %span ¥50,000
+            %span.mgr-10 (税抜き) 送料別
+    .middle_space__info__payment-info
+      .middle_space__info__payment-info__form
+        .middle_space__info__payment-info__form__price
+          %ul.content
+            %li.content-text
+              支払い金額
+            %li.content-appraisal
+              ¥54,000
+        .middle_space__info__payment-info__form__howToPay
+          %h3 支払い方法
+          =link_to "#" do
+            =icon("fas", "plus-circle")
+            %span 登録してください
+        .middle_space__info__payment-info__form__billingAddress
+          %h3 配送先
+          =link_to "#" do
+            =icon("fas", "plus-circle")
+            %span 登録してください
+        .middle_space__info__payment-info__form__btn
+          %button 購入する
