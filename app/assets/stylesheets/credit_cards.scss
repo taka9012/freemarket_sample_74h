@@ -1,3 +1,19 @@
-// Place all the styles related to the credit_cards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+}
+
+.wrapper{
+  height: 100vh;
+  width: 100%;
+  background-color: $mainGrayColor;
+}
+
+.upper_space {
+  height: 128px;
+  text-align: center;
+  line-height: 181px;
+  &-to-top-btn {
+    height: 49px;
+    width: 185px;
+  }
+}
