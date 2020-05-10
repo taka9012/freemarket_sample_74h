@@ -12,4 +12,27 @@
     %p.main__createContents__uploadImage__explanation
       最大5枚までアップロードできます
   .main__createContents__uploadItem
-    
+    .main__createContents__uploadItem__name
+      %label
+        商品名
+      %span
+        必須
+    .main__createContents__uploadItem__textfield
+      = form_tag( "#", method: "post" ) do
+        = text_field_tag(:name, '', class: '', placeholder: '40文字まで')
+    .main__createContents__uploadItem__explanation
+      %label
+        商品の説明
+      %span
+        必須
+    .main__createContents__uploadItem__explanationTextfield
+      = form_tag( "#", method: "post" ) do
+        = text_field_tag(:name, '', class: '', placeholder: '商品の説明を入力してください')
+  .main__createContents__uploadItemDetail
+    %p
+      商品の詳細
+    .main__createContents__uploadItemDetail__category
+      %label
+        カテゴリー
+      %span
+        必須
