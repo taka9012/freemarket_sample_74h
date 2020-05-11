@@ -5,7 +5,8 @@
     .middle_space__info__item-info
       .middle_space__info__item-info__img
         %h2
-        = image_tag "sampleKyoko", size: "80x80", alt: "商品写真", class: "goods-img"
+          = image_tag asset_path("sampleKyoko"), size: "80x80", alt: "商品写真", class: "goods-img"
+          -# = image_tag "sampleKyoko", size: "80x80", alt: "商品写真", class: "goods-img"
       .middle_space__info__item-info__content
         .middle_space__info__item-info__content__name
           芳根京子が着てた服
