@@ -1,0 +1,18 @@
+.main {
+  width: 100%;
+  margin: 0 auto;
+  &__logo {
+    margin: 0 auto;
+    align-items: center;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    color: $cyan;
+    &__image {
+      color: $cyan;
+    }
+  }
+  &__createContents {
+    margin: 0 auto;
+  }
+}

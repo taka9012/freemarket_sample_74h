@@ -1,7 +1,7 @@
 .main
   .main__logo
-    = link_to "root_path" do
-      = image_tag('/assets/logo-white.png')
+    = link_to root_path,class: 'main__logo__image' do
+      = image_tag asset_path('logo-white.png'),class: 'main__logo__image',size: '120x33'
   .main__createContents
     .main__createContents__uploadImage
       .main__createContents__uploadImage__title
@@ -94,8 +94,18 @@
         販売手数料（10％）
       %span
         -
-    .main__createContents__uploadPrice＿＿profit 
+    .main__createContents__uploadPrice__profit 
       %p
         販売利益
       %span
         -
+  .main__createContents__uploadBtn
+    %button
+      出品する
+  .main__createContents__back
+    = link_to root_path do
+      もどる
+  .main__create__contents__attention
+    %p
+      禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+= render "layouts/footer"
