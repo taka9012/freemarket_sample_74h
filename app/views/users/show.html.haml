@@ -99,3 +99,7 @@
               .tab_content__description__text
                 現在やることはありません
   = render "layouts/footer"
+  = link_to "#", class: "link-sell" do
+    .sell-btn
+      %span 出品する
+      = image_tag asset_path("icon_camera.png")
