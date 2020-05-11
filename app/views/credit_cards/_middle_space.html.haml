@@ -9,9 +9,14 @@
         %input.input-number{:type => "text", :placeholder => "半角数字のみ"}
         %ul
           %li
+            = image_tag "creditcard.png", size: "30x20", alt: "クレジットカード", class: "card-kind" 
           %li
+            = image_tag "creditcard.png", size: "30x20", alt: "クレジットカード", class: "card-kind" 
           %li
-          %li
+            = image_tag "creditcard.png", size: "30x20", alt: "クレジットカード", class: "card-kind" 
       .middle-space__card-form__info__expiration-date
       .middle-space__card-form__info__security-code
+        %label(for="card-name") セキュリティコード
+        %span 必須
+        %input.input-number{:type => "text", :placeholder => "半角数字のみ"}
       .middle-space__card-form__info__register-btn
