@@ -1,3 +1,8 @@
+.cm
+  .cm__text
+    %h1 だれでもかんたん、人生を変えるフリマアプリ
+    %p 今すぐ無料ダウンロード！
+    = render 'layouts/app-store-btn'
 .footer 
   %ul.footer__nav
     %li.footer__nav__lists
@@ -38,6 +43,6 @@
             お知らせ
   .footer__logo
     = link_to "#", class: "link-logo" do
-      = image_tag("/assets/logo-white.png")
+      = image_tag asset_path("logo-white.png")
     %p © FURIMA
   
