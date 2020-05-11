@@ -1,8 +1,17 @@
 .middle-space
-  %h2.title 支払い方法
   .middle-space__card-form
     .middle-space__card-form__info
+      .middle-space__card-form__info__title 
+        支払い方法
       .middle-space__card-form__info__card-number
+        %label(for="card-name") カード番号
+        %span 必須
+        %input.input-number{:type => "text", :placeholder => "半角数字のみ"}
+        %ul
+          %li
+          %li
+          %li
+          %li
       .middle-space__card-form__info__expiration-date
       .middle-space__card-form__info__security-code
       .middle-space__card-form__info__register-btn

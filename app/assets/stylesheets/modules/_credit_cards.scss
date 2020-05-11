@@ -9,7 +9,8 @@
 }
 
 .upper_space {
-  height: 128px;
+  // height: 128px;
+  height: 13%;
   text-align: center;
   line-height: 181px;
   &-to-top-btn {
@@ -20,24 +21,39 @@
 
 .middle-space {
   background-color: white;
-  height: 722px;
+  // height: 722px;
+  height: 87%;
   width: 49%;
-  margin: 0 auto;
-  &-title {
-    height: 8%;
-    font-size: 24px;
-    font-weight: bold;
-    padding: 8px 24px
-    // text-align: center;
-    // ⬆️なぜかこのtext-でエラーが発生する
-  }
+  margin: auto;
   &__card-form {
-    height: 92%;
+    height: 100%;
     &__info {
       background-color: red;
       height: 100%;
       width: 60%;
       margin: 0 auto;
+      &__title {
+        height: 10%;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+      }
+      &__card-number {
+        background-color: green;
+        height: 22.5%;
+      }
+      &__expiration-date {
+        background-color: greenyellow;
+        height: 22.5%;
+      }
+      &__security-code {
+        background-color: aqua;
+        height: 22.5%;
+      }
+      &__register-btn {
+        background-color: blue;
+        height: 22.5%;
+      }
     }
   }
 
