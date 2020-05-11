@@ -1,0 +1,101 @@
+.top-view
+  = render "layouts/headder" 
+  .mypage-wrapper
+    %nav.mypage-wrapper__location
+      %ul.mypage-wrapper__location__list
+        %li.mypage-wrapper__location__list__item
+          = link_to "フリマ", root_path, class: "ListItem-1"
+        = icon('fas', 'chevron-right', class: "mypage-wrapper__location__list__icon") 
+        %li.mypage-wrapper__location__list__item
+          = link_to "マイページ", user_path(@user), class: "ListItem-2"
+    .top-container
+      .mypage-container
+        .mypage-container__menu
+          .mypage-container__menu__list
+            = link_to user_path(@user), class: "mypage-container__menu__list__mypage" do
+              %span.mypage-link マイページ
+              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
+
+          .mypage-container__menu__list
+            = link_to "#", class: "mypage-container__menu__list__item" do
+              %span いいね！一覧
+              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
+          
+          .mypage-container__menu__list
+            = link_to "#", class: "mypage-container__menu__list__item" do
+              %span 出品する
+              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
+          
+          .mypage-container__menu__list
+            = link_to "#", class: "mypage-container__menu__list__item" do
+              %span 出品した商品
+              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
+          
+          .mypage-container__menu__list
+            = link_to "#", class: "mypage-container__menu__list__item" do
+              %span 購入した商品
+              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
+
+        .setting-menu
+          設定
+        .mypage-container__menu
+          .mypage-container__menu__list
+            = link_to "#", class: "mypage-container__menu__list__item" do
+              %span プロフィール
+              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
+
+          .mypage-container__menu__list
+            = link_to "#", class: "mypage-container__menu__list__item" do
+              %span 発送元・お届け先住所変更
+              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
+
+          .mypage-container__menu__list
+            = link_to "#", class: "mypage-container__menu__list__item" do
+              %span 支払い方法
+              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
+
+          .mypage-container__menu__list
+            = link_to destroy_user_session_path, method: :delete, class: "mypage-container__menu__list__item" do
+              %span ログアウト
+              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
+
+      .mypage-container__board
+        .mypage-container__board__upper
+          = link_to "#", class: "mypage-container__board__upper__link" do
+            = image_tag asset_path("profile-default-image"), class: "mypage-container__board__upper__icon"
+            .mypage-container__board__upper__nickname
+              = @user.nickname
+            .mypage-container__board__upper__exhibits
+              出品数：12
+        .mypage-container__board__tabs
+          %input#notification{checked: "checked", name: "tab_item", type: "radio"}
+          %label.tab_item{for: "notification"} お知らせ
+          %input#todo{name: "tab_item", type: "radio"}
+          %label.tab_item{for: "todo"} やることリスト
+          #notification_content.tab_content
+            .tab_content__description
+              = link_to "#", class: "tab_content__description__text" do
+                = image_tag asset_path('logo-mark.png'), class: "tab_content__description__text__logo"
+                %p 事務局から個別メッセージ「Googleログイン通知」
+            .tab_content__description
+              = link_to "#", class: "tab_content__description__text" do
+                = image_tag asset_path('logo-mark.png'), class: "tab_content__description__text__logo"
+                %p フリマ公式Twitterで著名作家によるオリジナル短編小説を配信中
+            .tab_content__description
+              = link_to "#", class: "tab_content__description__text" do
+                = image_tag asset_path('logo-mark.png'), class: "tab_content__description__text__logo"
+                %p 《まだ間に合う》まとめて出品して1万名にP3,000当たる！
+            .tab_content__description
+              = link_to "#", class: "tab_content__description__text" do
+                = image_tag asset_path('logo-mark.png'), class: "tab_content__description__text__logo"
+                %p 大型連休はフリマを使ってお片付け♪
+            .tab_content__description
+              = link_to "#", class: "tab_content__description__text" do
+                %p.more-notifications
+                  一覧を見る
+
+          #todo_content.tab_content
+            .tab_content__description
+              .tab_content__description__text
+                現在やることはありません
+  = render "layouts/footer"
