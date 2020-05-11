@@ -36,3 +36,66 @@
         カテゴリー
       %span
         必須
+    .main__createContents__uploadItemDetail__categorySelect
+      = select_tag( option_tags = 'レディース')
+    .main__createContents__uploadItemDetail__brand
+      %label
+        ブランド
+      %span
+        任意
+    .main__createContents__uploadItemDetail__brandSelect
+      = select_tag( option_tags = 'グッチ')
+    .main__createContents__uploadItemDetail__itemStatus
+      %label
+        商品の状態
+      %span
+        必須
+    .main__createContents__uploadItemDetail__itemStatusSelect
+      = select_tag( option_tags = '選択して下さい')
+  .main__createContents__uploadDelivery
+    %p
+      配送について
+    .main__createContents__uploadDelivery__deliveryFee
+      %label
+        配送料の負担
+      %span
+        必須
+    .main__createContents__uploadDelivery__deliveryFeeSelect
+      = select_tag( option_tags = '選択して下さい')
+    .main__createContents__uploadDelivery__deliveryArea
+      %label
+        発送元の地域
+      %span
+        必須
+    .main__createContents__uploadDelivery__deliveryAreaSelect
+      = select_tag( option_tags = '選択して下さい')
+    .main__createContents__uploadDelivery__deliveryDate
+      %label
+        発送までの日数
+      %span
+        必須
+    .main__createContents__uploadDelivery__deliveryDateSelect
+      = select_tag( option_tags = '選択して下さい')
+  .main__createContents__uploadPrice
+    %p
+      価格（¥300〜9,999,999）
+    .main__createContents__uploadPrice__salePrice
+      %label
+        販売価格
+      %span
+        必須
+    %span
+      ￥
+      .main__createContents__uploadPrice__salePrice__textField
+        = form_tag( "#", method: "post" ) do
+          = text_field_tag(:name, '', class: '', placeholder: '0')
+    .main__createContents__uploadPrice__fee
+      %p
+        販売手数料（10％）
+      %span
+        -
+    .main__createContents__uploadPrice＿＿profit 
+      %p
+        販売利益
+      %span
+        -
