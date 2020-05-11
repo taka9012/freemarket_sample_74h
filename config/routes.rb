@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :credit_cards, only: [:index]
   resources :items, only: [:index, :show]
+  resources :users, only: [:show]
 end
