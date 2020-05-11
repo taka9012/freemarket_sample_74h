@@ -41,7 +41,35 @@
       &__card-number {
         background-color: green;
         height: 22.5%;
-        
+        label {
+          font-weight: 600;
+        }
+        span {
+          background-color: red;
+          border-radius: 2px;
+          padding: 2px 4px;
+          margin: 0 0 0 8px;
+          color: white;
+        }
+        .input-number {
+          width: 100%;
+          padding: 18px 16px 8px;
+          margin-top: 5px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+        }
+        ul {
+          margin-top: 5px;
+          li {
+            display: inline;
+          }
+          li {
+            display: inline;
+          }
+          li {
+            display: inline;
+          }
+        }
       }
       &__expiration-date {
         background-color: greenyellow;
@@ -50,10 +78,40 @@
       &__security-code {
         background-color: aqua;
         height: 22.5%;
+        label {
+          font-weight: 600;
+        }
+        span {
+          background-color: red;
+          border-radius: 2px;
+          padding: 2px 4px;
+          margin: 0 0 0 8px;
+          color: white;
+        }
+        .input-number {
+          width: 100%;
+          padding: 18px 16px 8px;
+          margin-top: 5px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+        }
       }
       &__register-btn {
         background-color: blue;
         height: 22.5%;
+        &__btn {
+          height: 30%;
+          display: flex;
+          button {
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #888;
+            background: #888;
+            color: #fff;
+            margin: auto;
+            padding: 15px 135px;
+          }
+        }
       }
     }
   }
