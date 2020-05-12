@@ -1,118 +1,121 @@
-.main
-  .main__showMain
-    .main__showMain__topContent
-      .main__showMain__topContent__itemBox
-        .main__showMain__topContent__itemBox__name
-          %h2 テスト！
-        .main__showMain__topContent__itemBox__body
-          %ul
-            %li
-              = image_tag('https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png',class: 'main__showMain__topContent__itemBox__body__mainPic')
-              %ul 
-                %li
-                  = image_tag('https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/8/a002.png',size: '140x87',class: 'main__showMain__topContent__itemBox__body__mainPic__subPic')
-                %li
-                  = image_tag('https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/9/a003.png',size: '140x87',class: 'main__showMain__topContent__itemBox__body__mainPic__subPic')
-        .main__showMain__topContent__itemBox__price
-          %span
-            ￥10000
-          .main__showMain__topContent__itemBox__price__priceDetail
+.wrapper
+  = render "layouts/headder" 
+  .main
+    .main__showMain
+      .main__showMain__topContent
+        .main__showMain__topContent__itemBox
+          .main__showMain__topContent__itemBox__name
+            %h2 テスト！
+          .main__showMain__topContent__itemBox__body
+            %ul
+              %li
+                = image_tag('https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png',class: 'main__showMain__topContent__itemBox__body__mainPic')
+                %ul 
+                  %li
+                    = image_tag('https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/8/a002.png',size: '140x87',class: 'main__showMain__topContent__itemBox__body__mainPic__subPic')
+                  %li
+                    = image_tag('https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/9/a003.png',size: '140x87',class: 'main__showMain__topContent__itemBox__body__mainPic__subPic')
+          .main__showMain__topContent__itemBox__price
             %span
-              （税込）
-            %span
-              送料込み
-        .main__showMain__topContent__itemBox__buyBtn
-          = link_to "#" ,class: "main__showMain__topContent__itemBox__buyBtn__text" do
-            購入画面に進む
-        .main__showMain__topContent__itemBox__itemDetail
-          先ほど少し触れましたが、BEMではページを構成する要素をBlock、Element、Modifierの3つに分類し、組み合わせることでクラスを命名します。Block、Element、Modifierの3つを使用して命名することで、クラス名だけでHTML要素の意味を伝えられます。各要素の意味を見ていきましょう。
-        .main__showMain__topContent__itemBox__table
-          %table
-            %tbody
-              %tr
-                %th
-                  出品者
-                %td 
-                  fumiya 
-              %tr 
-                %th
-                  カテゴリー
-                %td
-                  = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
-                    = "レディース"
-                  %br 
-                  = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
-                    = "トップス"
-                  %br
-                  = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
-                    = "Tシャツ/カットソー（半袖/袖なし）"
-              %tr
-                %th
-                  ブランド
-                %td
-                  ガスト
-              %tr
-                %th
-                  商品のサイズ
-                %td
-                  一人前
-              %tr
-                %th
-                  商品の状態
-                %td
-                  作り立てのホヤホヤ
-              %tr
-                %th
-                  配送料の負担
-                %td
-                  送料込み（出品者負担）
-              %tr
-                %th
-                  発送元の地域
-                %td
-                  = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
-                    = "長野県"
-              %tr
-                %th
-                  発送日の目安
-                %td
-                  １〜２日で発送
-        .main__showMain__topContent__itemBox__optionalArea          
-          %ul 
-            %li.optionalBtn.likeBtn
-              %i.fas.fa-star
-                お気に入り　0
-          %ul.main__showMain__topContent__itemBox__optionalArea__optional 
-            %li.main__showMain__topContent__itemBox__optionalArea__optional__optionalBtn
-              = link_to "#",class:"main__showMain__topContent__itemBox__optionalArea__optional__optionalBtn__link" do
-                %i.fa.fa-flag
-                  不適切な商品の通報
-      .main__showMain__topContent__commentBox
-        %ul.main__showMain__topContent__commentBox__commentContents
-          %textarea 
-          %p.main__showMain__topContent__commentBox__commentContents__noticeMsg
-            相手のことを考え丁寧なコメントを心がけましょう。
+              ￥10000
+            .main__showMain__topContent__itemBox__price__priceDetail
+              %span
+                （税込）
+              %span
+                送料込み
+          .main__showMain__topContent__itemBox__buyBtn
+            = link_to "#" ,class: "main__showMain__topContent__itemBox__buyBtn__text" do
+              購入画面に進む
+          .main__showMain__topContent__itemBox__itemDetail
+            先ほど少し触れましたが、BEMではページを構成する要素をBlock、Element、Modifierの3つに分類し、組み合わせることでクラスを命名します。Block、Element、Modifierの3つを使用して命名することで、クラス名だけでHTML要素の意味を伝えられます。各要素の意味を見ていきましょう。
+          .main__showMain__topContent__itemBox__table
+            %table
+              %tbody
+                %tr
+                  %th
+                    出品者
+                  %td 
+                    fumiya 
+                %tr 
+                  %th
+                    カテゴリー
+                  %td
+                    = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
+                      = "レディース"
+                    %br 
+                    = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
+                      = "トップス"
+                    %br
+                    = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
+                      = "Tシャツ/カットソー（半袖/袖なし）"
+                %tr
+                  %th
+                    ブランド
+                  %td
+                    ガスト
+                %tr
+                  %th
+                    商品のサイズ
+                  %td
+                    一人前
+                %tr
+                  %th
+                    商品の状態
+                  %td
+                    作り立てのホヤホヤ
+                %tr
+                  %th
+                    配送料の負担
+                  %td
+                    送料込み（出品者負担）
+                %tr
+                  %th
+                    発送元の地域
+                  %td
+                    = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
+                      = "長野県"
+                %tr
+                  %th
+                    発送日の目安
+                  %td
+                    １〜２日で発送
+          .main__showMain__topContent__itemBox__optionalArea          
+            %ul 
+              %li.optionalBtn.likeBtn
+                %i.fas.fa-star
+                  お気に入り　0
+            %ul.main__showMain__topContent__itemBox__optionalArea__optional 
+              %li.main__showMain__topContent__itemBox__optionalArea__optional__optionalBtn
+                = link_to "#",class:"main__showMain__topContent__itemBox__optionalArea__optional__optionalBtn__link" do
+                  %i.fa.fa-flag
+                    不適切な商品の通報
+        .main__showMain__topContent__commentBox
+          %ul.main__showMain__topContent__commentBox__commentContents
+            %textarea 
+            %p.main__showMain__topContent__commentBox__commentContents__noticeMsg
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br 
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
             %br 
-            不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          %br 
-          %button.main__showMain__topContent__commentBox__commentContents__commentBtn{name: "button", type: "submit"}
-            %i.fa.fa-comment
-              コメントする
-    %ul.main__showMain__links 
-      %li
-        = link_to "#", class:"main__showMain__links__link" do
-          %i.fa.fa-angle-left
-            前の商品
-      %li
-        = link_to "#", class:"main__showMain__links__link" do
-          %span
-            後ろの商品
-          %i.fa.fa-angle-right
-    .main__showMain__relatedItems
-      = link_to "#",class:"main__showMain__relatedItems__link" do
-        レディースをもっと見る
-= link_to "#" do
-  .purchaseBtn
-    %span.purchaseBtn__text
-      出品する  
-    %img.purchaseBtn__icon{ src: "/assets/icon_camera.png"}
+            %button.main__showMain__topContent__commentBox__commentContents__commentBtn{name: "button", type: "submit"}
+              %i.fa.fa-comment
+                コメントする
+      %ul.main__showMain__links 
+        %li
+          = link_to "#", class:"main__showMain__links__link" do
+            %i.fa.fa-angle-left
+              前の商品
+        %li
+          = link_to "#", class:"main__showMain__links__link" do
+            %span
+              後ろの商品
+            %i.fa.fa-angle-right
+      .main__showMain__relatedItems
+        = link_to "#",class:"main__showMain__relatedItems__link" do
+          レディースをもっと見る
+  = link_to "#" do
+    .purchaseBtn
+      %span.purchaseBtn__text
+        出品する  
+      = image_tag asset_path("icon_camera.png"), class: 'purchaseBtn__icon'
+  = render 'layouts/footer'

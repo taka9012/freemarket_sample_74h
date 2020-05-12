@@ -1,27 +1,18 @@
 # README
+![logo](https://user-images.githubusercontent.com/62282502/81537903-e096f600-93a8-11ea-83d6-fd819d4ec9f4.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+### 開発環境
 
 * Ruby version
+2.5.1
 
-* System dependencies
+* Database
+MySQL
 
-* Configuration
+* Rails
+5.2.4.2
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+:green_apple:プログラミングスクールTECH::CAMPの最終課題にて某フリーマーケットサービスのクローンサイトを作成
 
 # フリマアプリDB設計
 ## usersテーブル
@@ -57,9 +48,8 @@ Things you may want to cover:
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false, unique: true|
-|effectivedate_year|integer|null: false|
-|effectivedate_month|integer|null: false|
+|card_id|string|null: false|
+|customer_id|string|null: false|
 |user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -72,12 +62,12 @@ Things you may want to cover:
 |lastname|string|null: false|
 |firstname_kana|string|null: false|
 |lastname_kana|string|null: false|
-|postal_code|integer|null: false|
+|postal_code|integer|null: false, limit: 8|
 |prefectures|string|null: false|
 |city|string|null: false|
 |house_number|string|null: false|
 |building_name|string||
-|telephone_number|integer||
+|telephone_number|string||
 |user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -105,7 +95,6 @@ Things you may want to cover:
 |postage_burden|string|null: false|
 |shipping_area|string|null: false|
 |shipping_date|string|null: false|
-|transaction_status|string|null: false|
 |user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user  
@@ -114,6 +103,10 @@ Things you may want to cover:
 - has_many :images, dependent: :destroy
 - belongs_to :category
 - belongs_to :brand
+- belongs_to_active_hash :item_condition  
+- belongs_to_active_hash :postage_type  
+- belongs_to_active_hash :postage_burden  
+- belongs_to_active_hash :shipping_date
 
 ## categoriesテーブル
 |Column|Type|Options|

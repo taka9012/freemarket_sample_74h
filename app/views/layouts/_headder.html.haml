@@ -2,14 +2,14 @@
   .headder__box
     .headder__box__upper
       .headder__box__upper__logo
-        = link_to "#", class: "link logo" do
-          = image_tag("/assets/logo.png")
+        = link_to root_path, class: "link logo" do
+          = image_tag asset_path("logo.png")
       .headder__box__upper__search
         = form_tag( "#", method: "get" ) do
           = text_field_tag(:name, '', class: 'search-form', placeholder: 'キーワードから探す')
           %button(type = "submit")
             .search-btn__icon
-              = image_tag('/assets/icon-search 1.png', size: '20x20')
+              = image_tag asset_path('icon-search 1.png'), size: '20x20'
     .headder__box__btm
       %ul.headder__box__btm__left
         %li.headder__box__btm__left__category
@@ -18,10 +18,15 @@
         %li.headder__box__btm__left__brand
           = link_to "#", class: "link brand" do
             ブランド
-      %ul.headder__box__btm__right        
-        %li.headder__box__btm__right__login
-          = link_to "#", class: "link login" do
-            ログイン
-        %li.headder__box__btm__right__signup
-          = link_to "#", class: "link signup" do
-            新規会員登録
+      %ul.headder__box__btm__right
+        - if user_signed_in?
+          %li.headder__box__btm__right__login
+            = link_to user_path(current_user.id), class: "link login" do
+              マイページ
+        - else
+          %li.headder__box__btm__right__login
+            = link_to new_user_session_path, class: "link login" do
+              ログイン
+          %li.headder__box__btm__right__signup
+            = link_to new_user_registration_path, class: "link signup" do
+              新規会員登録

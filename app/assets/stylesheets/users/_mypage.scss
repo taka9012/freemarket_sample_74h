@@ -1,0 +1,253 @@
+@mixin text-link($color: #000){
+  color: $color;
+  text-decoration: none;
+}
+
+@mixin sidebar-list(){
+  border-top: 1px solid $lightgray;
+  min-height: 48px;
+  padding: 16px;
+  background-color: $white;
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+
+
+
+.mypage-wrapper{
+  width: 100%;
+  background-color: $bgwhite;
+  height: auto;
+
+  &__location{
+    list-style: none;
+    border-top: 1px solid $lightgray;
+    background-color: $white;
+    height: 50px;
+    width: 100%;
+    box-shadow: 0px 9px 3px -3px rgba(194, 192, 192, 0.493);
+
+    &__list{
+      list-style: none;
+      display: flex;
+      align-items: center;
+      max-width: 1040px;
+      margin: 0 auto;
+
+      &__item{
+        line-height: 50px;
+        font-size: 15px;
+        margin-right: 10px;
+
+        .ListItem-1{
+          @include text-link();
+        }
+
+        .ListItem-2{
+          @include text-link();
+          font-weight: 600;
+        }
+      }
+
+      &__icon{
+        margin-right: 10px;
+        color: #bbb;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+.top-container{
+  max-width: 1020px;
+  margin: 40px auto 0;
+  padding: 0 0 40px;
+  display: flex;
+}
+
+.mypage-container{
+
+  &__menu{
+    width: 280px;
+    margin-right: 40px;
+    background-color: $white;
+
+    &__list{
+      cursor: pointer;
+
+      a{
+        @include text-link();
+      }
+
+      &__mypage{
+        @include sidebar-list();
+        background-color: $lightgray;
+      }
+
+      &__item{
+        @include sidebar-list();
+        transition:transform 0.3s;
+
+        &:hover{
+          background-color: rgb(247, 247, 247);
+        }
+
+        &__icon{
+          position: absolute;
+          right: 16px;
+          top: 20px;
+          transition: all 1s;
+        }
+      }
+    }
+  }
+
+  &__board{
+    width: 700px;
+
+    &__upper{
+      height: 200px;
+      background-image: image-url('mypage-background.jpg');
+      background-position: center;
+      background-size: cover;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      z-index: 0;
+
+      &::before {
+        z-index: -1;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, .5);
+        opacity:0.9;
+      }
+
+      &__link{
+        display: block;
+        margin: 0 auto;
+        text-decoration: none;
+        color: $white;
+
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+
+      &__icon{
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      &__nickname{
+        padding: 5px 0;
+        font-weight: 600;
+      }
+    }
+
+    &__tabs{
+      background-color: $white;
+      width: 700px;
+      margin: 0 auto;
+
+      input[name="tab_item"]{
+        display: none;
+      }
+
+      input:checked + .tab_item {
+        background-color: $cyan;
+        color: $white;
+      }
+
+      .tab_item{
+        width: calc(100%/2);
+        height: 50px;
+        border-bottom: 3px solid $cyan;
+        background-color: #d9d9d9;
+        line-height: 50px;
+        font-size: 16px;
+        text-align: center;
+        color: #565656;
+        display: block;
+        float: left;
+        text-align: center;
+        font-weight: bold;
+        transition: all 0.2s ease;
+        cursor: pointer;
+
+        &:hover{
+          opacity: 0.75;
+        }
+      }
+
+      .tab_content{
+        display: none;
+        clear: both;
+        overflow: hidden;
+
+        &__description{
+          height: auto;
+          border-top: 1px solid $lightgray;
+
+          &__text{
+            text-decoration: none;
+            color: #000;
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            font-size: 15px;
+            text-align: center;
+
+            &__logo{
+              display: block;
+              width: 50px;
+              height: 50px;
+              margin-right: 10px;
+              background-color: $lightgray;
+              padding: 5px;
+            }
+          }
+
+          .more-notifications{
+            width: 100%;
+            background-color: $lightgray;
+            padding: 10px;
+
+            &:hover{
+              background-color: $white;
+            }
+          }
+        }
+      }
+
+      #notification:checked ~ #notification_content,
+      #todo:checked ~ #todo_content{
+        display: block;
+      }
+    }
+  }
+}
+
+
+.first-child{
+  background-color: $lightgray;
+}
+
+.mypage-link{
+  font-weight: 600;
+}
+
+.setting-menu{
+  margin: 40px 0 0 10px;
+  padding-bottom: 5px;
+  font-weight: 600;
+  font-size: 17px;
+}
