@@ -11,6 +11,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string      :postage_burden , null: false
       t.string      :shipping_area  , null: false
       t.string      :shipping_date  , null: false
+      t.string      :trading_status , null: false
       t.references  :user           , null: false, foreign_key: true
       t.timestamps
     end
