@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_05_12_023113) do
     t.string "ancestry", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
