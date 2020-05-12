@@ -1,0 +1,35 @@
+.top-view
+  = render "layouts/headder" 
+  .mypage-wrapper
+    %nav.mypage-wrapper__location
+      %ul.mypage-wrapper__location__list
+        %li.mypage-wrapper__location__list__item
+          = link_to "フリマ", root_path, class: "ListItem-1"
+        = icon('fas', 'chevron-right', class: "mypage-wrapper__location__list__icon") 
+        %li.mypage-wrapper__location__list__item
+          = link_to "マイページ", user_path(@user), class: "ListItem-1"
+        = icon('fas', 'chevron-right', class: "mypage-wrapper__location__list__icon") 
+        %li.mypage-wrapper__location__list__item
+          = link_to "プロフィール", user_profiles_path(@user), class: "ListItem-2"
+    
+    = form_with(model: [@user, @profile], local: true) do |f|
+      .top-container
+        .mypage-container
+          = render("users/side-menu")
+
+        .mypage-container__board
+          .mypage-container__title
+            プロフィール
+          .mypage-container__title__upper
+            = image_tag asset_path("profile-default-image"), class: "mypage-container__board__upper__icon"
+            .mypage-container__title__upper__image
+              ここにアイコン画像アップロードボタン
+          .mypage-container__profile
+            = f.text_area :profile_sentence, placeholder: "例）こんにちは！ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問ありましたらお気軽にどうぞ♪", class: "mypage-container__profile__input"
+            = f.submit "変更する", class:"mypage-container__profile__submit"
+
+  = render "layouts/footer"
+  = link_to "#", class: "link-sell" do
+    .sell-btn
+      %span 出品する
+      = image_tag asset_path("icon_camera.png")

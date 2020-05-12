@@ -1,20 +1,3 @@
-@mixin text-link($color: #000){
-  color: $color;
-  text-decoration: none;
-}
-
-@mixin sidebar-list(){
-  border-top: 1px solid $lightgray;
-  min-height: 48px;
-  padding: 16px;
-  background-color: $white;
-  position: relative;
-  display: block;
-  text-decoration: none;
-}
-
-
-
 .mypage-wrapper{
   width: 100%;
   background-color: $bgwhite;
@@ -80,11 +63,6 @@
         @include text-link();
       }
 
-      &__mypage{
-        @include sidebar-list();
-        background-color: $lightgray;
-      }
-
       &__item{
         @include sidebar-list();
         transition:transform 0.3s;
@@ -103,31 +81,52 @@
     }
   }
 
+  // プロフィールページ
+  &__title{
+    background-color: $white;
+    font-weight: 600;
+    font-size: 25px;
+    padding: 10px;
+    text-align: center;
+
+    &__upper{
+    @include profile-background($padding: 20px 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+      &__image{
+        background-color: $white;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &__profile{
+    height: auto;
+    padding: 40px 20px;
+    background-color: $white;
+
+    &__input{
+      width: 100%;
+      padding: 10px;
+      height: 15em;
+      border-color: $cyan;
+    }
+
+    &__submit{
+      @include submit-btn();
+      margin-top: 20px;
+    }
+  }
+
+  // ここまで＝＝＝＝＝＝＝＝＝
+
   &__board{
     width: 700px;
 
     &__upper{
-      height: 200px;
-      background-image: image-url('mypage-background.jpg');
-      background-position: center;
-      background-size: cover;
-      text-align: center;
-      padding: 20px;
-      position: relative;
-      z-index: 0;
-
-      &::before {
-        z-index: -1;
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, .5);
-        opacity:0.9;
-      }
+      @include profile-background();
 
       &__link{
         display: block;
