@@ -1,111 +1,111 @@
-.main
-  .main__logo
-    = link_to root_path,class: 'main__logo__image' do
-      = image_tag asset_path('logo-white.png'),class: 'main__logo__image',size: '120x33'
-  .main__createContents
-    .main__createContents__uploadImage
-      .main__createContents__uploadImage__title
+.createMain
+  .createMain__logo
+    = link_to root_path,class: 'createMain_logo__image' do
+      = image_tag asset_path('logo-white.png'),class: 'createMain__logo__image',size: '120x33'
+  .createMain__createContents
+    .createMain__createContents__uploadImage
+      .createMain__createContents__uploadImage__title
         %label
           出品画像
         %span
           必須
-    %p.main__createContents__uploadImage__explanation
-      最大5枚までアップロードできます
-  .main__createContents__uploadItem
-    .main__createContents__uploadItem__name
-      %label
-        商品名
-      %span
-        必須
-    .main__createContents__uploadItem__textfield
-      = form_tag( "#", method: "post" ) do
-        = text_field_tag(:name, '', class: '', placeholder: '40文字まで')
-    .main__createContents__uploadItem__explanation
-      %label
-        商品の説明
-      %span
-        必須
-    .main__createContents__uploadItem__explanationTextfield
-      = form_tag( "#", method: "post" ) do
-        = text_field_tag(:name, '', class: '', placeholder: '商品の説明を入力してください')
-  .main__createContents__uploadItemDetail
-    %p
-      商品の詳細
-    .main__createContents__uploadItemDetail__category
-      %label
-        カテゴリー
-      %span
-        必須
-    .main__createContents__uploadItemDetail__categorySelect
-      = select_tag( option_tags = 'レディース')
-    .main__createContents__uploadItemDetail__brand
-      %label
-        ブランド
-      %span
-        任意
-    .main__createContents__uploadItemDetail__brandSelect
-      = select_tag( option_tags = 'グッチ')
-    .main__createContents__uploadItemDetail__itemStatus
-      %label
-        商品の状態
-      %span
-        必須
-    .main__createContents__uploadItemDetail__itemStatusSelect
-      = select_tag( option_tags = '選択して下さい')
-  .main__createContents__uploadDelivery
-    %p
-      配送について
-    .main__createContents__uploadDelivery__deliveryFee
-      %label
-        配送料の負担
-      %span
-        必須
-    .main__createContents__uploadDelivery__deliveryFeeSelect
-      = select_tag( option_tags = '選択して下さい')
-    .main__createContents__uploadDelivery__deliveryArea
-      %label
-        発送元の地域
-      %span
-        必須
-    .main__createContents__uploadDelivery__deliveryAreaSelect
-      = select_tag( option_tags = '選択して下さい')
-    .main__createContents__uploadDelivery__deliveryDate
-      %label
-        発送までの日数
-      %span
-        必須
-    .main__createContents__uploadDelivery__deliveryDateSelect
-      = select_tag( option_tags = '選択して下さい')
-  .main__createContents__uploadPrice
-    %p
-      価格（¥300〜9,999,999）
-    .main__createContents__uploadPrice__salePrice
-      %label
-        販売価格
-      %span
-        必須
-    %span
-      ￥
-      .main__createContents__uploadPrice__salePrice__textField
+      %p.createMain__createContents__uploadImage__explanation
+        最大5枚までアップロードできます
+    .createMain__createContents__uploadItem
+      .createMain__createContents__uploadItem__name
+        %label
+          商品名
+        %span
+          必須
+      .createMain__createContents__uploadItem__textfield
+        = form_tag( "#", method: "post",class: '') do
+          = text_field_tag(class: 'inputform', placeholder: '40文字まで')
+      .createMain__createContents__uploadItem__explanation
+        %label
+          商品の説明
+        %span
+          必須
+      .createMain__createContents__uploadItem__explanationTextfield
         = form_tag( "#", method: "post" ) do
-          = text_field_tag(:name, '', class: '', placeholder: '0')
-    .main__createContents__uploadPrice__fee
+          = text_field_tag(class: '', placeholder: '商品の説明を入力してください')
+    .createMain__createContents__uploadItemDetail
       %p
-        販売手数料（10％）
-      %span
-        -
-    .main__createContents__uploadPrice__profit 
+        商品の詳細
+      .createMain__createContents__uploadItemDetail__category
+        %label
+          カテゴリー
+        %span
+          必須
+      .createMain__createContents__uploadItemDetail__categorySelect
+        = select_tag( option_tags = 'レディース')
+      .createMain__createContents__uploadItemDetail__brand
+        %label
+          ブランド
+        %span
+          任意
+      .createMain__createContents__uploadItemDetail__brandSelect
+        = select_tag( option_tags = 'グッチ')
+      .createMain__createContents__uploadItemDetail__itemStatus
+        %label
+          商品の状態
+        %span
+          必須
+      .createMain__createContents__uploadItemDetail__itemStatusSelect
+        = select_tag( option_tags = '選択して下さい')
+    .createMain__createContents__uploadDelivery
       %p
-        販売利益
+        配送について
+      .createMain__createContents__uploadDelivery__deliveryFee
+        %label
+          配送料の負担
+        %span
+          必須
+      .createMain__createContents__uploadDelivery__deliveryFeeSelect
+        = select_tag( option_tags = '選択して下さい')
+      .createMain__createContents__uploadDelivery__deliveryArea
+        %label
+          発送元の地域
+        %span
+          必須
+      .createMain__createContents__uploadDelivery__deliveryAreaSelect
+        = select_tag( option_tags = '選択して下さい')
+      .createMain__createContents__uploadDelivery__deliveryDate
+        %label
+          発送までの日数
+        %span
+          必須
+      .createMain__createContents__uploadDelivery__deliveryDateSelect
+        = select_tag( option_tags = '選択して下さい')
+    .createMain__createContents__uploadPrice
+      %p
+        価格（¥300〜9,999,999）
+      .createMain__createContents__uploadPrice__salePrice
+        %label
+          販売価格
+        %span
+          必須
       %span
-        -
-  .main__createContents__uploadBtn
-    %button
-      出品する
-  .main__createContents__back
-    = link_to root_path do
-      もどる
-  .main__create__contents__attention
-    %p
-      禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+        ￥
+        .createMain__createContents__uploadPrice__salePrice__textField
+          = form_tag( "#", method: "post" ) do
+            = text_field_tag(class: '', placeholder: '0')
+      .createMain__createContents__uploadPrice__fee
+        %p
+          販売手数料（10％）
+        %span
+          -
+      .createMain__createContents__uploadPrice__profit 
+        %p
+          販売利益
+        %span
+          -
+    .createMain__createContents__uploadBtn
+      %button
+        出品する
+    .createMain__createContents__back
+      = link_to root_path do
+        もどる
+    .createMain__create__contents__attention
+      %p
+        禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 = render "layouts/footer"
