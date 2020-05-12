@@ -1,5 +1,5 @@
 @mixin explanatoryText {
-  margin: 10px 0 ;
+  margin: 20px 0 ;
         label {
           font-size: 14px;
           font-weight: 600;
@@ -11,7 +11,7 @@
           color: white;
           font-weight: 600;
           border-radius: 2px;
-          padding: 0 4px;
+          padding: 2px 4px;
         }
 }
 
@@ -27,6 +27,26 @@
   }
 }
 
+@mixin pulldownTag {
+  .tag {
+    width: 100%;
+    height: 48px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 0 16px;
+  }
+}
+
+@mixin textBox {
+  .text {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 48px;
+    padding: 0 16px;
+  }
+}
+
 
 
 
@@ -37,12 +57,11 @@
   background-color: $bgwhite;
   &__logo {
     margin: 0 auto;
+    padding-top: 30px;
     align-items: center;
     height: 56px;
     display: flex;
     justify-content: center;
-    &__image {
-    }
   }
   &__createContents {
     margin: 0 auto;
@@ -52,19 +71,7 @@
     &__uploadImage {
       padding: 16px;
       &__title {
-        label {
-          font-size: 14px;
-          font-weight: 600;
-        }
-        span {
-          margin-left: 6px;
-          font-size: 12px;
-          background-color: red;
-          color: white;
-          font-weight: 600;
-          border-radius: 2px;
-          padding: 0 4px;
-        }
+        @include explanatoryText;
       }
       &__fileUp {
         width: 100%;
@@ -72,32 +79,24 @@
         background-color: $bgwhite;
         border: 1px dotted gray;
         margin: 10px 0 ;
+        border-radius: 4px;
+        position: relative;
+        &__icon {
+          position: absolute;
+          top: 75px;
+          left: 334px;
+        }
       }
     }
     &__uploadItem {
-      padding: 16px;
+      @include createContentsBox;
       &__name {
         margin: 10px 0 ;
-        label {
-          font-size: 14px;
-          font-weight: 600;
-        }
-        span {
-          margin-left: 6px;
-          font-size: 12px;
-          background-color: red;
-          color: white;
-          font-weight: 600;
-          border-radius: 2px;
-          padding: 0 4px;
-        }
+        @include explanatoryText;
       }
       &__textfield {
         margin-top: 16px;
-        &__inputform {
-          // height: 48px;
-          // width: 100%;
-        }
+        @include textBox;
       }
       &__explanation {
         @include explanatoryText;
@@ -107,6 +106,13 @@
           width: 100%;
           height: 100px;
           padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          font-family: inherit;
+          font-size: inherit;
+          margin: 0;
+          outline: none;
         }
       }
     }
@@ -118,15 +124,22 @@
         @include explanatoryText;
       }
       &__categorySelect {
-        .tag {
-          width: 100%;
-        }
+        @include pulldownTag;
       }
       &__brand {
         @include explanatoryText;
+        span {
+          background-color: gray;
+        }
+      }
+      &__brandSelect {
+        @include textBox;
       }
       &__itemStatus {
         @include explanatoryText;
+      }
+      &__itemStatusSelect {
+        @include pulldownTag;
       }
 
     }
@@ -136,11 +149,26 @@
       &__deliveryFee {
         @include explanatoryText;
       }
+      &__deliveryFeeSelect {
+        @include pulldownTag;
+      }
+      &__deliveryType {
+        @include explanatoryText;
+      }
+      &__deliveryTypeSelect {
+        @include pulldownTag;
+      }
       &__deliveryArea {
         @include explanatoryText;
       }
+      &__deliveryAreaSelect {
+        @include pulldownTag;
+      }
       &__deliveryDate {
         @include explanatoryText;
+      }
+      &__deliveryDateSelect {
+        @include pulldownTag;
       }
     }
     &__uploadPrice {
@@ -149,6 +177,26 @@
       &__salePrice {
         @include explanatoryText;
       }
+      &__priceArea {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        span {
+          line-height: 50px;
+          margin-right: 5px;
+        }
+        &__textField {
+          .text {
+            height: 50px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 0 16px;
+            text-align: right;
+            
+          }
+        }
+      }
+
     }
     &__uploadBtn {
       @include createContentsBox;
@@ -182,4 +230,8 @@
       
     }
   }
+}
+
+.createContentsBoder {
+  border-top: 1px solid $bgwhite;
 }
