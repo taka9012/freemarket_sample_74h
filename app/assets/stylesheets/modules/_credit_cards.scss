@@ -8,27 +8,26 @@
   background-color: $mainGrayColor;
 }
 
-.upper_space {
-  // height: 128px;
-  height: 13%;
-  text-align: center;
+.upper_room {
+  height: 128px;
+  width: 700px;
+  margin: 0 auto;
   line-height: 181px;
-  &-to-top-btn {
+  a {
     height: 49px;
     width: 185px;
+    padding-left: 233px;
   }
 }
 
-.middle-space {
-  background-color: white;
-  // height: 722px;
-  height: 87%;
-  width: 49%;
+.middle-room {
+  background-color: $white;
+  height: 562px;
+  width: 700px;
   margin: auto;
   &__card-form {
     height: 100%;
     &__info {
-      background-color: red;
       height: 100%;
       width: 60%;
       margin: 0 auto;
@@ -37,14 +36,19 @@
         font-size: 24px;
         font-weight: bold;
         text-align: center;
+        padding-top: 20px;
+        border-bottom-style: solid;
+        border-bottom-color: #f5f5f5;
+        border-bottom-width: thin;
       }
       &__card-number {
-        background-color: green;
-        height: 22.5%;
+        height: 98px;
+        padding-top: 40px;
+        // ⬆️危険かも(無理やり上下の位置を変えてる)
         label {
           font-weight: 600;
         }
-        span {
+        .mandate {
           background-color: red;
           border-radius: 2px;
           padding: 2px 4px;
@@ -72,16 +76,60 @@
         }
       }
       &__expiration-date {
-        background-color: greenyellow;
-        height: 22.5%;
-      }
-      &__security-code {
-        background-color: aqua;
-        height: 22.5%;
+        padding-top: 80px;
+        // ⬆️危険かも(無理やり上下の位置を変えてる)
+        height: 70px;
         label {
           font-weight: 600;
         }
-        span {
+        .mandate {
+          background-color: red;
+          border-radius: 2px;
+          padding: 2px 4px;
+          margin: 0 0 0 8px;
+          color: white;
+        }
+        &__select {
+          display: flex;
+          &__month {
+            display: flex;
+            &__box {
+              select {
+                height: 53px;
+                width: 140px;
+                margin-top: 5px;
+              }
+            }
+            .default-letter {
+              margin: auto;
+              padding-left: 12px;
+            }
+          }
+          &__year {
+            display: flex;
+            &__box {
+              select {
+                height: 53px;
+                width: 140px;
+                margin-top: 5px;
+                margin-left: 12px;
+              }
+            }
+            .default-letter {
+              margin: auto;
+              padding-left: 12px;
+            }
+          }
+        }
+      }
+      &__security-code {
+        padding-top: 120px;
+        // ⬆️危険かも(無理やり上下の位置を変えてる)
+        height: 93px;
+        label {
+          font-weight: 600;
+        }
+        .mandate {
           background-color: red;
           border-radius: 2px;
           padding: 2px 4px;
@@ -95,13 +143,21 @@
           border-radius: 4px;
           border: 1px solid #ccc;
         }
+        &__tip {
+          color: $cyan;
+          font-size: 14px;
+          .question {
+            border-radius: 50%;
+            background: $cyan;
+            padding: 0 4px;
+          }
+        }
       }
       &__register-btn {
-        background-color: blue;
-        height: 22.5%;
-        &__btn {
-          height: 30%;
-          display: flex;
+        padding-top: 133px;
+        // ⬆️危険かも(無理やり上下の位置を変えてる)
+        height: 50px;
+        display: flex;
           button {
             font-size: 14px;
             font-weight: bold;
@@ -111,9 +167,7 @@
             margin: auto;
             padding: 15px 135px;
           }
-        }
       }
     }
   }
-
 }
