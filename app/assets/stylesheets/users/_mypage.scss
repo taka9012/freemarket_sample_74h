@@ -5,6 +5,7 @@
 
   &__location{
     list-style: none;
+    padding: 0 60px;
     border-top: 1px solid $lightgray;
     background-color: $white;
     height: 50px;
@@ -95,17 +96,51 @@
     justify-content: center;
     align-items: center;
 
-      &__image{
-        background-color: $white;
-        margin-left: 10px;
+      .black-filter{
+        background-color: #000;
+        display: inline-block;
+        border-radius: 50%;
+      }
+
+      &__icon{
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        position: relative;
+        opacity: 0.7;
+        display: block;
       }
     }
   }
 
   &__profile{
     height: auto;
-    padding: 40px 20px;
+    padding: 20px 20px 40px;
     background-color: $white;
+
+    &__image{
+      margin-bottom: 20px;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      z-index: 0;
+
+      .camera-icon{
+        font-size: 45px;
+        color: $white;
+        opacity: 0.7;
+        cursor: pointer;
+      }
+
+      .hidden{
+        display: none;
+      }
+    }
 
     &__input{
       width: 100%;
@@ -144,6 +179,7 @@
         height: 100px;
         object-fit: cover;
         border-radius: 50%;
+        position: relative;
       }
 
       &__nickname{

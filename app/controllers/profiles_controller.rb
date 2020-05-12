@@ -1,12 +1,22 @@
 class ProfilesController < ApplicationController
   before_action :set_user
 
-  def index
-    @profile = Profile.new
+  def new
+      @profile = Profile.new
+  end
+
+  def edit
+    @profile = Profile.find(params[:id])
   end
 
   def create
-    @profile
+    @profile = Profile.create(profile_params)
+    redirect_to user_path(@user)
+  end
+
+  def update
+    @profile = Profile.find(params[:id])
+    @profile.update(profile_params)
     redirect_to user_path(@user)
   end
 

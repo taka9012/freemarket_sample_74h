@@ -15,7 +15,10 @@
       .mypage-container__board
         .mypage-container__board__upper
           = link_to "#", class: "mypage-container__board__upper__link" do
-            = image_tag asset_path("profile-default-image"), class: "mypage-container__board__upper__icon"
+            - if @user.profile.present?
+              = image_tag @profile.icon_image.to_s, class: "mypage-container__board__upper__icon"
+            - else
+              = image_tag asset_path("profile-default-image.jpg"), class: "mypage-container__board__upper__icon"
             .mypage-container__board__upper__nickname
               = @user.nickname
             .mypage-container__board__upper__exhibits

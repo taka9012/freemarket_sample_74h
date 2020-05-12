@@ -1,0 +1,9 @@
+.mypage-container__title__upper
+  .black-filter
+    = image_tag @profile.icon_image.to_s, class: "mypage-container__title__upper__icon"
+  = f.label :icon_image, class: "mypage-container__profile__image" do
+    = icon('fas', 'camera', class: "camera-icon")
+    = f.file_field :icon_image, class: "hidden"
+.mypage-container__profile
+  = f.text_area :profile_sentence, placeholder: "例）こんにちは！ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問ありましたらお気軽にどうぞ♪", class: "mypage-container__profile__input"
+  = f.submit "変更する", class:"mypage-container__profile__submit"
