@@ -107,6 +107,7 @@ body {
 
     &__input{
       @include input-area();
+      font-weight: normal;
     }
 
     &__submit{

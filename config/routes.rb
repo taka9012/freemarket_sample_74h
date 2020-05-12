@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   end
   
   root 'items#index'
-  resources :credit_cards, only: [:index, :show]
+  resources :credit_cards, only: [:index]
+  resources :credit_registrations, only: [:index]
   resources :items, only: [:index, :show]
+  resources :users, only: [:show]
 end

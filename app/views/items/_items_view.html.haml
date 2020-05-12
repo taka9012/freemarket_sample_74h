@@ -2,13 +2,13 @@
   .items-view__pick-category
     .items-view__title
       %h1 ピックアップカテゴリー
-      = link_to "#", class: "link new-items" do 
+      = link_to "#", class: "link new-items" do
         %p 新規投稿商品
     .category-items
       .itemsList
         = link_to "#", class: "link category-item" do
           .itemsList__img
-            = image_tag("/assets/items_test.png")
+            = image_tag asset_path("items_test.png")
           .itemsList__text
             %h2.item-name item1
             %ul.itemsList__text__price-box
@@ -20,7 +20,7 @@
       .itemsList
         = link_to "#", class: "link category-item" do
           .itemsList__img
-            = image_tag("/assets/items_test.png")
+            = image_tag asset_path("items_test.png")
           .itemsList__text
             %h2.item-name item2
             %ul.itemsList__text__price-box
@@ -32,7 +32,7 @@
       .itemsList
         = link_to "#", class: "link category-item" do
           .itemsList__img
-            = image_tag("/assets/items_test.png")
+            = image_tag asset_path("items_test.png")
           .itemsList__text
             %h2.item-name item3
             %ul.itemsList__text__price-box
@@ -44,13 +44,13 @@
   .items-view__pick-brand
     .items-view__title
       %h1 ピックアップブランド
-      = link_to "#", class: "link archive" do 
+      = link_to "#", class: "link archive" do
         %p アーカイバ
     .brand-items
       .itemsList
         = link_to "#", class: "link brand-item" do
           .itemsList__img
-            = image_tag("/assets/items_test.png")
+            = image_tag asset_path("items_test.png")
           .itemsList__text
             %h2.item-name item1
             %ul.itemsList__text__price-box
@@ -62,7 +62,7 @@
       .itemsList
         = link_to "#", class: "link brand-item" do
           .itemsList__img
-            = image_tag("/assets/items_test.png")
+            = image_tag asset_path("items_test.png")
           .itemsList__text
             %h2.item-name item2
             %ul.itemsList__text__price-box
@@ -74,7 +74,7 @@
       .itemsList
         = link_to "#", class: "link brand-item" do
           .itemsList__img
-            = image_tag("/assets/items_test.png")
+            = image_tag asset_path("items_test.png")
           .itemsList__text
             %h2.item-name item3
             %ul.itemsList__text__price-box

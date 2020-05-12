@@ -8,156 +8,139 @@
   background-color: $mainGrayColor;
 }
 
-.upper_room {
+.upper_space {
   height: 128px;
-  width: 700px;
-  margin: 0 auto;
+  text-align: center;
   line-height: 181px;
-  a {
+  &-to-top-btn {
     height: 49px;
     width: 185px;
-    padding-left: 233px;
   }
 }
 
-.middle-room {
-  background-color: $white;
-  height: 562px;
-  width: 700px;
-  margin: auto;
-  &__card-form {
+.middle_space {
+  height: 722px;
+  background-color: $mainGrayColor;
+  &__info {
     height: 100%;
-    &__info {
-      height: 100%;
-      width: 60%;
-      margin: 0 auto;
-      &__title {
-        height: 10%;
-        font-size: 24px;
+    width: 49%;
+    margin: 0 auto;
+    &__info-head {
+      color: #333333;
+      background-color: $mainWhiteColor;
+      height: 14%;
+      border-bottom-style: solid;
+      border-bottom-color: #f5f5f5;
+      border-bottom-width: thin;
+      h2 {
+        font-size: 22px;
         font-weight: bold;
         text-align: center;
-        padding-top: 20px;
-        border-bottom-style: solid;
-        border-bottom-color: #f5f5f5;
-        border-bottom-width: thin;
+        line-height: 100px;
       }
-      &__card-number {
-        height: 98px;
-        padding-top: 40px;
-        // ⬆️危険かも(無理やり上下の位置を変えてる)
-        label {
-          font-weight: 600;
+
+    }
+    &__item-info {
+      background-color: $mainWhiteColor;
+      height: 20%;
+      padding: 32px 16px;
+      display: flex;
+      justify-content: center;
+      border-bottom-style: solid;
+      border-bottom-color: #f5f5f5;
+      border-bottom-width: thin;
+      &__img {
+    
+      }
+      &__content {
+        margin-left: 50px;
+        &__name {
+          font-size: 12px;
+          margin-bottom: 17px;
         }
-        .mandate {
-          background-color: red;
-          border-radius: 2px;
-          padding: 2px 4px;
-          margin: 0 0 0 8px;
-          color: white;
-        }
-        .input-number {
-          width: 100%;
-          padding: 18px 16px 8px;
-          margin-top: 5px;
-          border-radius: 4px;
-          border: 1px solid #ccc;
-        }
-        ul {
-          margin-top: 5px;
-          li {
-            display: inline;
-          }
-          li {
-            display: inline;
-          }
-          li {
-            display: inline;
+        &__price {
+          font-size: 12px;
+          &__p {
+            &__span {
+              &__mgr-10 {
+                margin-left: 10px;
+              }
+            }
           }
         }
       }
-      &__expiration-date {
-        padding-top: 80px;
-        // ⬆️危険かも(無理やり上下の位置を変えてる)
-        height: 70px;
-        label {
-          font-weight: 600;
+    }
+    &__payment-info {
+      background-color: $mainWhiteColor;
+      height: 66%;
+      &__form {
+        height: 100%;
+        &__price {
+          height: 30%;
+          border-bottom-style: solid;
+          border-bottom-color: #f5f5f5;
+          border-bottom-width: thin;
+          .content {
+            display: flex;
+            justify-content: center;
+            padding-top: 57px;
+
+            &-text {
+              font-size: 18px;
+              padding-top: 5px;
+              padding-right: 53px;
+              font-weight: bold;
+
+            }
+            &-appraisal {
+              font-size: 24px;
+              font-weight: bold;
+              padding-left: 73px;
+            }
+          }
         }
-        .mandate {
-          background-color: red;
-          border-radius: 2px;
-          padding: 2px 4px;
-          margin: 0 0 0 8px;
-          color: white;
+        &__howToPay {
+          height: 20%;
+          background-color: $mainWhiteColor;
+          border-bottom-style: solid;
+          border-bottom-color: #f5f5f5;
+          border-bottom-width: thin;
+          h3 {
+            padding-left: 190px;
+            padding-top: 25px;
+            font-size: 14px;
+            font-weight: bold;
+          }
+          a {
+            padding-left: 190px;
+            padding-top: 8px;
+            font-size: 14px;
+            text-decoration: none;
+            color: $mainBlueColor;
+          }
         }
-        &__select {
+        &__billingAddress {
+          height: 20%;
+          border-bottom-style: solid;
+          border-bottom-color: #f5f5f5;
+          border-bottom-width: thin;
+          h3 {
+            padding-left: 190px;
+            padding-top: 25px;
+            font-size: 14px;
+            font-weight: bold;
+          }
+          a {
+            padding-left: 190px;
+            padding-top: 8px;
+            font-size: 14px;
+            text-decoration: none;
+            color: $mainBlueColor;
+          }
+        }
+        &__btn {
+          height: 30%;
           display: flex;
-          &__month {
-            display: flex;
-            &__box {
-              select {
-                height: 53px;
-                width: 140px;
-                margin-top: 5px;
-              }
-            }
-            .default-letter {
-              margin: auto;
-              padding-left: 12px;
-            }
-          }
-          &__year {
-            display: flex;
-            &__box {
-              select {
-                height: 53px;
-                width: 140px;
-                margin-top: 5px;
-                margin-left: 12px;
-              }
-            }
-            .default-letter {
-              margin: auto;
-              padding-left: 12px;
-            }
-          }
-        }
-      }
-      &__security-code {
-        padding-top: 120px;
-        // ⬆️危険かも(無理やり上下の位置を変えてる)
-        height: 93px;
-        label {
-          font-weight: 600;
-        }
-        .mandate {
-          background-color: red;
-          border-radius: 2px;
-          padding: 2px 4px;
-          margin: 0 0 0 8px;
-          color: white;
-        }
-        .input-number {
-          width: 100%;
-          padding: 18px 16px 8px;
-          margin-top: 5px;
-          border-radius: 4px;
-          border: 1px solid #ccc;
-        }
-        &__tip {
-          color: $cyan;
-          font-size: 14px;
-          .question {
-            border-radius: 50%;
-            background: $cyan;
-            padding: 0 4px;
-          }
-        }
-      }
-      &__register-btn {
-        padding-top: 133px;
-        // ⬆️危険かも(無理やり上下の位置を変えてる)
-        height: 50px;
-        display: flex;
           button {
             font-size: 14px;
             font-weight: bold;
@@ -166,8 +149,15 @@
             color: #fff;
             margin: auto;
             padding: 15px 135px;
+          
           }
+        }
       }
     }
   }
+}
+
+.lower_space {
+  height: 220px;
+  background-color: $mainGrayColor;
 }
