@@ -1,7 +1,7 @@
 .createMain
   .createMain__logo
     = link_to root_path,class: 'createMain_logo__image' do
-      = image_tag asset_path('logo-white.png'),class: 'createMain__logo__image',size: '120x33'
+      = image_tag asset_path('logo.png'),class: 'createMain__logo__image',size: '120x33'
   .createMain__createContents
     .createMain__createContents__uploadImage
       .createMain__createContents__uploadImage__title
@@ -11,6 +11,7 @@
           必須
       %p.createMain__createContents__uploadImage__explanation
         最大5枚までアップロードできます
+      .createMain__createContents__uploadImage__fileUp
     .createMain__createContents__uploadItem
       .createMain__createContents__uploadItem__name
         %label
@@ -18,16 +19,14 @@
         %span
           必須
       .createMain__createContents__uploadItem__textfield
-        = form_tag( "#", method: "post",class: '') do
-          = text_field_tag(class: 'inputform', placeholder: '40文字まで')
+        %iuput.createMain__createContents__uploadItem__textfield__iuputform{type: 'text', }
       .createMain__createContents__uploadItem__explanation
         %label
           商品の説明
         %span
           必須
       .createMain__createContents__uploadItem__explanationTextfield
-        = form_tag( "#", method: "post" ) do
-          = text_field_tag(class: '', placeholder: '商品の説明を入力してください')
+        %textarea
     .createMain__createContents__uploadItemDetail
       %p
         商品の詳細
@@ -37,7 +36,7 @@
         %span
           必須
       .createMain__createContents__uploadItemDetail__categorySelect
-        = select_tag( option_tags = 'レディース')
+        = select_tag( option_tags = 'レディース', class:'tag')
       .createMain__createContents__uploadItemDetail__brand
         %label
           ブランド
@@ -89,23 +88,23 @@
         .createMain__createContents__uploadPrice__salePrice__textField
           = form_tag( "#", method: "post" ) do
             = text_field_tag(class: '', placeholder: '0')
-      .createMain__createContents__uploadPrice__fee
-        %p
-          販売手数料（10％）
-        %span
-          -
-      .createMain__createContents__uploadPrice__profit 
-        %p
-          販売利益
-        %span
-          -
+      -# .createMain__createContents__uploadPrice__fee
+      -#   %p
+      -#     販売手数料（10％）
+      -#   %span
+      -#     -
+      -# .createMain__createContents__uploadPrice__profit 
+      -#   %p
+      -#     販売利益
+      -#   %span
+      -#     -
     .createMain__createContents__uploadBtn
       %button
         出品する
     .createMain__createContents__back
-      = link_to root_path do
+      = link_to root_path, class:"linkText" do
         もどる
-    .createMain__create__contents__attention
+    .createMain__createContents__attention
       %p
         禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 = render "layouts/footer"
