@@ -4,22 +4,49 @@
   %br
   価格
   = f.number_field :price 
-  円
+  円 
   %br
-  #image-box
-    = f.fields_for :images do |i| 
-      .js-file_group{data:{index: "#{i.index}"}}
-        = i.file_field :src, class: 'js-file'
-        %br
-        %span.js-remove
-          削除
-      - if @product.persisted? 
-        = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy' 
-      - if @product.persisted? 
-      .js-file_group{data:{index: "#{@product.images.count}"}} 
-        <%= file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file' %>
-        <div class="js-remove">削除</div>
-      </div>
-    <% end %>
+  -# 説明
+  -# = f.text_area :explanation
+  -# %br
+
+  -# %br
+  -# カテゴリー
+  -# = f.text_field :category
+  -# %br
+  -# 状態
+  -# = f.text_field :item_status
+  -# %br
+  -# 送料タイプ
+  -# = f.text_field :postage_type
+  -# %br
+  -# 送料負担
+  -# = f.text_field :postage_burden
+  -# %br
+  -# 発送元
+  -# = f.text_field :shipping_area
+  -# %br
+  -# 発送までの日数
+  -# = f.text_field :shipping_date
+  -# %br
+  -# トレード状態
+  -# = f.text_field :trading_status
+  -# %br
+  -# #image-box
+  -# = f.fields_for :images do |i| 
+    -# .js-file_group{data:{index: "#{i.index}"}}
+      -# = i.file_field :src, class: 'js-file'
+    -# = i.file_field :src
+    %br
+      -# %span.js-remove
+      -#     削除
+    -#   - if @product.persisted? 
+    -#     = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy' 
+    -#   - if @product.persisted? 
+    -#   .js-file_group{data:{index: "#{@product.images.count}"}} 
+    -#     <%= file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file' %>
+    -#     <div class="js-remove">削除</div>
+    -#   </div>
+    -# <% end %>
   = f.submit "出品"
     
