@@ -232,3 +232,15 @@ ja:
         house_number: 番地
         building_name: 建物名
         telephone_number: 電場番号
+
+# addressエラーメッセージ
+ja:
+  activerecord:
+    errors:
+      models:
+        address:
+          attributes:
+            firstname:
+              invalid: "が正しくありません"
+            email:
+              blank: "が空になっています"

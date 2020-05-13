@@ -6,6 +6,9 @@
   .new_signup-container
     %h2.new_signup-container__head 住所情報入力
     .new_signup-container__main
+      - @address.errors.full_messages.each do |message|
+        .form-error
+          = message
       .new_signup-container__main__box
         = form_with model: @address, local: true do |f|
           .field

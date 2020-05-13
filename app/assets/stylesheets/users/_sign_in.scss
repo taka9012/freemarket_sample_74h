@@ -221,6 +221,12 @@ body {
     text-align: center;
     border-bottom: 1px solid #eee;
     font-size: 20px;
+
+    .form-error{
+      margin: 0 auto;
+      padding: 10px 10px 0;
+      color: red;
+    }
   }
 
   &__main{
@@ -229,6 +235,7 @@ body {
     &__box{
       max-width: 343px;
       margin: 0 auto;
+      margin-top: 10px;
 
       label{
         font-weight: 600;
