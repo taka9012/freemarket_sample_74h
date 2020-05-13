@@ -200,16 +200,16 @@ body {
     text-align: center;
     border-bottom: 1px solid #eee;
     font-size: 20px;
-
-    .form-error{
-      margin: 0 auto;
-      padding: 10px 10px 0;
-      color: red;
-    }
   }
 
   &__main{
     padding: 14px 16px 40px;
+    text-align: center;
+
+    .form-error{
+      margin: 0 auto;
+      color: red;
+    }
 
     &__box{
       max-width: 343px;
