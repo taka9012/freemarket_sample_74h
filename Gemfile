@@ -48,6 +48,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -78,8 +79,6 @@ end
 gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'devise'
-gem 'devise-i18n'
-gem 'devise-i18n-views'
 gem 'jp_prefecture'
 gem 'carrierwave'
 gem 'mini_magick'
