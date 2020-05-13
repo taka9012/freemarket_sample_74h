@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   
   root 'items#index'
   resources :credit_cards, only: [:index]
+  resources :items, only: [:index, :show, :new]
   resources :credit_registrations, only: [:index]
   resources :items
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    resources :profiles, only: [:new, :edit, :create, :update]
+  end
 end

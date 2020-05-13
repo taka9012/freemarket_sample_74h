@@ -1,0 +1,237 @@
+@mixin explanatoryText {
+  margin: 20px 0 ;
+        label {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        span {
+          margin-left: 6px;
+          font-size: 12px;
+          background-color: red;
+          color: white;
+          font-weight: 600;
+          border-radius: 2px;
+          padding: 2px 4px;
+        }
+}
+
+@mixin createContentsBox {
+  padding: 16px;
+}
+
+@mixin contentsExplanatory {
+  p {
+    color: gray;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+}
+
+@mixin pulldownTag {
+  .tag {
+    width: 100%;
+    height: 48px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 0 16px;
+  }
+}
+
+@mixin textBox {
+  .text {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 48px;
+    padding: 0 16px;
+  }
+}
+
+
+
+
+.createMain {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  background-color: $bgwhite;
+  &__logo {
+    margin: 0 auto;
+    padding-top: 30px;
+    align-items: center;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+  }
+  &__createContents {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 700px;
+    background-color: $white;
+    &__uploadImage {
+      padding: 16px;
+      &__title {
+        @include explanatoryText;
+      }
+      &__fileUp {
+        width: 100%;
+        height: 150px;
+        background-color: $bgwhite;
+        border: 1px dotted gray;
+        margin: 10px 0 ;
+        border-radius: 4px;
+        position: relative;
+        &__icon {
+          position: absolute;
+          top: 75px;
+          left: 334px;
+        }
+      }
+    }
+    &__uploadItem {
+      @include createContentsBox;
+      &__name {
+        margin: 10px 0 ;
+        @include explanatoryText;
+      }
+      &__textfield {
+        margin-top: 16px;
+        @include textBox;
+      }
+      &__explanation {
+        @include explanatoryText;
+      }
+      &__explanationTextfield {
+        textarea {
+          width: 100%;
+          height: 100px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          font-family: inherit;
+          font-size: inherit;
+          margin: 0;
+          outline: none;
+        }
+      }
+    }
+    &__uploadItemDetail {
+      padding: 16px;
+      @include contentsExplanatory;
+
+      &__category {
+        @include explanatoryText;
+      }
+      &__categorySelect {
+        @include pulldownTag;
+      }
+      &__brand {
+        @include explanatoryText;
+        span {
+          background-color: gray;
+        }
+      }
+      &__brandSelect {
+        @include textBox;
+      }
+      &__itemStatus {
+        @include explanatoryText;
+      }
+      &__itemStatusSelect {
+        @include pulldownTag;
+      }
+
+    }
+    &__uploadDelivery {
+      padding: 16px;
+      @include contentsExplanatory;
+      &__deliveryFee {
+        @include explanatoryText;
+      }
+      &__deliveryFeeSelect {
+        @include pulldownTag;
+      }
+      &__deliveryType {
+        @include explanatoryText;
+      }
+      &__deliveryTypeSelect {
+        @include pulldownTag;
+      }
+      &__deliveryArea {
+        @include explanatoryText;
+      }
+      &__deliveryAreaSelect {
+        @include pulldownTag;
+      }
+      &__deliveryDate {
+        @include explanatoryText;
+      }
+      &__deliveryDateSelect {
+        @include pulldownTag;
+      }
+    }
+    &__uploadPrice {
+      padding: 16px;
+      @include contentsExplanatory;
+      &__salePrice {
+        @include explanatoryText;
+      }
+      &__priceArea {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        span {
+          line-height: 50px;
+          margin-right: 5px;
+        }
+        &__textField {
+          .text {
+            height: 50px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 0 16px;
+            text-align: right;
+            
+          }
+        }
+      }
+
+    }
+    &__uploadBtn {
+      @include createContentsBox;
+      text-align: center;
+      margin-top: 20px;
+      button {
+        width: 50%;
+        height: 50px;
+        background-color: $cyan;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+    &__back {
+      @include createContentsBox;
+      text-align: center;
+      .linkText {
+        text-decoration: none;
+        color: $cyan;
+      }
+    }
+    &__attention {
+      p {
+        @include createContentsBox;
+        margin: 0 auto;
+        width: 80%;
+        font-size: 12px;
+        text-align: center;
+      }
+      
+    }
+  }
+}
+
+.createContentsBoder {
+  border-top: 1px solid $bgwhite;
+}
