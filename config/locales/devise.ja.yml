@@ -155,3 +155,5 @@ ja:
       invalid: "は有効でありません。"
       confirmation: "が内容とあっていません。"
       not_a_number: "数字を入力してください"
+      greater_than: "以上の数字を入力してください"
+      less_than: "未満の数字を入力してください"
