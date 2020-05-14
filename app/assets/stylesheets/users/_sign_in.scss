@@ -204,10 +204,17 @@ body {
 
   &__main{
     padding: 14px 16px 40px;
+    text-align: center;
+
+    .form-error{
+      margin: 0 auto;
+      color: red;
+    }
 
     &__box{
       max-width: 343px;
       margin: 0 auto;
+      margin-top: 10px;
 
       label{
         font-weight: 600;

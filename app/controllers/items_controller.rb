@@ -3,9 +3,6 @@ class ItemsController < ApplicationController
   def index
     @items = Item.includes(:images).order('created_at DESC')
   end
-
-  def show
-  end
   
   def new
   end
@@ -23,8 +20,5 @@ class ItemsController < ApplicationController
   end
 
   def show
-  end
-
-  def new
   end
 end
