@@ -2,7 +2,7 @@
   .middle-room__card-form
     .middle-room__card-form__info
       .middle-room__card-form__info__title 
-        支払い方法
+        クレジットカード情報登録
       .middle-room__card-form__info__card-number
         %label(for="card-name") カード番号
         %span.mandate 必須
@@ -57,9 +57,9 @@
       .middle-room__card-form__info__security-code
         %label(for="card-name") セキュリティコード
         %span.mandate 必須
-        %input.input-number{:type => "text", :placeholder => "半角数字のみ"}
+        %input.input-number{:type => "text", :placeholder => "カード背面4桁もしくは3桁の番号"}
         .middle-room__card-form__info__security-code__tip
           %span.question ?
           カードの裏側の番号とは？
-      .middle-room__card-form__info__register-btn
-        %button 登録する
+        %button.middle-room__card-form__info__register-btn
+          登録する

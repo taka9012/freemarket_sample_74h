@@ -22,7 +22,7 @@
           = render partial: 'form', locals: { f: f }
 
   = render "layouts/footer"
-  = link_to "#", class: "link-sell" do
+  = link_to new_item_path, class: "link-sell" do
     .sell-btn
       %span 出品する
       = image_tag asset_path("icon_camera.png")
