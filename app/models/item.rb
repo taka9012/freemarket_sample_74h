@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, foreign_key: 'user_id'
+  # belongs_to user, foreign_key: 'user_id'
   # 未実装テーブルのアソシエーションはコメントアウト
   # has_many :comments, dependent: :destroy
   # has_many :likes, dependent: :destroy
