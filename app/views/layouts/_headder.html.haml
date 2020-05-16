@@ -12,15 +12,15 @@
               = image_tag asset_path('icon-search 1.png'), size: '20x20'
     .headder__box__btm
       %ul.headder__box__btm__left
-        %li.headder__box__btm__left__category
-          = link_to "#", class: " link category" do
-            カテゴリー
-            = render "layouts/category"
-            -# .category-box
-              -# = render "layouts/category"
-        %li.headder__box__btm__left__brand
-          = link_to "#", class: "link brand" do
-            ブランド
+        #category-area
+          %li.headder__box__btm__left__category
+            = link_to "#", class: " link category" do
+              カテゴリー
+              .category-box
+                = render "layouts/category"
+          %li.headder__box__btm__left__brand
+            = link_to "#", class: "link brand" do
+              ブランド
       %ul.headder__box__btm__right
         - if user_signed_in?
           %li.headder__box__btm__right__login

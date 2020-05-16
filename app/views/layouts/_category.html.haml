@@ -1,20 +1,20 @@
--# -# .category-box
--#   -# .parent
--#     - @parents.each do |parent|
--#     -# .parent-content
--#       = parent.name
--#       -# .child
--#         - parent.children.each do |child|
--#           -# .child-content
--#             = child.name
--#             -# .grandchild
--#               - child.children.each do |grandchild|
--#                 -# .grandchild-content
--#                   = grandchild.name
+.category-box
+  .parent
+    - @parents.each do |parent|
+      .parent-content
+        = parent.name
+        .child
+          - parent.children.each do |child|
+            .child-content
+              = child.name
+              .grandchild
+                - child.children.each do |grandchild|
+                  .grandchild-content
+                    = grandchild.name
 
-- @parents.each do |parent|
-  = parent.name
-  - parent.children.each do |child|
-    = child.name
-    - child.children.each do |grandchild|
-      = grandchild.name
+-# - @parents.each do |parent|
+-#   = parent.name
+-#   - parent.children.each do |child|
+-#     = child.name
+-#     - child.children.each do |grandchild|
+-#       = grandchild.name
