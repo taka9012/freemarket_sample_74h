@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  protect_from_forgery except: :search
   before_action :set_item, except: [:index, :new, :create]
 
   def index
