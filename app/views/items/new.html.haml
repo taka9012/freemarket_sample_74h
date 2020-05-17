@@ -17,11 +17,11 @@
           .image-preview
           %label{id: "image-label"}
             .image-field
-              %i{class: "fas fa-camera"}
+              .image-field__icon
+
+                %i.fas.fa-camera
               .image-field__text
-                ドラッグアンドドロップ
-                %br
-                またはクリックしてファイルをアップロード
+                クリックしてファイルをアップロード
             = f.fields_for :images do |i|
               = i.file_field :src, {class: "file-field"}
       .createMain__createContents__uploadItem

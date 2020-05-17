@@ -47,9 +47,7 @@ $(document).on('turbolinks:load', ()=> {
           <div class="image-field" id="image-field-second">
             <i class="fas fa-camera"></i>
             <div class="image-field__text">
-              ドラッグアンドドロップ
-              <br>
-              またはクリックしてファイルをアップロード
+              クリックしてファイルをアップロード
             </div>
           </div>
         `);

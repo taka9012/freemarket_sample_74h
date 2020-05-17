@@ -78,7 +78,6 @@
         flex-wrap: wrap;
         margin: 10px auto;
         width: 660px;
-        
         .file-field{
           display: none;
         }
@@ -86,9 +85,7 @@
           margin: 16px 0;
           display: flex;
           flex-wrap: wrap;
-
           &__image{
-            
             &__img{
               width: 131px;
               margin-right: 1px;
@@ -108,16 +105,24 @@
         }
         #image-label{
           width: 100%;
-          
+          text-align: center;
           .image-field{
+            background-color: $bgwhite;
+            border-radius: 4px;
             margin-top: 10px;
             border: 1px dotted gray;
             height: 190px;
-
+            cursor: pointer;
+            &__icon{
+              margin: 80px auto 0;
+            }
           }
-          
+          #image-field-second{
+            i{
+              margin: 80px auto 0;
+            }
+          }
         }
-        
       }
     }
     &__uploadItem {
