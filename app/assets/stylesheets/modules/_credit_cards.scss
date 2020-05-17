@@ -135,3 +135,23 @@
   color: white;
   font-size: 14px;
 }
+
+.card-wrapper{
+  padding: 20px;
+  height: 457px;
+  &__title{
+    text-align: center;
+    font-weight: bold;
+  }
+  &__content-title{
+  
+    margin-top: 20px;
+    .require{
+      padding: 3px;
+      color: white;
+      font-size: 12px;
+      border-radius: 4px;
+      background-color: white;
+    }
+  }
+}
