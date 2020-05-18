@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :access_right_check, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :access_right_check, except: [:index, :show]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -28,10 +29,9 @@ class ItemsController < ApplicationController
 
   def access_right_check
     item = Item.find(params[:id])
-    unless user_signed_in? || (user_signed_in? && current_user.id == item.user_id)
+    unless current_user&.id == item.user_id
       flash[:alert] = "権限がありません"
       redirect_back(fallback_location: item_path(item))
     end
   end
-
 end
