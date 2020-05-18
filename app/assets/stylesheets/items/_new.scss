@@ -34,7 +34,9 @@
     background-color: white;
     border: 1px solid #ccc;
     padding: 0 16px;
+    -webkit-appearance: none;
   }
+  position: relative;
 }
 
 @mixin textBox {
@@ -47,6 +49,17 @@
   }
 }
 
+@mixin changeicon {
+  .tag-icon{
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  z-index: 2;
+  color: #888;
+  transform: translate(0, -50%);
+  font-size: 18px;
+  }
+}
 
 
 
@@ -162,6 +175,7 @@
       }
       &__categorySelect {
         @include pulldownTag;
+        @include changeicon;
       }
       &__brand {
         @include explanatoryText;
@@ -177,6 +191,7 @@
       }
       &__itemStatusSelect {
         @include pulldownTag;
+        @include changeicon;
       }
 
     }
@@ -188,24 +203,28 @@
       }
       &__deliveryFeeSelect {
         @include pulldownTag;
+        @include changeicon;
       }
       &__deliveryType {
         @include explanatoryText;
       }
       &__deliveryTypeSelect {
         @include pulldownTag;
+        @include changeicon;
       }
       &__deliveryArea {
         @include explanatoryText;
       }
       &__deliveryAreaSelect {
         @include pulldownTag;
+        @include changeicon;
       }
       &__deliveryDate {
         @include explanatoryText;
       }
       &__deliveryDateSelect {
         @include pulldownTag;
+        @include changeicon;
       }
     }
     &__uploadPrice {
