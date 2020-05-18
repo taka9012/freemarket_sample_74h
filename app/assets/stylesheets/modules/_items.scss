@@ -13,32 +13,58 @@
       &__itemBox {
         background-color: #ffffff;
         padding: 24px 40px 40px;
-        &__name h2 {
+        &__name{
           text-align: center;
           font-weight: bold;
           font-size: 24px;
         }
-        &__body {
-          margin: 16px 0 0;
-          &__mainPic {
-            object-fit: cover;
-            height: 346px;
-            width: 100%;
-            vertical-align: bottom;
-            &__subPic {
-              object-fit: cover;
-            }
+
+        &__link{
+          font-size: 14px;
+          margin: 20px 0px 30px;
+          
+          &--edit{
+            @include link-btn();
+            margin-right: 20px;
+          }
+
+          &--delete{
+            @include link-btn();
           }
         }
-        &__body ul>li ul {
+
+        &__body {
+          margin: 16px 0 0;
+          // @include clearfix();
+
+          &__mainPic {
+            object-fit: contain;
+            width: 450px;
+            height: 450px;
+            display: block;
+            margin: 0 auto;
+            background-color: $mainGrayColor;
+            &__subPic {
+              object-fit: cover;
+              margin-left: 5px;
+              cursor: pointer;
+              opacity: 0.5;
+              }
+            }
+
+          &__outline{
+            width: 450px;
+            margin: 0 auto;
+            background-color: $mainGrayColor;
+            padding-bottom: 10px;
+          }
+        }
+
+        .image-center{
           display: flex;
           justify-content: center;
-          margin-top: 10px;
         }
-        &__body ul>li ul li {
-          width: 25%;
-          margin-right: 10px;
-        }
+
         &__price {
           margin: 24px 0 24px;
           text-align: center;
@@ -65,6 +91,10 @@
             text-decoration: none;
             display: inline-block;
             width: 100%;
+          }
+
+          &:hover{
+            background-color: rgb(58, 214, 219);
           }
         }
         &__itemDetail {
@@ -194,6 +224,10 @@
   &__icon {
     width: 60%;
   }
+
+  &:hover{
+    background-color: rgb(58, 214, 219);
+  }
 }
 
 .likeBtn {
@@ -203,4 +237,9 @@
   border-radius: 40px;
   border: 1px solid #ffb340;
   font-size: 14px;
+}
+
+.category-icon{
+  color: $cyan;
+  font-size: 15px;
 }
