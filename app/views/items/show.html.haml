@@ -1,5 +1,6 @@
-.wrapper
+.show-wrapper
   = render "layouts/headder" 
+
   .main
     .main__showMain
       .main__showMain__topContent
@@ -147,7 +148,7 @@
             %i.fa.fa-angle-right
       .main__showMain__relatedItems
         = link_to "#",class:"main__showMain__relatedItems__link" do
-          レディースをもっと見る
+          = "#{@item.user.nickname}" + "さんの出品アイテム一覧"
   = link_to "#" do
     .purchaseBtn
       %span.purchaseBtn__text
