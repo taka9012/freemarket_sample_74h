@@ -9,9 +9,11 @@ class Item < ApplicationRecord
 
   accepts_nested_attributes_for :images, allow_destroy: true
   accepts_nested_attributes_for :brand
+
   validates_associated :images
-  validates :name, :price, presence: true
-  
+  validates :name, :images, :explanation, :item_status_id, :postage_type_id,
+  :postage_burden_id, :shipping_area_id, :shipping_date_id, :trading_status_id, presence: true
+  validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 100000000}
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :item_status
