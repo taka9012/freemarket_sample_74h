@@ -1,12 +1,11 @@
 class ItemsController < ApplicationController
   protect_from_forgery except: :search
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, except: [:index, :new, :create, :show]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :access_right_check, except: [:index, :show]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
-  end
-
-  def show
   end
   
   def new
@@ -42,6 +41,9 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+  end
+
   private
 
   def item_params
@@ -52,6 +54,14 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  
+
+  def access_right_check
+    item = Item.find(params[:id])
+    unless current_user&.id == item.user_id
+      flash[:alert] = "権限がありません"
+      redirect_back(fallback_location: item_path(item))
+    end
   end
 
   def set_images

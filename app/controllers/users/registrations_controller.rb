@@ -22,11 +22,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_address
   end
 
-  # def new_address
-  #   @user = User.new(session["devise.regit_data"]["user"])
-  #   @address = Address.new
-  # end
-
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
@@ -38,6 +33,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.save
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
+    flash[:notice] = "登録が完了しました"
+    redirect_to root_path
   end
 
   # GET /resource/edit

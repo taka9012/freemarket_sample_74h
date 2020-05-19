@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :profiles, only: [:new, :edit, :create, :update]
   end
+  resources :credit_cards, only: [:new]
+  # resources :credit_registrations, only: [:index] ※商品購入確認ページ確認用のダミールーティング
 end

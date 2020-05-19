@@ -205,22 +205,9 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
 
-# usersテーブルのカラム名
 ja:
   activerecord:
     attributes:
-      user:
-        nickname: ニックネーム
-        password: パスワード
-        password_confirmation: パスワード確認
-        email: メールアドレス
-        firstname: 姓
-        lastname: 名
-        firstname_kana: 姓（カナ）
-        lastname_kana: 名（カナ）
-        birth_year: 誕生年
-        birth_month: 誕生月
-        birth_day: 誕生日
       address:
         firstname: 姓
         lastname: 名

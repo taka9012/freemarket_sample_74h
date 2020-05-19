@@ -40,6 +40,7 @@
   height: 48px;
   font-size: 14px;
   cursor: pointer;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
 
 @mixin input-area($width: 100%){
@@ -90,4 +91,18 @@
       background: rgba(255, 255, 255, .5);
       opacity:0.9;
     }
+}
+
+// 商品詳細画面
+
+@mixin link-btn(){
+  text-decoration: none;
+  padding: 10px;
+  background-color: #ea352d;
+  color: $white;
+  border-radius: 5px;
+
+  &:hover{
+    text-decoration: underline;
+  }
 }
