@@ -65,15 +65,19 @@
           %p お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
   = render "items_view"
   = render "layouts/footer"
-  - if user_signed_in?
-    = link_to new_item_path, class: "link-sell" do
-      .sell-btn
-        %span 出品する
-        = image_tag asset_path("icon_camera.png")
-  - else
-    = link_to new_user_session_path, class: "link-sell" do
-      .sell-btn
-        %span 出品する
-        = image_tag asset_path("icon_camera.png")
+  -# - if user_signed_in?
+  -#   = link_to new_item_path, class: "link-sell" do
+  -#     .sell-btn
+  -#       %span 出品する
+  -#       = image_tag asset_path("icon_camera.png")
+  -# - else
+  -#   = link_to new_user_session_path, class: "link-sell" do
+  -#     .sell-btn
+  -#       %span 出品する
+  -#       = image_tag asset_path("icon_camera.png")
+  = link_to new_item_path, class: "link-sell" do
+    .sell-btn
+      %span 出品する
+      = image_tag asset_path("icon_camera.png")
 
 

@@ -5,14 +5,15 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.text        :explanation    , null: false
       t.integer     :price          , null: false
       t.references  :brand          , foreign_key: true
-      # t.references  :category       , null: false, foreign_key: true
+      # categoryの外部キー未実装
+      t.string      :category       , null: false
       t.string      :item_status_id    , null: false
       t.string	    :postage_type_id   , null: false
       t.string      :postage_burden_id , null: false
       t.string      :shipping_area_id  , null: false
       t.string      :shipping_date_id  , null: false
       t.string      :trading_status_id , null: false, default: 1
-      # t.references  :user           , null: false, foreign_key: true
+      t.references  :user           , null: false, foreign_key: true
       t.timestamps
     end
   end

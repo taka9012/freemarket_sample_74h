@@ -53,7 +53,7 @@
           %span
             必須
         .createMain__createContents__uploadItemDetail__categorySelect
-          = select_tag '','',class: 'tag', include_blank: '選択して下さい'
+          = f.select :category, [['レディース', '1'], ['メンズ', '2'], ['ベビー・キッズ', '3']],{include_blank: '選択して下さい'}, {class: 'tag'}
           %i.fas.fa-chevron-down.tag-icon
         .createMain__createContents__uploadItemDetail__brand
           %label

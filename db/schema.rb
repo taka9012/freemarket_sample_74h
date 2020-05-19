@@ -56,15 +56,18 @@ ActiveRecord::Schema.define(version: 2020_05_12_023113) do
     t.text "explanation", null: false
     t.integer "price", null: false
     t.bigint "brand_id"
+    t.string "category", null: false
     t.string "item_status_id", null: false
     t.string "postage_type_id", null: false
     t.string "postage_burden_id", null: false
     t.string "shipping_area_id", null: false
     t.string "shipping_date_id", null: false
     t.string "trading_status_id", default: "1", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -99,5 +102,6 @@ ActiveRecord::Schema.define(version: 2020_05_12_023113) do
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
+  add_foreign_key "items", "users"
   add_foreign_key "profiles", "users"
 end
