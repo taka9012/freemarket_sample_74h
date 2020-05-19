@@ -92,3 +92,17 @@
       opacity:0.9;
     }
 }
+
+// 商品詳細画面
+
+@mixin link-btn(){
+  text-decoration: none;
+  padding: 10px;
+  background-color: #ea352d;
+  color: $white;
+  border-radius: 5px;
+
+  &:hover{
+    text-decoration: underline;
+  }
+}
