@@ -1,15 +1,15 @@
 .createMain
-  - if @item.errors.any?
-    .createMain__errors
-      %h2="#{@item.errors.full_messages.count}件のエラーが発生しました。"
-      %ul
-        - @item.errors.full_messages.each do |message|
-          %li= message
   = form_for @item do |f|
     .createMain__logo
       = link_to root_path,class: 'createMain_logo__image' do
         = image_tag asset_path('logo.png'),class: 'createMain__logo__image',size: '185x54'
     .createMain__createContents
+      - if @item.errors.any?
+        .createMain__createContents__errors
+          %h2="#{@item.errors.full_messages.count}件のエラーが発生しました。"
+          %ul
+            - @item.errors.full_messages.each do |message|
+              %li= message
       .createMain__createContents__uploadImage
         .createMain__createContents__uploadImage__title
           %label
@@ -123,7 +123,8 @@
             = f.number_field :price, class: 'text', placeholder: '0'  
       .createMain__createContents__uploadBtn
         %button
-          = f.submit "出品する"
+          出品する
+          = f.submit class: 'hidden-submit'
       .createMain__createContents__back
         = link_to root_path, class:"linkText" do
           もどる

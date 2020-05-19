@@ -61,6 +61,11 @@
   }
 }
 
+.createMain__createContents__errors{
+  padding-left: 30%;
+  color: red;
+}
+
 
 
 .createMain {
@@ -263,8 +268,16 @@
         height: 50px;
         background-color: $cyan;
         color: white;
-        font-size: 20px;
+        font-size: 17px;
         font-weight: bold;
+        cursor: pointer;
+        border-radius: 4px;
+        .hidden-submit{
+          display: none;
+        }
+        &:hover{
+          background-color: rgb(58, 214, 219);
+        }
       }
     }
     &__back {
