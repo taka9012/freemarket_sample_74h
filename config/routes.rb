@@ -12,7 +12,13 @@ Rails.application.routes.draw do
   resources :credit_cards, only: [:index]
   resources :items, only: [:index, :show, :new]
   resources :credit_registrations, only: [:index]
-  resources :items
+  
+  resources :items do
+    collection do
+      get "set_images"
+    end
+  end
+
   resources :users, only: [:show] do
     resources :profiles, only: [:new, :edit, :create, :update]
   end
