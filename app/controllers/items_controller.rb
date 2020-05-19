@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :access_right_check, except: [:index, :show]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -16,9 +18,20 @@ class ItemsController < ApplicationController
   def update
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   def destroy
   end
 
-  def show
+  private
+
+  def access_right_check
+    item = Item.find(params[:id])
+    unless current_user&.id == item.user_id
+      flash[:alert] = "権限がありません"
+      redirect_back(fallback_location: item_path(item))
+    end
   end
 end

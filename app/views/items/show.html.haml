@@ -1,33 +1,55 @@
-.wrapper
+.show-wrapper
   = render "layouts/headder" 
+
   .main
     .main__showMain
       .main__showMain__topContent
         .main__showMain__topContent__itemBox
           .main__showMain__topContent__itemBox__name
-            %h2 テスト！
+            = @item.name
+            %br/
+            -# もし出品者idとログインユーザーidが一致すれば、商品編集/削除へのリンクを表示
+            - if user_signed_in? && @item.user_id == current_user.id
+              .main__showMain__topContent__itemBox__link
+                = link_to "#", class: "main__showMain__topContent__itemBox__link--edit", data: {turbolinks: false} do
+                  商品を編集する
+                = link_to "#", class: "main__showMain__topContent__itemBox__link--delete", data: {turbolinks: false} do
+                  商品を削除する
           .main__showMain__topContent__itemBox__body
             %ul
-              %li
-                = image_tag('https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png',class: 'main__showMain__topContent__itemBox__body__mainPic')
-                %ul 
+              - @item.images.each.with_index do |image, i|
+                - if i == 0
                   %li
-                    = image_tag('https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/8/a002.png',size: '140x87',class: 'main__showMain__topContent__itemBox__body__mainPic__subPic')
-                  %li
-                    = image_tag('https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/9/a003.png',size: '140x87',class: 'main__showMain__topContent__itemBox__body__mainPic__subPic')
+                    = image_tag image.src.to_s, class: 'main__showMain__topContent__itemBox__body__mainPic', id: "mainPic"
+              .main__showMain__topContent__itemBox__body__outline
+                %ul.image-center
+                  - @item.images.each.with_index do |image, i|
+                    - if i < 5
+                      %li
+                        = image_tag image.src.to_s, size: '80x80', class: 'main__showMain__topContent__itemBox__body__mainPic__subPic'
+                %ul.image-center
+                  - @item.images.each.with_index do |image, i|
+                    - if i >= 5
+                      %li
+                        = image_tag image.src.to_s, size: '80x80', class: 'main__showMain__topContent__itemBox__body__mainPic__subPic'
           .main__showMain__topContent__itemBox__price
             %span
-              ￥10000
+              = "¥ " + "#{@item.price}"
             .main__showMain__topContent__itemBox__price__priceDetail
               %span
                 （税込）
               %span
-                送料込み
-          .main__showMain__topContent__itemBox__buyBtn
-            = link_to "#" ,class: "main__showMain__topContent__itemBox__buyBtn__text" do
-              購入画面に進む
+                - if @item.postage_burden == "送料込み(出品者負担)"
+                  送料込み
+                - else
+                  送料別
+          -# 商品出品者とログインユーザーが一致する場合には、購入ボタンを表示しない
+          - unless user_signed_in? && @item.user_id == current_user.id
+            .main__showMain__topContent__itemBox__buyBtn
+              = link_to "#" ,class: "main__showMain__topContent__itemBox__buyBtn__text" do
+                購入画面に進む
           .main__showMain__topContent__itemBox__itemDetail
-            先ほど少し触れましたが、BEMではページを構成する要素をBlock、Element、Modifierの3つに分類し、組み合わせることでクラスを命名します。Block、Element、Modifierの3つを使用して命名することで、クラス名だけでHTML要素の意味を伝えられます。各要素の意味を見ていきましょう。
+            = simple_format @item.explanation
           .main__showMain__topContent__itemBox__table
             %table
               %tbody
@@ -35,55 +57,69 @@
                   %th
                     出品者
                   %td 
-                    fumiya 
+                    = @item.user.nickname
                 %tr 
                   %th
                     カテゴリー
                   %td
                     = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
-                      = "レディース"
+                      -# カテゴリー機能実装時にこれは削除
+                      = "家電製品"
                     %br 
+                    = icon('fas', 'chevron-right', class: "category-icon")
                     = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
-                      = "トップス"
+                      = "カメラ"
                     %br
+                    = icon('fas', 'chevron-right', class: "category-icon")
                     = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
-                      = "Tシャツ/カットソー（半袖/袖なし）"
+                      = "デジタルカメラ"
+
+                    -# ↓ここから下はカテゴリー機能実装後に加える
+                    -#   = @item.category.parent.parent.name
+                    -# %br 
+                    -# = icon('fas', 'chevron-right', class: "category-icon")
+                    -# = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
+                    -#   = @item.category.parent.name
+                    -# %br
+                    -# = icon('fas', 'chevron-right', class: "category-icon")
+                    -# = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
+                    -#   = @item.category.name
                 %tr
                   %th
                     ブランド
                   %td
-                    ガスト
-                %tr
-                  %th
-                    商品のサイズ
-                  %td
-                    一人前
+                    - unless @item.brand.blank?
+                      = @item.brand.name
                 %tr
                   %th
                     商品の状態
                   %td
-                    作り立てのホヤホヤ
+                    = @item.item_status
                 %tr
                   %th
                     配送料の負担
                   %td
-                    送料込み（出品者負担）
+                    = @item.postage_burden
+                %tr
+                  %th
+                    配送の方法
+                  %td
+                    = @item.postage_type
                 %tr
                   %th
                     発送元の地域
                   %td
-                    = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
-                      = "長野県"
+                    = @item.shipping_area
                 %tr
                   %th
                     発送日の目安
                   %td
-                    １〜２日で発送
+                    = @item.shipping_date
           .main__showMain__topContent__itemBox__optionalArea          
             %ul 
               %li.optionalBtn.likeBtn
                 %i.fas.fa-star
-                  お気に入り　0
+                  お気に入り 0
             %ul.main__showMain__topContent__itemBox__optionalArea__optional 
               %li.main__showMain__topContent__itemBox__optionalArea__optional__optionalBtn
                 = link_to "#",class:"main__showMain__topContent__itemBox__optionalArea__optional__optionalBtn__link" do
@@ -112,7 +148,7 @@
             %i.fa.fa-angle-right
       .main__showMain__relatedItems
         = link_to "#",class:"main__showMain__relatedItems__link" do
-          レディースをもっと見る
+          = "#{@item.user.nickname}" + "さんの出品アイテム一覧"
   = link_to "#" do
     .purchaseBtn
       %span.purchaseBtn__text
