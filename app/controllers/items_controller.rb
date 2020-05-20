@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
    
     if @item.valid?
       @item.save
+      flash[:notice] = "出品が完了しました"
       redirect_to root_path
     else
       render :new

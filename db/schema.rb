@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_12_023113) do
+ActiveRecord::Schema.define(version: 2020_05_20_083730) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "firstname", null: false
@@ -29,15 +29,6 @@ ActiveRecord::Schema.define(version: 2020_05_12_023113) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "profile_sentence"
-    t.string "icon_image"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id"
-  end
-  
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -65,16 +56,16 @@ ActiveRecord::Schema.define(version: 2020_05_12_023113) do
     t.text "explanation", null: false
     t.integer "price", null: false
     t.bigint "brand_id"
-    t.string "category", null: false
     t.string "item_status_id", null: false
     t.string "postage_type_id", null: false
     t.string "postage_burden_id", null: false
     t.string "shipping_area_id", null: false
     t.string "shipping_date_id", null: false
-    t.string "trading_status_id", default: "1", null: false
+    t.string "trading_status_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
