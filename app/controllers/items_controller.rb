@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :access_right_check, except: [:index, :show]
+  before_action :access_right_check, except: [:index, :show, :new, :create]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
