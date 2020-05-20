@@ -39,7 +39,7 @@
               %span
                 （税込）
               %span
-                - if @item.postage_burden == "送料込み(出品者負担)"
+                - if @item.postage_burden.name == "送料込み(出品者負担)"
                   送料込み
                 - else
                   送料別
@@ -94,17 +94,17 @@
                   %th
                     商品の状態
                   %td
-                    = @item.item_status
+                    = @item.item_status.name
                 %tr
                   %th
                     配送料の負担
                   %td
-                    = @item.postage_burden
+                    = @item.postage_burden.name
                 %tr
                   %th
                     配送の方法
                   %td
-                    = @item.postage_type
+                    = @item.postage_type.name
                 %tr
                   %th
                     発送元の地域
@@ -114,7 +114,7 @@
                   %th
                     発送日の目安
                   %td
-                    = @item.shipping_date
+                    = @item.shipping_date.name
           .main__showMain__topContent__itemBox__optionalArea          
             %ul 
               %li.optionalBtn.likeBtn
