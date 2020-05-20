@@ -42,7 +42,7 @@
           %span
             必須
         .createMain__createContents__uploadItem__explanationTextfield
-          = f.text_area :explanation, placeholder: "商品説明を入力して下さい"  
+          = f.text_area :explanation, maxlength: '1000', placeholder: "商品説明を入力して下さい"  
       %hr.createContentsBoder
       .createMain__createContents__uploadItemDetail
         %p

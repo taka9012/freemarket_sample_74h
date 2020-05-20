@@ -1,1 +1,0 @@
-json.images @images

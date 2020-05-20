@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   protect_from_forgery except: :search
   before_action :set_item, except: [:index, :new, :create, :show]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :access_right_check, except: [:index, :show]
+  before_action :access_right_check, except: [:index, :show, :new, :create]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -54,7 +54,7 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
-  
+  end
 
   def access_right_check
     item = Item.find(params[:id])

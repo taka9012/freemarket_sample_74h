@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   
   root 'items#index'
   resources :credit_cards, only: [:index]
-  resources :items, only: [:index, :show, :new]
   resources :credit_registrations, only: [:index]
   
   resources :items do
