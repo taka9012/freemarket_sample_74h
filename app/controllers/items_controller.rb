@@ -36,9 +36,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path
-  end
+    item = Item.find(params[:id])
+    if item.destroy
+      redirect_to root_path, notice:'削除が完了しました'
+    else 
+      render :show
+    end
 
   def show
   end

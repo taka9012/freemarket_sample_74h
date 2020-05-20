@@ -13,7 +13,7 @@
               .main__showMain__topContent__itemBox__link
                 = link_to "#", class: "main__showMain__topContent__itemBox__link--edit", data: {turbolinks: false} do
                   商品を編集する
-                = link_to "#", class: "main__showMain__topContent__itemBox__link--delete", data: {turbolinks: false} do
+                = link_to item_path(@item), class: "main__showMain__topContent__itemBox__link--delete", method: :delete, data: {confirm: "削除しますか？"} do
                   商品を削除する
           .main__showMain__topContent__itemBox__body
             %ul
