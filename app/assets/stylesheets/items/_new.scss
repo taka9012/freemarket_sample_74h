@@ -34,7 +34,9 @@
     background-color: white;
     border: 1px solid #ccc;
     padding: 0 16px;
+    -webkit-appearance: none;
   }
+  position: relative;
 }
 
 @mixin textBox {
@@ -47,8 +49,22 @@
   }
 }
 
+@mixin changeicon {
+  .tag-icon{
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  z-index: 2;
+  color: #888;
+  transform: translate(0, -50%);
+  font-size: 18px;
+  }
+}
 
-
+.createMain__createContents__errors{
+  padding-left: 30%;
+  color: red;
+}
 
 .createMain {
   width: 100%;
@@ -73,18 +89,55 @@
       &__title {
         @include explanatoryText;
       }
-      &__fileUp {
-        width: 100%;
-        height: 150px;
-        background-color: $bgwhite;
-        border: 1px dotted gray;
-        margin: 10px 0 ;
-        border-radius: 4px;
-        position: relative;
-        &__icon {
-          position: absolute;
-          top: 75px;
-          left: 334px;
+      &__fileUp{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 10px auto;
+        width: 660px;
+        .file-field{
+          display: none;
+        }
+        .image-preview,.image-preview-first{
+          margin: 16px 0;
+          display: flex;
+          flex-wrap: wrap;
+          &__image{
+            &__img{
+              width: 131px;
+              margin-right: 1px;
+              height: 160px;
+              object-fit: cover;
+            }
+            .delete-btn{
+              padding: 0 30%;
+              text-align: center;
+              background-color: $bgwhite;
+              ul{
+                color: rgb(0, 149, 238);
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        #image-label{
+          width: 100%;
+          text-align: center;
+          .image-field{
+            background-color: $bgwhite;
+            border-radius: 4px;
+            margin-top: 10px;
+            border: 1px dotted gray;
+            height: 190px;
+            cursor: pointer;
+            &__icon{
+              margin: 80px auto 0;
+            }
+          }
+          #image-field-second{
+            i{
+              margin: 80px auto 0;
+            }
+          }
         }
       }
     }
@@ -125,6 +178,7 @@
       }
       &__categorySelect {
         @include pulldownTag;
+        @include changeicon;
       }
       &__brand {
         @include explanatoryText;
@@ -140,6 +194,7 @@
       }
       &__itemStatusSelect {
         @include pulldownTag;
+        @include changeicon;
       }
 
     }
@@ -151,24 +206,28 @@
       }
       &__deliveryFeeSelect {
         @include pulldownTag;
+        @include changeicon;
       }
       &__deliveryType {
         @include explanatoryText;
       }
       &__deliveryTypeSelect {
         @include pulldownTag;
+        @include changeicon;
       }
       &__deliveryArea {
         @include explanatoryText;
       }
       &__deliveryAreaSelect {
         @include pulldownTag;
+        @include changeicon;
       }
       &__deliveryDate {
         @include explanatoryText;
       }
       &__deliveryDateSelect {
         @include pulldownTag;
+        @include changeicon;
       }
     }
     &__uploadPrice {
@@ -207,8 +266,16 @@
         height: 50px;
         background-color: $cyan;
         color: white;
-        font-size: 20px;
+        font-size: 17px;
         font-weight: bold;
+        cursor: pointer;
+        border-radius: 4px;
+        .hidden-submit{
+          display: none;
+        }
+        &:hover{
+          background-color: rgb(58, 214, 219);
+        }
       }
     }
     &__back {
