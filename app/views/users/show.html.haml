@@ -10,59 +10,15 @@
           = link_to "マイページ", user_path(@user), class: "ListItem-2"
     .top-container
       .mypage-container
-        .mypage-container__menu
-          .mypage-container__menu__list
-            = link_to user_path(@user), class: "mypage-container__menu__list__mypage" do
-              %span.mypage-link マイページ
-              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
-
-          .mypage-container__menu__list
-            = link_to "#", class: "mypage-container__menu__list__item" do
-              %span いいね！一覧
-              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
-          
-          .mypage-container__menu__list
-            = link_to "#", class: "mypage-container__menu__list__item" do
-              %span 出品する
-              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
-          
-          .mypage-container__menu__list
-            = link_to "#", class: "mypage-container__menu__list__item" do
-              %span 出品した商品
-              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
-          
-          .mypage-container__menu__list
-            = link_to "#", class: "mypage-container__menu__list__item" do
-              %span 購入した商品
-              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
-
-        .setting-menu
-          設定
-        .mypage-container__menu
-          .mypage-container__menu__list
-            = link_to "#", class: "mypage-container__menu__list__item" do
-              %span プロフィール
-              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
-
-          .mypage-container__menu__list
-            = link_to "#", class: "mypage-container__menu__list__item" do
-              %span 発送元・お届け先住所変更
-              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
-
-          .mypage-container__menu__list
-            = link_to "#", class: "mypage-container__menu__list__item" do
-              %span 支払い方法
-              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
-
-          .mypage-container__menu__list
-            = link_to destroy_user_session_path, method: :delete, class: "mypage-container__menu__list__item" do
-              %span ログアウト
-              = icon('fas', 'chevron-right', class: "mypage-container__menu__list__item__icon")
+        = render("side-menu")
 
       .mypage-container__board
         .mypage-container__board__upper
           = link_to "#", class: "mypage-container__board__upper__link" do
-            = image_tag asset_path("profile-default-image"), class: "mypage-container__board__upper__icon"
+            - if @user.profile.present?
+              = image_tag @profile.icon_image.to_s, class: "mypage-container__board__upper__icon"
+            - else
+              = image_tag asset_path("profile-default-image.jpg"), class: "mypage-container__board__upper__icon"
             .mypage-container__board__upper__nickname
               = @user.nickname
             .mypage-container__board__upper__exhibits
@@ -99,7 +55,7 @@
               .tab_content__description__text
                 現在やることはありません
   = render "layouts/footer"
-  = link_to "#", class: "link-sell" do
+  = link_to new_item_path, class: "link-sell" do
     .sell-btn
       %span 出品する
       = image_tag asset_path("icon_camera.png")

@@ -205,22 +205,9 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
 
-# usersテーブルのカラム名
 ja:
   activerecord:
     attributes:
-      user:
-        nickname: ニックネーム
-        password: パスワード
-        password_confirmation: パスワード確認
-        email: メールアドレス
-        firstname: 姓
-        lastname: 名
-        firstname_kana: 姓（カナ）
-        lastname_kana: 名（カナ）
-        birth_year: 誕生年
-        birth_month: 誕生月
-        birth_day: 誕生日
       address:
         firstname: 姓
         lastname: 名
@@ -231,4 +218,32 @@ ja:
         city: 市区町村
         house_number: 番地
         building_name: 建物名
-        telephone_number: 電場番号
+        telephone_number: 電話番号
+
+# itemsテーブルのカラム名
+ja:
+  activerecord:
+    models:
+      item: 商品
+      image: 出品画像
+      brand: ブランド
+    attributes:
+      item:
+        name: 商品名
+        explanation: 商品説明
+        price: 販売価格
+        brand: ブランド
+        category: カテゴリー
+        item_status_id: 商品の状態
+        postage_type_id: 配送の方法
+        postage_burden_id: 配送料の負担
+        shipping_area_id: 発送元の地域
+        shipping_date_id: 発送までの日数
+        trading_status_id: 取引ステータス
+        images: 出品画像
+      brand: 
+        name: ブランド名
+      category:
+        name: カテゴリー
+      image:
+        src: 画像ファイル

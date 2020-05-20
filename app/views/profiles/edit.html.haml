@@ -1,0 +1,28 @@
+.top-view
+  = render "layouts/headder" 
+  .mypage-wrapper
+    %nav.mypage-wrapper__location
+      %ul.mypage-wrapper__location__list
+        %li.mypage-wrapper__location__list__item
+          = link_to "フリマ", root_path, class: "ListItem-1"
+        = icon('fas', 'chevron-right', class: "mypage-wrapper__location__list__icon") 
+        %li.mypage-wrapper__location__list__item
+          = link_to "マイページ", user_path(@user), class: "ListItem-1"
+        = icon('fas', 'chevron-right', class: "mypage-wrapper__location__list__icon") 
+        %li.mypage-wrapper__location__list__item
+          = link_to "プロフィール", edit_user_profile_path(@user, @profile), class: "ListItem-2"
+    
+    = form_with(model: [@user, @profile], local: true) do |f|
+      .top-container
+        .mypage-container
+          = render("users/side-menu")
+        .mypage-container__board
+          .mypage-container__title
+            プロフィール
+          = render partial: 'form', locals: { f: f }, object: @profile
+
+  = render "layouts/footer"
+  = link_to new_item_path, class: "link-sell" do
+    .sell-btn
+      %span 出品する
+      = image_tag asset_path("icon_camera.png")
