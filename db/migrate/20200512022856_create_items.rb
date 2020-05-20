@@ -7,7 +7,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.references  :brand          , foreign_key: true
       t.references  :category       , null: false, foreign_key: true
       t.string      :item_status    , null: false
-      t.string	    :postage_type   , null: false
+      t.string      :postage_type   , null: false
       t.string      :postage_burden , null: false
       t.string      :shipping_area  , null: false
       t.string      :shipping_date  , null: false

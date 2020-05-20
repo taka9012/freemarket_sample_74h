@@ -1,114 +1,134 @@
 .createMain
-  .createMain__logo
-    = link_to root_path,class: 'createMain_logo__image' do
-      = image_tag asset_path('logo.png'),class: 'createMain__logo__image',size: '185x54'
-  .createMain__createContents
-    .createMain__createContents__uploadImage
-      .createMain__createContents__uploadImage__title
-        %label
-          出品画像
-        %span
-          必須
-      %p.createMain__createContents__uploadImage__explanation
-        最大5枚までアップロードできます
-      .createMain__createContents__uploadImage__fileUp
-        %i.fas.fa-camera.createMain__createContents__uploadImage__fileUp__icon
-    .createMain__createContents__uploadItem
-      .createMain__createContents__uploadItem__name
-        %label
-          商品名
-        %span
-          必須
-      .createMain__createContents__uploadItem__textfield
-        = form_tag( "#", method: "post" ) do
-          = text_field_tag '','',class: 'text', placeholder: '商品名を入力'
-      .createMain__createContents__uploadItem__explanation
-        %label
-          商品の説明
-        %span
-          必須
-      .createMain__createContents__uploadItem__explanationTextfield
-        %textarea(placeholder= "商品説明を入力して下さい")
-    %hr.createContentsBoder
-    .createMain__createContents__uploadItemDetail
-      %p
-        商品の詳細
-      .createMain__createContents__uploadItemDetail__category
-        %label
-          カテゴリー
-        %span
-          必須
-      .createMain__createContents__uploadItemDetail__categorySelect
-        = select_tag '','',class: 'tag', include_blank: '選択して下さい'
-      .createMain__createContents__uploadItemDetail__brand
-        %label
-          ブランド
-        %span
-          任意
-      .createMain__createContents__uploadItemDetail__brandSelect
-        = form_tag( "#", method: "post" ) do
-          = text_field_tag '','',class: 'text', placeholder: '例）シャネル'
-      .createMain__createContents__uploadItemDetail__itemStatus
-        %label
-          商品の状態
-        %span
-          必須
-      .createMain__createContents__uploadItemDetail__itemStatusSelect
-        = select_tag '','',class: 'tag', include_blank: '選択して下さい'
-    %hr.createContentsBoder
-    .createMain__createContents__uploadDelivery
-      %p
-        配送について
-      .createMain__createContents__uploadDelivery__deliveryFee
-        %label
-          配送料の負担
-        %span
-          必須
-      .createMain__createContents__uploadDelivery__deliveryFeeSelect
-        = select_tag '','',class: 'tag', include_blank: '選択して下さい'
-      .createMain__createContents__uploadDelivery__deliveryType
-        %label
-          配送の方法
-        %span
-          必須
-      .createMain__createContents__uploadDelivery__deliveryTypeSelect
-        = select_tag '','',class: 'tag', include_blank: '選択して下さい'
-      .createMain__createContents__uploadDelivery__deliveryArea
-        %label
-          発送元の地域
-        %span
-          必須
-      .createMain__createContents__uploadDelivery__deliveryAreaSelect
-        = select_tag '','',class: 'tag', include_blank: '選択して下さい'
-      .createMain__createContents__uploadDelivery__deliveryDate
-        %label
-          発送までの日数
-        %span
-          必須
-      .createMain__createContents__uploadDelivery__deliveryDateSelect
-        = select_tag '','',class: 'tag', include_blank: '選択して下さい'
-    %hr.createContentsBoder
-    .createMain__createContents__uploadPrice
-      %p
-        価格（¥300〜9,999,999）
-      .createMain__createContents__uploadPrice__salePrice
-        %label
-          販売価格
-        %span
-          必須
-      .createMain__createContents__uploadPrice__priceArea
-        %span
-          ￥
-        .createMain__createContents__uploadPrice__priceArea__textField
-          = form_tag( "#", method: "post" ) do
-            = text_field_tag '','',class: 'text', placeholder: '0', type: 'number'
-    .createMain__createContents__uploadBtn
-      %button
-        出品する
-    .createMain__createContents__back
-      = link_to root_path, class:"linkText" do
-        もどる
-    .createMain__createContents__attention
-      %p
-        禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
-= render "layouts/footer"
+  = form_for @item do |f|
+    .createMain__logo
+      = link_to root_path,class: 'createMain_logo__image' do
+        = image_tag asset_path('logo.png'),class: 'createMain__logo__image',size: '185x54'
+    .createMain__createContents
+      - if @item.errors.any?
+        .createMain__createContents__errors
+          %h2="#{@item.errors.full_messages.count}件のエラーが発生しました。"
+          %ul
+            - @item.errors.full_messages.each do |message|
+              %li= message
+      .createMain__createContents__uploadImage
+        .createMain__createContents__uploadImage__title
+          %label
+            出品画像
+          %span
+            必須
+        %p.createMain__createContents__uploadImage__explanation
+          最大5枚までアップロードできます
+        .createMain__createContents__uploadImage__fileUp
+          .image-preview
+          %label{id: "image-label"}
+            .image-field
+              .image-field__icon
+                %i.fas.fa-camera
+              .image-field__text
+                クリックしてファイルをアップロード
+            = f.fields_for :images do |i|
+              = i.file_field :src, {class: "file-field"}
+      .createMain__createContents__uploadItem
+        .createMain__createContents__uploadItem__name
+          %label
+            商品名
+          %span
+            必須
+        .createMain__createContents__uploadItem__textfield
+          = f.text_field :name, class: 'text', placeholder: '商品名を入力'
+        .createMain__createContents__uploadItem__explanation
+          %label
+            商品の説明
+          %span
+            必須
+        .createMain__createContents__uploadItem__explanationTextfield
+          = f.text_area :explanation, maxlength: '1000', placeholder: "商品説明を入力して下さい"  
+      %hr.createContentsBoder
+      .createMain__createContents__uploadItemDetail
+        %p
+          商品の詳細
+        .createMain__createContents__uploadItemDetail__category
+          %label
+            カテゴリー
+          %span
+            必須
+        .createMain__createContents__uploadItemDetail__categorySelect
+          = f.select :category, [['レディース', '1'], ['メンズ', '2'], ['ベビー・キッズ', '3']],{include_blank: '選択して下さい'}, {class: 'tag'}
+          %i.fas.fa-chevron-down.tag-icon
+        .createMain__createContents__uploadItemDetail__brand
+          %label
+            ブランド
+          %span
+            任意
+        .createMain__createContents__uploadItemDetail__brandSelect
+          = f.fields_for :brand_attributes do |b|
+            = b.text_field :name, {class: 'text', placeholder: '例）シャネル'}
+        .createMain__createContents__uploadItemDetail__itemStatus
+          %label
+            商品の状態
+          %span
+            必須
+        .createMain__createContents__uploadItemDetail__itemStatusSelect
+          = f.collection_select(:item_status_id, ItemStatus.all, :id, :name, {include_blank: '選択して下さい'}, {class: 'tag'})
+          %i.fas.fa-chevron-down.tag-icon
+      %hr.createContentsBoder
+      .createMain__createContents__uploadDelivery
+        %p
+          配送について
+        .createMain__createContents__uploadDelivery__deliveryFee
+          %label
+            配送料の負担
+          %span
+            必須
+        .createMain__createContents__uploadDelivery__deliveryFeeSelect
+          = f.collection_select(:postage_burden_id, PostageBurden.all, :id, :name, {include_blank: '選択して下さい'}, {class: 'tag'})          
+          %i.fas.fa-chevron-down.tag-icon
+        .createMain__createContents__uploadDelivery__deliveryType
+          %label
+            配送の方法
+          %span
+            必須
+        .createMain__createContents__uploadDelivery__deliveryTypeSelect
+          = f.collection_select(:postage_type_id, PostageType.all, :id, :name, {include_blank: '選択して下さい'}, {class: 'tag'})
+          %i.fas.fa-chevron-down.tag-icon
+        .createMain__createContents__uploadDelivery__deliveryArea
+          %label
+            発送元の地域
+          %span
+            必須
+        .createMain__createContents__uploadDelivery__deliveryAreaSelect
+          = f.select(:shipping_area_id, JpPrefecture::Prefecture.all.collect {|p| [ p.name, p.code ] } + [ [ '未定', '48' ] ], {include_blank: '選択して下さい'}, {class: 'tag'}) 
+          %i.fas.fa-chevron-down.tag-icon
+        .createMain__createContents__uploadDelivery__deliveryDate
+          %label
+            発送までの日数
+          %span
+            必須
+        .createMain__createContents__uploadDelivery__deliveryDateSelect
+          = f.collection_select( :shipping_date_id, ShippingDate.all, :id, :name, {include_blank: '選択して下さい'}, {class: 'tag'})
+          %i.fas.fa-chevron-down.tag-icon
+      %hr.createContentsBoder
+      .createMain__createContents__uploadPrice
+        %p
+          価格（¥300〜9,999,999）
+        .createMain__createContents__uploadPrice__salePrice
+          %label
+            販売価格
+          %span
+            必須
+        .createMain__createContents__uploadPrice__priceArea
+          %span
+            ￥
+          .createMain__createContents__uploadPrice__priceArea__textField
+            = f.number_field :price, class: 'text', placeholder: '0'  
+      .createMain__createContents__uploadBtn
+        %button
+          出品する
+          = f.submit class: 'hidden-submit'
+      .createMain__createContents__back
+        = link_to root_path, class:"linkText" do
+          もどる
+      .createMain__createContents__attention
+        %p
+          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+  = render "layouts/footer"
