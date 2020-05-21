@@ -23,7 +23,7 @@
       padding: 60px 20px;
       &__headder{
         @include head(26px);
-        @include headafter
+        @include headafter;
       }
       &__lists{
         display: flex;
