@@ -47,10 +47,11 @@
                 - else
                   送料別
           -# 商品出品者とログインユーザーが一致する場合には、購入ボタンを表示しない
-          - unless user_signed_in? && @item.user_id == current_user.id
-            .main__showMain__topContent__itemBox__buyBtn
-              = link_to "#" ,class: "main__showMain__topContent__itemBox__buyBtn__text" do
-                購入画面に進む
+          - if @item.trading_status_id == "1"
+            - unless user_signed_in? && @item.user_id == current_user.id
+              .main__showMain__topContent__itemBox__buyBtn
+                = link_to "#" ,class: "main__showMain__topContent__itemBox__buyBtn__text" do
+                  購入画面に進む
           .main__showMain__topContent__itemBox__itemDetail
             = simple_format @item.explanation
           .main__showMain__topContent__itemBox__table
