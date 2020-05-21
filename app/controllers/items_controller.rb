@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
     else 
       render :show
     end
-
+  end
   def show
   end
 
