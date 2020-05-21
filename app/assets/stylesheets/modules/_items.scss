@@ -49,6 +49,9 @@
             display: block;
             margin: 0 auto;
             background-color: $mainGrayColor;
+            position: relative;
+
+
             &__subPic {
               object-fit: cover;
               margin-left: 5px;
@@ -247,4 +250,32 @@
 .category-icon{
   color: $cyan;
   font-size: 15px;
+}
+
+.position-fix{
+  position: relative;
+  width: 450px;
+  margin: 0 auto;
+
+  &__soldout{
+    width: 0;
+    height: 0;
+    border-top: 60px solid #ea352d ;
+    border-right: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-left: 60px solid #ea352d ;
+    z-index:100;
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    &__inner{
+      transform: rotate(-45deg);
+      font-size: 25px;
+      margin: -29px -10px 0px -50px;
+      color: #fff;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+  }
 }

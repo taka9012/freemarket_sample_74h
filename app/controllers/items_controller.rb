@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   before_action :access_right_check, except: [:index, :show, :new, :create]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:images).order('created_at DESC').limit(8)
   end
   
   def new
