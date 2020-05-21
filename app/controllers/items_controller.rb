@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   protect_from_forgery except: :search
-  before_action :set_item, except: [:index, :new, :create, :show]
+  before_action :set_item, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :access_right_check, except: [:index, :show, :new, :create]
 
@@ -15,13 +15,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-   
     if @item.save
       redirect_to root_path, notice: "出品が完了しました"
     else
       render :new
     end
-    
   end
 
   def edit
@@ -42,6 +40,7 @@ class ItemsController < ApplicationController
     else 
       render :show
     end
+  end
 
   def show
   end
@@ -50,8 +49,8 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :explanation, :price, :category, :item_status_id, :postage_type_id,
-    :postage_burden_id, :shipping_area_id, :shipping_date_id, :trading_status_id, images_attributes: [:src, :_destroy, :id],
-     brand_attributes: [:name]).merge(user_id: current_user.id)
+    :postage_burden_id, :shipping_area, :shipping_date_id, :trading_status_id, images_attributes: [:src, :_destroy, :id],
+    brand_attributes: [:name]).merge(user_id: current_user.id)
   end
 
   def set_item
