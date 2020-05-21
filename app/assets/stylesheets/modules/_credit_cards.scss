@@ -149,6 +149,7 @@
   &__content-title{
     text-align: center;
     margin-top: 20px;
+    font-weight: 600;
     .require{
       text-align: center;
       padding: 3px;
@@ -157,6 +158,10 @@
       border-radius: 4px;
       background-color: white;
     }
+  }
+  &__input-text {
+    margin: 10px auto;
+
   }
 }
 .charge-form {

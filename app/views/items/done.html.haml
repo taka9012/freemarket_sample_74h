@@ -1,0 +1,8 @@
+.doneContents  
+  =render "items/upper_space"
+  .doneContents__buy-content
+    %h2.doneContents__buy-content__title
+      購入が完了しました
+    .doneContents__buy-content__user-info__submit
+      = link_to "トップページへ戻る", root_path, class: 'doneContents__buy-content__user-info__submit__button'
+= render "layouts/footer"
