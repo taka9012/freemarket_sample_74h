@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_one  :profile,   dependent: :destroy
   has_one  :credit_card
   has_many :items,     dependent: :destroy
+  has_one  :profile,   dependent: :destroy
 
   validates :firstname, :lastname, :firstname_kana, :lastname_kana, :nickname, :birth_year, :birth_month, :birth_day, presence: true
 
