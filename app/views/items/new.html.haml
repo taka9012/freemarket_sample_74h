@@ -48,13 +48,16 @@
         %p
           商品の詳細
         .createMain__createContents__uploadItemDetail__category
-          %label
-            カテゴリー
-          %span
-            必須
-        .createMain__createContents__uploadItemDetail__categorySelect
-          = f.select :category, [['レディース', '1'], ['メンズ', '2'], ['ベビー・キッズ', '3']],{include_blank: '選択して下さい'}, {class: 'tag'}
-          %i.fas.fa-chevron-down.tag-icon
+          カテゴリー
+          %span{class: "require"} 必須
+        #category-select
+        -#   %label
+        -#     カテゴリー
+        -#   %span
+        -#     必須
+        -# .createMain__createContents__uploadItemDetail__categorySelect
+        -#   = f.select :category, [['レディース', '1'], ['メンズ', '2'], ['ベビー・キッズ', '3']],{include_blank: '選択して下さい'}, {class: 'tag'}
+        -#   %i.fas.fa-chevron-down.tag-icon
         .createMain__createContents__uploadItemDetail__brand
           %label
             ブランド
