@@ -16,8 +16,6 @@ class CreditCardsController < ApplicationController
   def create
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
-       # paramsの中にjsで作った'payjpTokenが存在するか確かめる
-      # binding.pry
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
@@ -35,31 +33,6 @@ class CreditCardsController < ApplicationController
         flash[:alert] = 'クレジットカード登録に失敗しました'
       end
     end
-    # Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    # # if params['payjp-token'].blank?
-    # #   render new_credit_card_path, notice: 'カード情報に誤りがあります'
-    # # end
-    # token = Payjp::Token.create({
-    #   card: {
-    #     number:     params[:credit_card][:number],
-    #     cvc:        params[:credit_card][:cvc],
-    #     exp_month:  params[:credit_card][:exp_month],
-    #     exp_year:   params[:credit_card][:exp_year]
-    #   }},
-    #   {'X-Payjp-Direct-Token-Generate': 'true'} 
-    # )
-    # if token.blank?
-    #   redirect_to new_credit_card_path, notice: 'カード情報に誤りがあります'
-    # else
-    #   customer = Payjp::Customer.create(card: token)
-    #   card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-    #   card.save
-    #   if card.save
-    #     redirect_to credit_card_path(card)
-    #   else
-    #     redirect_to new_credit_card_path, notice: 'カード情報に誤りがあります'
-    #   end
-    # end
     
   end
 

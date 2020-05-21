@@ -6,7 +6,6 @@
       .middle_space__info__item-info__img
         %h2
           = image_tag "#{@item.images[0].src}", size: "80x80", alt: "商品写真", class: "goods-img"
-          -# = image_tag "sampleKyoko", size: "80x80", alt: "商品写真", class: "goods-img"
       .middle_space__info__item-info__content
         .middle_space__info__item-info__content__name
           = @item.name
@@ -31,12 +30,6 @@
           - else
             = link_to new_credit_card_path, class: "link-blue" do
               登録して下さい
-        -# .middle_space__info__payment-info__form__billingAddress
-        -#   %h3 配送先
-        -#   =link_to "#" do
-        -#     =icon("fas", "plus-circle")
-        -#     %span 登録してください
         .middle_space__info__payment-info__form__btn
           = form_tag(action: :pay, method: :post) do
             %button.buy-button{type:"submit"} 購入する
-          -# %button 購入する

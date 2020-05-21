@@ -46,7 +46,6 @@ class ItemsController < ApplicationController
   end
 
   def buy
-    # unless @item.soldout
       card = CreditCard.where(user_id: current_user.id)
       if card.exists?
         @card     = CreditCard.find_by(user_id: current_user.id)
@@ -54,9 +53,6 @@ class ItemsController < ApplicationController
         customer = Payjp::Customer.retrieve(@card.customer_id)
         @default_card_information = Payjp::Customer.retrieve(@card.customer_id).cards.data[0]
       end
-    # else
-    #   redirect_to product_path(@product)
-    # end
   end
 
   def pay

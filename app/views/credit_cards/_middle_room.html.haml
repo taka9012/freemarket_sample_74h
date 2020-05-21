@@ -1,6 +1,5 @@
 .middle-room
   .middle-room__card-form
-    -# = form_with model: @credit_card, url: credit_cards_path do |f|
     = form_tag(credit_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
       .middle-room__card-form__info
         .middle-room__card-form__info__title 
@@ -10,7 +9,6 @@
           %label(for="card-name") カード番号
           %span.mandate 必須
           = text_field_tag "number", "", class: "input-number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number", value:"4242424242424242"
-          -# = f.text_field :number, {class: "input-number", placeholder: "ハイフンなし、半角数字のみ", value:"4242424242424242"}
           %ul
             %li
               = image_tag "creditcard.png", size: "30x20", alt: "クレジットカード", class: "card-kind" 
@@ -24,7 +22,6 @@
           .middle-room__card-form__info__expiration-date__select
             .middle-room__card-form__info__expiration-date__select__month
               .middle-room__card-form__info__expiration-date__select__month__box
-                -# = f.select :exp_month, '', {}, {class: ""} do
                 %select#exp_month{name: "exp_month", type: "text", class: "select-default"}
                   %option{:value => "1"} 01
                   %option{:value => "2"} 02
@@ -38,12 +35,9 @@
                   %option{:value => "10"} 10
                   %option{:value => "11"} 11
                   %option{:value => "12"} 12
-                -# =link_to "#" do
-                -#   =icon("fas", "chevron-down")
               %span.default-letter 月
             .middle-room__card-form__info__expiration-date__select__year
               .middle-room__card-form__info__expiration-date__select__year__box
-                -# = f.select :exp_year, '', {}, {class: ""} do
                 %select#exp_year{name: "exp_year", type: "text", class: "select-default2"}
                   %option{:value => "2020"} 20
                   %option{:value => "2021"} 21
@@ -56,21 +50,15 @@
                   %option{:value => "2028"} 28
                   %option{:value => "2029"} 29
                   %option{:value => "2030"} 30
-                -# =link_to "#" do
-                -#   =icon("fas", "chevron-down")
               %span.default-letter 年
           .middle-room__card-form__info__expiration-date__select-year
           #card_token
         .middle-room__card-form__info__security-code
           %label(for="card-name") セキュリティコード
           %span.mandate 必須
-          -# = f.text_field :cvc, {class: "input-number", placeholder: "カード背面4桁もしくは3桁の番号、半角数字のみ"}
           = text_field_tag "cvc", "", class: "input-number", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
           .middle-room__card-form__info__security-code__tip
             %span.question ?
             カードの裏側の番号とは？
-            -# = f.submit "登録する", {class: "middle-room__card-form__info__register-btn"}
             = submit_tag "登録する", id: "token_submit",class: "middle-room__card-form__info__register-btn"
-          -# %button.middle-room__card-form__info__register-btn
-          -#   登録する
             

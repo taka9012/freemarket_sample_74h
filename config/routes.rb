@@ -9,15 +9,6 @@ Rails.application.routes.draw do
   end
   
   root 'items#index'
-  # resources :items do
-  #   member do
-  #     get "buy"
-  #     get "pay"
-  #   end
-  # end
-  # resources :credit_cards, only: [:index]
-  # resources :credit_registrations, only: [:index]
-  
   resources :items do
     collection do
       get "set_images"
@@ -26,7 +17,6 @@ Rails.application.routes.draw do
     end
     member do
       get "buy"
-      # get "pay"
     end
   end
 
