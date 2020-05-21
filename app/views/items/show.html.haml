@@ -16,22 +16,25 @@
                 = link_to item_path(@item), class: "main__showMain__topContent__itemBox__link--delete", method: :delete, data: {confirm: "削除しますか？"} do
                   商品を削除する
           .main__showMain__topContent__itemBox__body
-            %ul
+            - @item.images.each.with_index do |image, i|
+              - if i == 0
+                .position-fix
+                  = image_tag image.src.to_s, class: 'main__showMain__topContent__itemBox__body__mainPic', id: "mainPic"
+                  - if @item.trading_status_id == "2"
+                    .position-fix__soldout
+                      .position-fix__soldout__inner
+                        SOLD
+          .main__showMain__topContent__itemBox__body__outline
+            %ul.image-center
               - @item.images.each.with_index do |image, i|
-                - if i == 0
+                - if i < 5
                   %li
-                    = image_tag image.src.to_s, class: 'main__showMain__topContent__itemBox__body__mainPic', id: "mainPic"
-              .main__showMain__topContent__itemBox__body__outline
-                %ul.image-center
-                  - @item.images.each.with_index do |image, i|
-                    - if i < 5
-                      %li
-                        = image_tag image.src.to_s, size: '80x80', class: 'main__showMain__topContent__itemBox__body__mainPic__subPic'
-                %ul.image-center
-                  - @item.images.each.with_index do |image, i|
-                    - if i >= 5
-                      %li
-                        = image_tag image.src.to_s, size: '80x80', class: 'main__showMain__topContent__itemBox__body__mainPic__subPic'
+                    = image_tag image.src.to_s, size: '80x80', class: 'main__showMain__topContent__itemBox__body__mainPic__subPic'
+            %ul.image-center
+              - @item.images.each.with_index do |image, i|
+                - if i >= 5
+                  %li
+                    = image_tag image.src.to_s, size: '80x80', class: 'main__showMain__topContent__itemBox__body__mainPic__subPic'
           .main__showMain__topContent__itemBox__price
             %span
               = "¥ " + "#{@item.price}"
@@ -149,7 +152,7 @@
       .main__showMain__relatedItems
         = link_to "#",class:"main__showMain__relatedItems__link" do
           = "#{@item.user.nickname}" + "さんの出品アイテム一覧"
-  = link_to "#" do
+  = link_to new_item_path do
     .purchaseBtn
       %span.purchaseBtn__text
         出品する  
