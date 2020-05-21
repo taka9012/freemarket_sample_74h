@@ -13,7 +13,7 @@
           = link_to "支払い方法", new_credit_card_path, class: "ListItem-2"
     .top-container
       .mypage-container
-        -# = render("users/side-menu")
+        = render("users/side-menu")
 
       .show-users-wrapper
         .show-users-wrapper__center
@@ -33,7 +33,7 @@
                   有効期限
                 %input{type: "text", class: "card-wrapper__input-text input-half disabled", disabled: true, value: @default_card_information[:exp_month]}
                 %input{type: "text", class: "card-wrapper__input-text input-half disabled", disabled: true, value: @default_card_information[:exp_year]}
-                = form_tag(credit_card_delete_path, method: :post, id: 'charge-form',  name: "inputForm") do
+                = form_tag(credit_card_path, method: :delete, class: 'charge-form',  name: "inputForm") do
                   %input{ type: "hidden", name: "card_id", value: "" }
                   %button 削除する
 

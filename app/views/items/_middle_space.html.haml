@@ -24,9 +24,13 @@
               ¥54,000
         .middle_space__info__payment-info__form__howToPay
           %h3 支払い方法
-          =link_to "#" do
-            =icon("fas", "plus-circle")
-            %span 登録してください
+          - if CreditCard.where(user: current_user).exists?
+            .middle_space__info__payment-info__form__howToPay__space
+              = "**** **** **** " + "#{@default_card_information.last4}"
+              -# = image_tag "visa-card.png"
+          - else
+            = link_to new_credit_card_path, class: "link-blue" do
+              登録して下さい
         .middle_space__info__payment-info__form__billingAddress
           %h3 配送先
           =link_to "#" do

@@ -139,19 +139,37 @@
 .card-wrapper{
   padding: 20px;
   height: 457px;
+  width: 700px;
+  background-color: white;
   &__title{
     text-align: center;
     font-weight: bold;
+    font-size: 18px;
   }
   &__content-title{
-  
+    text-align: center;
     margin-top: 20px;
     .require{
+      text-align: center;
       padding: 3px;
       color: white;
       font-size: 12px;
       border-radius: 4px;
       background-color: white;
     }
+  }
+}
+.charge-form {
+  margin: 20px 100px;
+  align-items: center;
+  button {
+    background-color: $cyan;
+    color: white;
+    width: 200px;
+    height: 35px;
+    font-size: 14px;
+    line-height: 35px;
+    font-weight: bold;
+    border-radius: 4px;
   }
 }
