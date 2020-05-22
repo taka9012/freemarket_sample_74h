@@ -38,7 +38,7 @@ class CreditCardsController < ApplicationController
 
   def show
     @user = current_user #マイページで@userの変数を用いているため、現状記述の必要あり
-    @profile = current_user.profile
+    @profile = @user.profile
     card = CreditCard.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to action: "create"
