@@ -54,16 +54,6 @@
           .createMain__createContents__uploadItemDetail__categorySelect
             = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {include_blank: '選択して下さい'}, {class: "tag"})
             %i.fas.fa-chevron-down.tag-icon
-        -# #category-select
-        -#   = f.collection_select(:category_id, @parents, :id, :name, {id: "category-select"})
-
-        -#   %label
-        -#     カテゴリー
-        -#   %span
-        -#     必須
-        -# .createMain__createContents__uploadItemDetail__categorySelect
-        -#   = f.select :category, [['レディース', '1'], ['メンズ', '2'], ['ベビー・キッズ', '3']],{include_blank: '選択して下さい'}, {class: 'tag'}
-        -#   %i.fas.fa-chevron-down.tag-icon
         .createMain__createContents__uploadItemDetail__brand
           %label
             ブランド

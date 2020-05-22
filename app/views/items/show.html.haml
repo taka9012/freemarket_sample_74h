@@ -67,18 +67,6 @@
                     カテゴリー
                   %td
                     = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
-                      -# カテゴリー機能実装時にこれは削除
-                      -#   = "家電製品"
-                      -# %br 
-                      -# = icon('fas', 'chevron-right', class: "category-icon")
-                      -# = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
-                      -#   = "カメラ"
-                      -# %br
-                      -# = icon('fas', 'chevron-right', class: "category-icon")
-                      -# = link_to "#", class:"main__showMain__topContent__itemBox__table__link" do
-                      -#   = "デジタルカメラ"
-
-                      -# ↓ここから下はカテゴリー機能実装後に加える
                       = @item.category.parent.parent.name
                     %br 
                     = icon('fas', 'chevron-right', class: "category-icon")
