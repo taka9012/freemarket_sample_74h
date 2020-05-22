@@ -46,6 +46,33 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def buy
+      card = CreditCard.where(user_id: current_user.id)
+      if card.exists?
+        @card     = CreditCard.find_by(user_id: current_user.id)
+        Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+        customer = Payjp::Customer.retrieve(@card.customer_id)
+        @default_card_information = Payjp::Customer.retrieve(@card.customer_id).cards.data[0]
+      end
+  end
+
+  def pay
+    card = CreditCard.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+    amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+    customer: card.customer_id, #顧客ID
+    currency: 'jpy', #日本円
+  )
+    if @item.update(trading_status_id:"2") 
+      redirect_to done_items_path(@item.id) #完了画面に移動
+    else
+      render buy_item_path
+    end
+  end
+
+  def done
+  end
   def get_category_children
     @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
   end
@@ -59,7 +86,7 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :explanation, :price, :category_id, :item_status_id, :postage_type_id,
     :postage_burden_id, :shipping_area, :shipping_date_id, :trading_status_id, images_attributes: [:src, :_destroy, :id],
-     brand_attributes: [:name]).merge(user_id: current_user.id)
+    brand_attributes: [:name]).merge(user_id: current_user.id)
   end
 
   def set_item

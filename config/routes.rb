@@ -9,12 +9,14 @@ Rails.application.routes.draw do
   end
   
   root 'items#index'
-  resources :credit_cards, only: [:index]
-  resources :credit_registrations, only: [:index]
-  
   resources :items do
     collection do
       get "set_images"
+      post 'pay/:id', to: 'items#pay'
+      get 'done', to: 'items#done'
+    end
+    member do
+      get "buy"
       get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
       get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
     end
@@ -23,6 +25,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :profiles, only: [:new, :edit, :create, :update]
   end
-  resources :credit_cards, only: [:new]
-  # resources :credit_registrations, only: [:index] ※商品購入確認ページ確認用のダミールーティング
+  resources :credit_cards, only: [:new, :show, :create, :destroy] 
 end

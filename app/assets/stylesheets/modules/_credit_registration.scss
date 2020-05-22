@@ -75,6 +75,16 @@
       height: 66%;
       &__form {
         height: 100%;
+        &__howToPay {
+          &__space {
+            margin: 10px 0 0 200px;
+          }
+        }
+        &__btn {
+          button {
+            align-items: center;
+          }
+        }
         &__price {
           height: 30%;
           border-bottom-style: solid;
@@ -117,6 +127,9 @@
             font-size: 14px;
             text-decoration: none;
             color: $mainBlueColor;
+            &__space {
+              
+            }
           }
         }
         &__billingAddress {
@@ -145,9 +158,10 @@
             font-size: 14px;
             font-weight: bold;
             border: 1px solid #888;
-            background: #888;
+            background: $cyan;
             color: #fff;
-            margin: auto;
+            margin-left: 130px;
+            margin-top: 40px;
             padding: 15px 135px;
           
           }

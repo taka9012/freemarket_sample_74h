@@ -1,0 +1,45 @@
+.top-view
+  = render "layouts/headder" 
+  .mypage-wrapper
+    %nav.mypage-wrapper__location
+      %ul.mypage-wrapper__location__list
+        %li.mypage-wrapper__location__list__item
+          = link_to "フリマ", root_path, class: "ListItem-1"
+        = icon('fas', 'chevron-right', class: "mypage-wrapper__location__list__icon") 
+        %li.mypage-wrapper__location__list__item
+          = link_to "マイページ", user_path(current_user), class: "ListItem-1"
+        = icon('fas', 'chevron-right', class: "mypage-wrapper__location__list__icon") 
+        %li.mypage-wrapper__location__list__item
+          = link_to "支払い方法", new_credit_card_path, class: "ListItem-2"
+    .top-container
+      .mypage-container
+        = render("users/side-menu")
+
+      .show-users-wrapper
+        .show-users-wrapper__center
+          .show-users-wrapper__center__right-content
+            .card-wrapper
+              .card-wrapper__title
+                クレジットカード情報照会
+              = image_tag ""
+              .card-wrapper__content-title
+                カード番号
+                %br
+                %input{type: "text", class: "card-wrapper__input-text disabled", disabled: true, value: "**** **** **** " + "#{@default_card_information.last4}"}
+                .card-wrapper__content-title
+                  %p
+                    有効期限
+                  月  
+                  %input{type: "text", class: "card-wrapper__input-text input-half disabled", disabled: true, value: @default_card_information[:exp_month]}
+                  %br
+                  年
+                  %input{type: "text", class: "card-wrapper__input-text input-half disabled", disabled: true, value: @default_card_information[:exp_year]}
+                = form_tag(credit_card_path, method: :delete, class: 'charge-form',  name: "inputForm") do
+                  %input{ type: "hidden", name: "card_id", value: "" }
+                  %button 削除する
+
+  = render "layouts/footer"
+  = link_to new_item_path, class: "link-sell" do
+    .sell-btn
+      %span 出品する
+      = image_tag asset_path("icon_camera.png")
