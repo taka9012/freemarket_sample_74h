@@ -48,10 +48,13 @@
         %p
           商品の詳細
         .createMain__createContents__uploadItemDetail__category
-          %label
-            カテゴリー
-          %span
-            必須
+          カテゴリー
+          %span{class: "require"} 必須
+        #category-select
+          -# %label
+          -#   カテゴリー
+          -# %span
+          -#   必須
         .createMain__createContents__uploadItemDetail__categorySelect
           = select_tag '','',class: 'tag', include_blank: '選択して下さい'
           %i.fas.fa-chevron-down.tag-icon

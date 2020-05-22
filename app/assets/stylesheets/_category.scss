@@ -1,0 +1,58 @@
+.parent,.child,.grandchild{
+  display: none;
+}
+#category-area{
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  .category-box{
+    position: absolute;
+    height: 670px;
+    background-color: white;
+    .parent,.child,.grandchild{
+      box-shadow: 1px 1px 4px;
+      height: 100%;
+      background-color: white;
+    }
+    .parent-content,.child-content,.grandchild-content{
+      padding: 6px;
+      &:hover{
+        &:hover{
+          background-color: $cyan;
+          color: white;
+        }
+      }
+    }
+  }
+  &:hover{
+    .parent{
+      display: block;
+      .parent-content{
+        width: 260px;
+        &:hover{
+          .child{
+            color: darkorange;
+            width: 260px;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 259px;
+            .child-content{
+              display: block;
+              &:hover{
+                .grandchild{
+                  color: darkorange;
+                  width: 260px;
+                  display: block;
+                  position: absolute;
+                  top: 0;
+                  left: 259px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
