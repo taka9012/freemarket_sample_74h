@@ -4,5 +4,6 @@ FactoryBot.define do
     user_id             {1}
     card_id             {"test_id"}
     customer_id         {"test_id"}
+    user                {create(:user)}
   end
 end
