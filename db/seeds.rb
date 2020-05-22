@@ -1,30 +1,12 @@
-# @category1 = Category.create(name:"カテゴリ1")
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
 
-# category1s = ["トップス", "ジャケット/アウター", "パンツ", "スカート", "ワンピース", "靴", "ルームウェア/パジャマ", "レッグウェア", "帽子", "バッグ", "アクセサリー", "ヘアアクセサリー", "小物", "時計"]
-
-# category1s = [
-#               {level2:"トップス",level2_children:["シャツ","キャミソール","タンクトップ","ニット/セーター","ベスト/ジレ","パーカー"]},
-#               {level2:"ジャケット/アウター",level2_children:[]},
-#               {level2:"パンツ",level2_children:[]},
-#               {level2:"スカート",level2_children:[]},
-#               {level2:"ワンピース",level2_children:[]},
-#               {level2:"靴",level2_children:[]},
-#               {level2:"ルームウェア/パジャマ",level2_children:[]},
-#               {level2:"レッグウェア",level2_children:[]},
-#               {level2:"帽子",level2_children:[]},
-#               {level2:"バッグ",level2_children:[]},
-#               {level2:"アクセサリー",level2_children:[]},
-#               {level2:"ヘアアクセサリー",level2_children:[]},
-#               {level2:"小物",level2_children:[]},
-#               {level2:"時計",level2_children:[]}
-#             ]
-
-
-# category1s.each do |category-item|
-#   @category1.children.create(name:"#{category-item}")
-# end
-# ⬆️each文を組み込んだレコードの書き方(こっちの方がコードが短く済む)
-
+# レディース
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
 lady_1.children.create([{name: "Tシャツ/カットソー(半袖/袖なし)"},{name: "Tシャツ/カットソー(七分/長袖)"},{name: "シャツ/ブラウス(半袖/袖なし)"},{name: "シャツ/ブラウス(七分/長袖)"},{name: "ポロシャツ"},{name: "キャミソール"},{name: "タンクトップ"},{name: "ホルターネック"},{name: "ニット/セーター"},{name: "チュニック"},{name: "カーディガン/ボレロ"},{name: "アンサンブル"},{name: "ベスト/ジレ"},{name: "パーカー"},{name: "トレーナー/スウェット"},{name: "ベアトップ/チューブトップ"},{name: "ジャージ"},{name: "その他"}])
@@ -45,7 +27,6 @@ lady_8 = lady.children.create(name: "レッグウェア")
 lady_8.children.create([{name: "ソックス"},{name: "スパッツ/レギンス"},{name: "ストッキング/タイツ"},{name: "レッグウォーマー"},{name: "その他"}])
 lady_9 = lady.children.create(name: "帽子")
 lady_9.children.create([{name: "ニットキャップ/ビーニー"},{name: "ハット"},{name: "ハンチング/ベレー帽"},{name: "キャップ"},{name: "キャスケット"},{name: "麦わら帽子"},{name: "その他"}])
-
 lady_10 = lady.children.create(name: "バッグ")
 lady_10.children.create([{name: "ハンドバッグ"},{name: "トートバッグ"},{name: "エコバッグ"},{name: "リュック/バックパック"},{name: "ボストンバッグ"},{name: "スポーツバッグ"},{name: "ショルダーバッグ"},{name: "クラッチバッグ"},{name: "ポーチ/バニティ"},{name: "ボディバッグ/ウェストバッグ"},{name: "マザーズバッグ"},{name: "メッセンジャーバッグ"},{name: "ビジネスバッグ"},{name: "旅行用バッグ/キャリーバッグ"},{name: "ショップ袋"},{name: "和装用バッグ"},{name: "かごバッグ"},{name: "その他"}])
 lady_11 = lady.children.create(name: "アクセサリー")
@@ -245,7 +226,6 @@ appliance_smartphone_camera_9 = appliance_smartphone_camera.children.create(name
 appliance_smartphone_camera_9.children.create([{name: "冷蔵庫"},{name: "洗濯機"},{name: "炊飯器"},{name: "電子レンジ/オーブン"},{name: "調理機器"},{name: "アイロン"},{name: "掃除機"},{name: "エスプレッソマシン"},{name: "コーヒーメーカー"},{name: "衣類乾燥機"},{name: "その他"}])
 appliance_smartphone_camera_10 = appliance_smartphone_camera.children.create(name: "その他")
 appliance_smartphone_camera_10.children.create([{name: "その他"}])
-
 sport_leisure = Category.create(name: "スポーツ・レジャー")
 sport_leisure_1 = sport_leisure.children.create(name: "ゴルフ")
 sport_leisure_1.children.create([{name: "クラブ"},{name: "ウエア(男性用)"},{name: "ウエア(女性用)"},{name: "バッグ"},{name: "シューズ(男性用)"},{name: "シューズ(女性用)"},{name: "アクセサリー"},{name: "その他"}])

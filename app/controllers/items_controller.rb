@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   before_action :access_right_check, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:images).order('created_at DESC').limit(8)
   end
   
   def new
@@ -17,13 +17,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-   
     if @item.save
       redirect_to root_path, notice: "出品が完了しました"
     else
       render :new
     end
-    
   end
 
   def edit

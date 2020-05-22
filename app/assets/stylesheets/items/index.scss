@@ -35,9 +35,15 @@
           text-align: center;
           margin: 16px 5% 0 0;
           @include imgrespon;
+
+          img{
+            height: 250px;
+          }
+
           &__pict{
             position: relative;
             margin-bottom: 20px;
+
             .number{
               display: inline-block;
               position: absolute;
@@ -108,10 +114,15 @@
           width: calc(1 / 3 * 100%);
           padding: 0 20px;
           text-align: center;
+
           &__pict{
             width: 100%;
             margin: 0 auto;
             @include imgrespon;
+
+            img{
+              max-width: 250px;
+            }
           }
           .feature_text{
             margin: 38px 0 10px;

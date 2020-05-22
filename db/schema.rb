@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_05_22_020631) do
     t.string "item_status_id", null: false
     t.string "postage_type_id", null: false
     t.string "postage_burden_id", null: false
-    t.string "shipping_area_id", null: false
+    t.string "shipping_area", null: false
     t.string "shipping_date_id", null: false
     t.string "trading_status_id", default: "1", null: false
     t.bigint "user_id", null: false
