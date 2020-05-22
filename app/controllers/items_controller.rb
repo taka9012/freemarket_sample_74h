@@ -72,6 +72,7 @@ class ItemsController < ApplicationController
   end
 
   def done
+  end
   def get_category_children
     @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
   end
@@ -85,7 +86,7 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :explanation, :price, :category_id, :item_status_id, :postage_type_id,
     :postage_burden_id, :shipping_area, :shipping_date_id, :trading_status_id, images_attributes: [:src, :_destroy, :id],
-     brand_attributes: [:name]).merge(user_id: current_user.id)
+    brand_attributes: [:name]).merge(user_id: current_user.id)
   end
 
   def set_item

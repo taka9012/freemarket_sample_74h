@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 2020_05_22_020631) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
@@ -113,7 +113,6 @@ ActiveRecord::Schema.define(version: 2020_05_22_020631) do
   add_foreign_key "credit_cards", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
-  add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
   add_foreign_key "profiles", "users"
 end
