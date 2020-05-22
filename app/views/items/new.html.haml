@@ -50,7 +50,13 @@
         .createMain__createContents__uploadItemDetail__category
           カテゴリー
           %span{class: "require"} 必須
-        #category-select
+        .createMain__createContents__uploadItemDetail__box
+          .createMain__createContents__uploadItemDetail__categorySelect
+            = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {include_blank: '選択して下さい'}, {class: "tag"})
+            %i.fas.fa-chevron-down.tag-icon
+        -# #category-select
+        -#   = f.collection_select(:category_id, @parents, :id, :name, {id: "category-select"})
+
         -#   %label
         -#     カテゴリー
         -#   %span
