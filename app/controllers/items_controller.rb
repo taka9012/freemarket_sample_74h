@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   protect_from_forgery except: :search
   before_action :set_item, except: [:index, :new, :create, :done]
   before_action :authenticate_user!, except: [:index, :show]
-  # before_action :access_right_check, except: [:index, :show, :new, :create]
+  before_action :access_right_check, except: [:index, :show, :new, :create, :buy, :pay, :done]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
