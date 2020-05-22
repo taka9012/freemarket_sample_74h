@@ -8,27 +8,31 @@ $(document).on('turbolinks:load', function(){   //ターボリンク読んだら
 
     function appendChildrenBox(insertHTML){
       let childSelectHtml = '';
-      childSelectHtml = `<div class="margin-top" id="children_wrapper">
-      <div class="createMain__createContents__uploadItemDetail__categorySelect">
-      <select class="tag" name="item[category_id]" id="child_category">
-      <option value="選択して下さい" data-category="---">選択して下さい</option>
-      ${insertHTML}
-      </select>
-      <i class="fas fa-chevron-down tag-icon"></i>
-      </div></div>`;
+      childSelectHtml = 
+        `<div class="margin-top" id="children_wrapper">
+          <div class="createMain__createContents__uploadItemDetail__categorySelect">
+            <select class="tag" name="item[category_id]" id="child_category">
+              <option value="選択して下さい" data-category="---">選択して下さい</option>
+              ${insertHTML}
+            </select>
+            <i class="fas fa-chevron-down tag-icon"></i>
+          </div>
+        </div>`;
       $('.createMain__createContents__uploadItemDetail__box').append(childSelectHtml);
     }
 
     function appendGrandchildrenBox(insertHTML){
       let grandchildSelectHtml = '';
-      grandchildSelectHtml = `<div class="margin-top" id="grandchildren_wrapper">
-      <div class="createMain__createContents__uploadItemDetail__categorySelect">
-      <select class="tag" name="item[category_id]" id="grandchild_category">
-      <option value="選択して下さい" data-category="---">選択して下さい</option>
-      ${insertHTML}
-      </select>
-      <i class="fas fa-chevron-down tag-icon"></i>
-      </div></div>`;
+      grandchildSelectHtml = 
+        `<div class="margin-top" id="grandchildren_wrapper">
+          <div class="createMain__createContents__uploadItemDetail__categorySelect">
+            <select class="tag" name="item[category_id]" id="grandchild_category">
+              <option value="選択して下さい" data-category="---">選択して下さい</option>
+              ${insertHTML}
+            </select>
+            <i class="fas fa-chevron-down tag-icon"></i>
+          </div>
+        </div>`;
       $('.createMain__createContents__uploadItemDetail__box').append(grandchildSelectHtml);
     }
 
