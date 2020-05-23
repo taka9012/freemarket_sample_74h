@@ -2,6 +2,23 @@ $(document).on('turbolinks:load', ()=> {
   let index = [1,2,3,4,5,6,7,8,9,10];
   let wid = 127;
 
+  request = $(location).attr('pathname');
+  if (request != undefined && request.match(/items.\d/)){
+    $.ajax({
+      url: "/items/set_images",
+      data: {id: request.replace(/[^0-9]/g, '')},
+      dataType: "json"
+    }).done(function(data){
+      data.images.forEach(function(d){
+        buildImage(d.src.url);
+      })
+      $(".createMain__createContents__uploadImage__fileUp").on("click", ".delete-btn", function(){
+        let targetDeleteIndex = Number($(this).attr("index"));
+        $(`#item_images_attributes_${targetDeleteIndex - 1}__destroy`).prop('checked', true);
+      })
+    })
+  }
+
   $(".createMain__createContents__uploadImage__fileUp").on("click", ".delete-btn", function(){
     let targetIndex = Number($(this).attr("index"));
     index.push(targetIndex);

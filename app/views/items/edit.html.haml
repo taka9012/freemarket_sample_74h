@@ -28,6 +28,7 @@
                 クリックしてファイルをアップロード
             = f.fields_for :images do |i|
               = i.file_field :src, {class: "file-field"}
+              = i.check_box :_destroy, {class: "hidden-deleteBtn"}
       .createMain__createContents__uploadItem
         .createMain__createContents__uploadItem__name
           %label
@@ -42,7 +43,7 @@
           %span
             必須
         .createMain__createContents__uploadItem__explanationTextfield
-          = f.text_area :explanation, placeholder: "商品説明を入力して下さい"  
+          = f.text_area :explanation, maxlength: '1000', placeholder: "商品説明を入力して下さい"  
       %hr.createContentsBoder
       .createMain__createContents__uploadItemDetail
         %p
@@ -50,21 +51,28 @@
         .createMain__createContents__uploadItemDetail__category
           カテゴリー
           %span{class: "require"} 必須
-        #category-select
-          -# %label
-          -#   カテゴリー
-          -# %span
-          -#   必須
-        .createMain__createContents__uploadItemDetail__categorySelect
-          = select_tag '','',class: 'tag', include_blank: '選択して下さい'
-          %i.fas.fa-chevron-down.tag-icon
+        .createMain__createContents__uploadItemDetail__box
+          .createMain__createContents__uploadItemDetail__categorySelect
+            = f.select :category_id, options_for_select(Category.where(ancestry: nil).map{|c|[c[:name], c[:id]]}, @item.category.parent.parent.id), {include_blank: '選択して下さい'}, {class: "tag"}
+            %i.fas.fa-chevron-down.tag-icon
+
+          .margin-top#children_wrapper
+            .createMain__createContents__uploadItemDetail__categorySelect
+              = f.select :category_id, options_for_select(@item.category.parent.parent.children.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @item.category.parent.id), {include_blank: '選択して下さい'}, {id: "child-category", class: "tag"}
+              %i.fas.fa-chevron-down.tag-icon
+
+          .margin-top#grandchildren_wrapper
+            .createMain__createContents__uploadItemDetail__categorySelect
+              = f.select :category_id, options_for_select(@item.category.parent.children.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @item.category.id), {include_blank: '選択して下さい'}, {id: "grandchild-category", class: "tag"}
+              %i.fas.fa-chevron-down.tag-icon
+
         .createMain__createContents__uploadItemDetail__brand
           %label
             ブランド
           %span
             任意
         .createMain__createContents__uploadItemDetail__brandSelect
-          = f.fields_for :brand_attributes do |b|
+          = f.fields_for :brand do |b|
             = b.text_field :name, {class: 'text', placeholder: '例）シャネル'}
         .createMain__createContents__uploadItemDetail__itemStatus
           %label
@@ -100,7 +108,7 @@
           %span
             必須
         .createMain__createContents__uploadDelivery__deliveryAreaSelect
-          = f.select(:shipping_area_id, JpPrefecture::Prefecture.all.collect {|p| [ p.name, p.code ] } + [ [ '未定', '48' ] ], {include_blank: '選択して下さい'}, {class: 'tag'}) 
+          = f.select(:shipping_area, JpPrefecture::Prefecture.all.collect {|p| [ p.name, p.name ] } + [ [ '未定', '48' ] ], {include_blank: '選択して下さい'}, {class: 'tag'}) 
           %i.fas.fa-chevron-down.tag-icon
         .createMain__createContents__uploadDelivery__deliveryDate
           %label

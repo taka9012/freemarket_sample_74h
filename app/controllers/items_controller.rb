@@ -28,8 +28,9 @@ class ItemsController < ApplicationController
   end
 
   def update
+
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to root_path, notice: '更新が完了しました'
     else
       render :edit
     end
@@ -81,6 +82,10 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  def set_images
+    @images = Image.where(item_id: params[:id])
+  end
+
   private
 
   def item_params
@@ -100,11 +105,6 @@ class ItemsController < ApplicationController
       redirect_back(fallback_location: item_path(item))
     end
   end
-
-  def set_images
-    @images = Image.where(item_id: params[:id])
-  end
-
   
   
 end
