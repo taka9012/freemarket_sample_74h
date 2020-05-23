@@ -18,16 +18,17 @@
             必須
         %p.createMain__createContents__uploadImage__explanation
           最大5枚までアップロードできます
-        .createMain__createContents__uploadImage__fileUp
-          .image-preview
-          %label{id: "image-label"}
-            .image-field
-              .image-field__icon
-                %i.fas.fa-camera
-              .image-field__text
-                クリックしてファイルをアップロード
-            = f.fields_for :images do |i|
-              = i.file_field :src, {class: "file-field"}
+        = f.fields_for :images do |image|
+          .clearfix
+            %ul#previews
+              %li.input
+                %label.upload-label
+                  .upload-label__text
+                    ドラッグアンドドロップ
+                    %br
+                    またはクリックしてファイルをアップロード
+                    .input-area
+                      = image.file_field :name, class: "hidden image_upload"
       .createMain__createContents__uploadItem
         .createMain__createContents__uploadItem__name
           %label
