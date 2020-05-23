@@ -71,14 +71,13 @@
           .category-items
             = render partial: "items_view", collection: @items, as: 'item'
       
-  -# ▼カテゴリー機能実装後に追加する
-    -# .items-view__pick-brand
-    -#   .items-view__title
-    -#     %h1 ピックアップブランド
-    -#     = link_to "#", class: "link archive" do
-    -#       %p アーカイバ
-    -#       .brand-items
-    -#         = render "pickup_category"
+    .items-view__pick-brand
+      .items-view__title
+        %h1 ピックアップカテゴリー
+        = link_to "#", class: "link archive" do
+          %p アーカイバ
+          .brand-items
+            = render "pickup_category"
   = render "layouts/footer"
   = link_to new_item_path, class: "link-sell" do
     .sell-btn
