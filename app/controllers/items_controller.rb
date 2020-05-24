@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to root_path, notice: "編集が完了しました"
     else
       render :edit
     end
@@ -84,7 +84,7 @@ class ItemsController < ApplicationController
   def set_images
     @images = Image.where(item_id: params[:id])
   end
-  
+
   private
 
   def item_params
