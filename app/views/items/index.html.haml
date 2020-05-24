@@ -70,15 +70,16 @@
           %p 新規投稿商品
           .category-items
             = render partial: "items_view", collection: @items, as: 'item'
-      
-  -# ▼カテゴリー機能実装後に追加する
+    
+    -# ▼カテゴリー一覧作成後に追加
     -# .items-view__pick-brand
     -#   .items-view__title
-    -#     %h1 ピックアップブランド
+    -#     %h1 ピックアップカテゴリー
     -#     = link_to "#", class: "link archive" do
-    -#       %p アーカイバ
+    -#       %p レディーズ新着アイテム
     -#       .brand-items
-    -#         = render "pickup_category"
+    -# 部分テンプレ未作成です
+    -#         -# = render partial: "pickup_category", collection: 
   = render "layouts/footer"
   = link_to new_item_path, class: "link-sell" do
     .sell-btn

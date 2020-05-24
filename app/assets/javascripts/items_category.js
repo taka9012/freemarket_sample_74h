@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){   //ターボリンク読んだら下記実行
+$(document).on('turbolinks:load', function(){
   $(function(){
 
     function appendOption(category){
@@ -39,7 +39,6 @@ $(document).on('turbolinks:load', function(){   //ターボリンク読んだら
 
     // 親カテゴリー選択時のイベント
     $('#item_category_id').on('change', function(){
-      // 選択された親カテゴリのidを取得
       let parent_category_id = document.getElementById('item_category_id').value;
       if (parent_category_id != ""){
         $.ajax({

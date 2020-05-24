@@ -22,14 +22,14 @@
             %li.content-appraisal
               = "¥#{@item.price.to_s}"
         .middle_space__info__payment-info__form__howToPay
-          %h3 支払い方法
           - if CreditCard.where(user: current_user).exists?
+            %h3 お支払い情報
             .middle_space__info__payment-info__form__howToPay__space
               = "**** **** **** " + "#{@default_card_information.last4}"
-              -# = image_tag "visa-card.png"
           - else
-            = link_to new_credit_card_path, class: "link-blue" do
-              登録して下さい
-        .middle_space__info__payment-info__form__btn
-          = form_tag(action: :pay, method: :post) do
-            %button.buy-button{type:"submit"} 購入する
+            = link_to new_credit_card_path, class: "link-center" do
+              %span.payInfoBtn 支払い情報を登録する
+        - if CreditCard.where(user: current_user).exists?
+          .middle_space__info__payment-info__form__btn
+            = form_tag(action: :pay, method: :post) do
+              %button.buy-button{type:"submit"} 購入する
