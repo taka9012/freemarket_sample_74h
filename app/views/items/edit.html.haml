@@ -11,6 +11,9 @@
             - @item.errors.full_messages.each do |message|
               %li= message
       .createMain__createContents__uploadImage
+        .createMain__createContents__uploadImage__edit-text
+          %h2
+            商品の情報を入力
         .createMain__createContents__uploadImage__title
           %label
             出品画像
@@ -63,9 +66,6 @@
             .createMain__createContents__uploadItemDetail__categorySelect
               = f.select :category_id, options_for_select(@item.category.parent.children.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @item.category.id), {include_blank: '選択して下さい'}, {id: "grandchild-category", class: "tag"}
               %i.fas.fa-chevron-down.tag-icon
-        .createMain__createContents__uploadItemDetail__categorySelect
-          = select_tag '','',class: 'tag', include_blank: '選択して下さい'
-          %i.fas.fa-chevron-down.tag-icon
         .createMain__createContents__uploadItemDetail__brand
           %label
             ブランド
@@ -108,7 +108,7 @@
           %span
             必須
         .createMain__createContents__uploadDelivery__deliveryAreaSelect
-          = f.select(:shipping_area_id, JpPrefecture::Prefecture.all.collect {|p| [ p.name, p.name ] } + [ [ '未定', '未定' ] ], {include_blank: '選択して下さい'}, {class: 'tag'}) 
+          = f.select(:shipping_area, JpPrefecture::Prefecture.all.collect {|p| [ p.name, p.name ] } + [ [ '未定', '未定' ] ], {include_blank: '選択して下さい'}, {class: 'tag'}) 
           %i.fas.fa-chevron-down.tag-icon
         .createMain__createContents__uploadDelivery__deliveryDate
           %label
@@ -134,7 +134,7 @@
             = f.number_field :price, class: 'text', placeholder: '0'  
       .createMain__createContents__uploadBtn
         %button
-          出品する
+          変更する
           = f.submit class: 'hidden-submit'
       .createMain__createContents__back
         = link_to root_path, class:"linkText" do
