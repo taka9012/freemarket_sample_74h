@@ -61,6 +61,11 @@
   }
 }
 
+.hidden-deleteBtn{
+  display: none;
+}
+
+
 .createMain__createContents__errors{
   padding-left: 30%;
   color: red;
@@ -86,6 +91,14 @@
     background-color: $white;
     &__uploadImage {
       padding: 16px;
+      &__edit-text{
+        padding: 32px 16px; 
+        font-size: 22px;
+        text-align: center;
+        h2{
+        font-weight: 600;
+        }
+      }
       &__title {
         @include explanatoryText;
       }
@@ -305,4 +318,8 @@
 
 .margin-top {
   margin-top: 15px;
+}
+
+.hidden-deleteBtn{
+  display: none;
 }

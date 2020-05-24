@@ -36,10 +36,6 @@
           margin: 16px 5% 0 0;
           @include imgrespon;
 
-          img{
-            height: 250px;
-          }
-
           &__pict{
             position: relative;
             margin-bottom: 20px;
@@ -85,7 +81,7 @@
       align-items: center;
       display: flex;
       &__text{
-        max-width: 1040px;
+        max-width: 80%;
         color: $white;
         text-shadow: 0 0 5px $shadowb;
         width: 100%;

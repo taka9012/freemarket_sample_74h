@@ -96,7 +96,7 @@
           %span
             必須
         .createMain__createContents__uploadDelivery__deliveryAreaSelect
-          = f.select(:shipping_area, JpPrefecture::Prefecture.all.collect {|p| [ p.name, p.name ] } + [ [ '未定', '48' ] ], {include_blank: '選択して下さい'}, {class: 'tag'}) 
+          = f.select(:shipping_area, JpPrefecture::Prefecture.all.collect {|p| [ p.name, p.name ] } + [ [ '未定', '未定' ] ], {include_blank: '選択して下さい'}, {class: 'tag'}) 
           %i.fas.fa-chevron-down.tag-icon
         .createMain__createContents__uploadDelivery__deliveryDate
           %label

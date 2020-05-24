@@ -7,7 +7,7 @@
           = link_to "フリマ", root_path, class: "ListItem-1"
         = icon('fas', 'chevron-right', class: "mypage-wrapper__location__list__icon") 
         %li.mypage-wrapper__location__list__item
-          = link_to "マイページ", user_path(@user), class: "ListItem-2"
+          = link_to "マイページ", user_path(current_user), class: "ListItem-2"
     .top-container
       .mypage-container
         = render("side-menu")
@@ -15,12 +15,12 @@
       .mypage-container__board
         .mypage-container__board__upper
           = link_to "#", class: "mypage-container__board__upper__link" do
-            - if @user.profile.present?
-              = image_tag @profile.icon_image.to_s, class: "mypage-container__board__upper__icon"
+            - if current_user.profile.present?
+              = image_tag current_user.profile.icon_image.to_s, class: "mypage-container__board__upper__icon"
             - else
               = image_tag asset_path("profile-default-image.jpg"), class: "mypage-container__board__upper__icon"
             .mypage-container__board__upper__nickname
-              = @user.nickname
+              = current_user.nickname
             .mypage-container__board__upper__exhibits
               出品数：12
         .mypage-container__board__tabs
