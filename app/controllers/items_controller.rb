@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
   def update
 
     if @item.update(item_params)
-      redirect_to root_path, notice: '更新が完了しました'
+      redirect_to root_path, notice: "編集が完了しました"
     else
       render :edit
     end
@@ -104,6 +104,5 @@ class ItemsController < ApplicationController
       redirect_back(fallback_location: item_path(item))
     end
   end
-  
-  
+    
 end

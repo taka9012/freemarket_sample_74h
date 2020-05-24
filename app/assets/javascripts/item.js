@@ -12,6 +12,7 @@ $(document).on('turbolinks:load', ()=> {
       data.images.forEach(function(d){
         buildImage(d.src.url);
       })
+      
       $(".createMain__createContents__uploadImage__fileUp").on("click", ".delete-btn", function(){
         let targetDeleteIndex = Number($(this).attr("index"));
         $(`#item_images_attributes_${targetDeleteIndex - 1}__destroy`).prop('checked', true);

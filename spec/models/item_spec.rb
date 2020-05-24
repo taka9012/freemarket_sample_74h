@@ -109,9 +109,4 @@ describe Item do
       end
     end
   end
-
-  describe '#update' do
-    
-  end
 end
-    

@@ -1,6 +1,6 @@
 FactoryBot.define do
- 
-  #　画像がある場合
+
+  # 画像がある場合
     factory :item do
       name                  {"テスト商品"}
       explanation           {"最高級です！"}
