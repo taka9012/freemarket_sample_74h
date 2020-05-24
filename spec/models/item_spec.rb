@@ -34,7 +34,7 @@ describe Item do
       end
 
       it "categoryがない場合は登録できないこと" do
-        item = build(:item, category: "")
+        item = build(:item, category_id: nil)
         item.valid?
         expect(item.errors[:category]).to include("が入力されていません。")
       end
@@ -58,9 +58,9 @@ describe Item do
       end
 
       it "shipping_area_idがない場合は登録できないこと" do
-        item = build(:item, shipping_area_id: "")
+        item = build(:item, shipping_area: "")
         item.valid?
-        expect(item.errors[:shipping_area_id]).to include("が入力されていません。")
+        expect(item.errors[:shipping_area]).to include("が入力されていません。")
       end
 
       it "shipping_date_idがない場合は登録できないこと" do
@@ -109,7 +109,6 @@ describe Item do
       end
 
     end
-
   end
 end
-    
+ 
