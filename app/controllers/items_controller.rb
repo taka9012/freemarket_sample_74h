@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   before_action :access_right_check, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.includes(:images, :category).order('created_at DESC').limit(8)
+    @items = Item.includes(:images).order('created_at DESC').limit(8)
   end
   
   def new
@@ -50,7 +50,6 @@ class ItemsController < ApplicationController
       if card.exists?
         @card     = CreditCard.find_by(user_id: current_user.id)
         Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
-        # Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
         customer = Payjp::Customer.retrieve(@card.customer_id)
         @default_card_information = Payjp::Customer.retrieve(@card.customer_id).cards.data[0]
       end
