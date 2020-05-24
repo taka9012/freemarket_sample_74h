@@ -76,8 +76,10 @@
       &__form {
         height: 100%;
         &__howToPay {
+          text-align: center;
+          height: auto;
           &__space {
-            margin: 10px 0 0 200px;
+            // margin: 10px 0 0 200px;
           }
         }
         &__btn {
@@ -105,31 +107,27 @@
             &-appraisal {
               font-size: 24px;
               font-weight: bold;
-              padding-left: 73px;
             }
           }
         }
         &__howToPay {
-          height: 20%;
+          height: 90px;
           background-color: $mainWhiteColor;
           border-bottom-style: solid;
           border-bottom-color: #f5f5f5;
           border-bottom-width: thin;
+          &__space {
+            margin-top: 20px;
+          }
           h3 {
-            padding-left: 190px;
-            padding-top: 25px;
             font-size: 14px;
             font-weight: bold;
+            margin-top: 10px;
           }
           a {
-            padding-left: 190px;
-            padding-top: 8px;
             font-size: 14px;
             text-decoration: none;
             color: $mainBlueColor;
-            &__space {
-              
-            }
           }
         }
         &__billingAddress {
@@ -154,16 +152,15 @@
         &__btn {
           height: 30%;
           display: flex;
-          button {
+          justify-content: center;
+          .buy-button {
             font-size: 14px;
             font-weight: bold;
-            border: 1px solid #888;
+            border: 1px solid $cyan;
             background: $cyan;
             color: #fff;
-            margin-left: 130px;
-            margin-top: 40px;
             padding: 15px 135px;
-          
+            margin-top: 40px;
           }
         }
       }
@@ -174,4 +171,20 @@
 .lower_space {
   height: 220px;
   background-color: $mainGrayColor;
+}
+
+.goods-img{
+  object-fit: cover;
+}
+
+.link-center{
+  width: 180px;
+  line-height: 90px;
+}
+
+.payInfoBtn{
+  background-color: #ea352d;
+  color: $white;
+  padding: 15px 80px;
+  line-height: 90px;
 }

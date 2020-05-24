@@ -1,18 +1,16 @@
 class ItemsController < ApplicationController
   protect_from_forgery except: :search
-  before_action :set_item, only: [:edit, :update, :show]
+  before_action :set_item, only: [:edit, :update, :show, :buy, :pay]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :access_right_check, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC').limit(8)
+    @items = Item.includes(:images, :category).order('created_at DESC').limit(8)
   end
   
   def new
     @item = Item.new
     @image = @item.images.new
-    @category_parent_array = ["選択してください"]
-    @category_parent_array = Category.where(ancestry: nil)
   end
 
   def create
@@ -51,7 +49,8 @@ class ItemsController < ApplicationController
       card = CreditCard.where(user_id: current_user.id)
       if card.exists?
         @card     = CreditCard.find_by(user_id: current_user.id)
-        Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+        Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+        # Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
         customer = Payjp::Customer.retrieve(@card.customer_id)
         @default_card_information = Payjp::Customer.retrieve(@card.customer_id).cards.data[0]
       end
@@ -59,7 +58,7 @@ class ItemsController < ApplicationController
 
   def pay
     card = CreditCard.where(user_id: current_user.id).first
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     Payjp::Charge.create(
     amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
     customer: card.customer_id, #顧客ID
