@@ -1,5 +1,5 @@
 # README
-![logo](https://user-images.githubusercontent.com/62282502/83133907-83c46b00-a11e-11ea-900c-3a7130600928.png)
+![logo](https://user-images.githubusercontent.com/62282502/83133907-83c46b00-a11e-11ea-900c-3a7130600928.png)  
 プログラミングスクールTECH::CAMPの最終課題にて某フリーマーケットサービスのクローンサイトを作成しました。
 約1ヶ月間、４人チームでアジャイル開発を行いました。
 ## 🌐 App URL
